@@ -9,6 +9,7 @@ namespace Code.Gameplay.Features.TargetCollection
         {
             Add(systemFactory.Create<CollectTargetIntervalSystem>());
             Add(systemFactory.Create<CastForTargetsSystem>());
+            
             Add(systemFactory.Create<CleanupTargetBuffersSystem>());
         }
     }

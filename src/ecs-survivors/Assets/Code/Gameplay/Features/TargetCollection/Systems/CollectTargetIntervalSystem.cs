@@ -13,7 +13,7 @@ namespace Code.Gameplay.Features.TargetCollection.Systems
             _timeService = timeService;
             _entities = gameContext.GetGroup(GameMatcher
                 .AllOf(
-                    GameMatcher.TargetsButter,
+                    GameMatcher.TargetsBuffer,
                     GameMatcher.CollectTargetsInterval,
                     GameMatcher.CollectTargetsTimer
                 ));

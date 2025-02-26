@@ -33,7 +33,7 @@ public static class GameComponentsLookup {
     public const int LayerMask = 22;
     public const int Radius = 23;
     public const int ReadyToCollectTargets = 24;
-    public const int TargetsButter = 25;
+    public const int TargetsBuffer = 25;
     public const int AxisInput = 26;
     public const int Input = 27;
 
@@ -65,7 +65,7 @@ public static class GameComponentsLookup {
         "LayerMask",
         "Radius",
         "ReadyToCollectTargets",
-        "TargetsButter",
+        "TargetsBuffer",
         "AxisInput",
         "Input"
     };
@@ -96,7 +96,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.TargetCollection.LayerMask),
         typeof(Code.Gameplay.Features.TargetCollection.Radius),
         typeof(Code.Gameplay.Features.TargetCollection.ReadyToCollectTargets),
-        typeof(Code.Gameplay.Features.TargetCollection.TargetsButter),
+        typeof(Code.Gameplay.Features.TargetCollection.TargetsBuffer),
         typeof(Code.Gameplay.Input.AxisInput),
         typeof(Code.Gameplay.Input.Input)
     };

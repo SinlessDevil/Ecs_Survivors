@@ -17,7 +17,7 @@ namespace Code.Gameplay.Features.TargetCollection.Systems
             _ready = gameContext.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.ReadyToCollectTargets,
-                GameMatcher.TargetsButter,
+                GameMatcher.TargetsBuffer,
                 GameMatcher.WorldPosition,
                 GameMatcher.Radius,
                 GameMatcher.LayerMask
@@ -28,7 +28,7 @@ namespace Code.Gameplay.Features.TargetCollection.Systems
         {
             foreach (GameEntity entity  in _ready.GetEntities(_buffer))
             {
-                entity.TargetsButter.AddRange(TargetsInRadius(entity));
+                entity.TargetsBuffer.AddRange(TargetsInRadius(entity));
                 
                 entity.isReadyToCollectTargets = false;
             }

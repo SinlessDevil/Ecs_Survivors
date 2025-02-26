@@ -18,7 +18,7 @@ namespace Code.Gameplay.Features.DamageApplication.Systems
         public void Execute()
         {
             foreach (GameEntity damageDealer in _damageDealers)
-            foreach (int targetId in damageDealer.TargetsButter)
+            foreach (int targetId in damageDealer.TargetsBuffer)
             {
                 GameEntity target = _game.GetEntityWithId(targetId);
                 if (target.hasCurrentHp)

@@ -21,7 +21,7 @@ namespace Code.Gameplay.Features.Enemies.Registrars
                 .AddCurrentHp(Hp)
                 .AddMaxHp(Hp)
                 .AddDamage(Damage)
-                .AddTargetsButter(new List<int>(1))
+                .AddTargetsBuffer(new List<int>(1))
                 .AddRadius(0.3f)
                 .AddCollectTargetsInterval(0.5f)
                 .AddCollectTargetsTimer(0)
@@ -32,7 +32,7 @@ namespace Code.Gameplay.Features.Enemies.Registrars
 
         public override void UnregisterComponents()
         {
-            throw new System.NotImplementedException();
+            
         }
     }
 }

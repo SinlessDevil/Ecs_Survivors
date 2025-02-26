@@ -1,4 +1,5 @@
 using Entitas;
+using UnityEngine;
 
 namespace Code.Common.Destruct.Systems
 {
@@ -8,7 +9,8 @@ namespace Code.Common.Destruct.Systems
 
         public CleanupGameDestructedViewSystem(GameContext game)
         {
-            _entities = game.GetGroup(GameMatcher.AllOf(
+            _entities = game.GetGroup(
+                GameMatcher.AllOf(
                 GameMatcher.Destructed,
                 GameMatcher.View
             ));
@@ -19,7 +21,7 @@ namespace Code.Common.Destruct.Systems
             foreach (GameEntity entity in _entities)
             {
                 entity.View.ReleaseEntity();
-                UnityEngine.Object.Destroy(entity.View.gameObject);
+                Object.Destroy(entity.View.gameObject);
             }
         }
     }
