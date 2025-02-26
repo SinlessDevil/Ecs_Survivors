@@ -11,7 +11,8 @@ namespace Code.Gameplay.Common.Registrars
 
         public override void UnregisterComponents()
         {
-            Entity.RemoveTransform();
+            if(Entity.hasTransform)
+                Entity.RemoveTransform();
         }
     }
 }
