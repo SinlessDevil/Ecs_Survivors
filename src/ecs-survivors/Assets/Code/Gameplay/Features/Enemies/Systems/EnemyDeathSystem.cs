@@ -22,6 +22,9 @@ namespace Code.Gameplay.Features.Enemies.Systems
         {
             foreach (GameEntity enemy in _enemies)
             {
+                enemy.isMovementAvailable = false;
+                enemy.isTurnedAlongDirection = false;
+                
                 enemy.RemoveTargetCollectionComponents();
                 
                 if(enemy.hasEnemyAnimator)

@@ -26,20 +26,23 @@ public static class GameComponentsLookup {
     public const int Dead = 15;
     public const int MaxHp = 16;
     public const int ProcessingDeath = 17;
-    public const int Direction = 18;
-    public const int Moving = 19;
-    public const int Speed = 20;
-    public const int TurnedAlongDirection = 21;
-    public const int CollectTargetsInterval = 22;
-    public const int CollectTargetsTimer = 23;
-    public const int LayerMask = 24;
-    public const int Radius = 25;
-    public const int ReadyToCollectTargets = 26;
-    public const int TargetsBuffer = 27;
-    public const int AxisInput = 28;
-    public const int Input = 29;
+    public const int Destination = 18;
+    public const int Direction = 19;
+    public const int MovementAvailable = 20;
+    public const int Moving = 21;
+    public const int RotationAlignedByDirection = 22;
+    public const int Speed = 23;
+    public const int TurnedAlongDirection = 24;
+    public const int CollectTargetsInterval = 25;
+    public const int CollectTargetsTimer = 26;
+    public const int LayerMask = 27;
+    public const int Radius = 28;
+    public const int ReadyToCollectTargets = 29;
+    public const int TargetsBuffer = 30;
+    public const int AxisInput = 31;
+    public const int Input = 32;
 
-    public const int TotalComponents = 30;
+    public const int TotalComponents = 33;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -60,8 +63,11 @@ public static class GameComponentsLookup {
         "Dead",
         "MaxHp",
         "ProcessingDeath",
+        "Destination",
         "Direction",
+        "MovementAvailable",
         "Moving",
+        "RotationAlignedByDirection",
         "Speed",
         "TurnedAlongDirection",
         "CollectTargetsInterval",
@@ -93,8 +99,11 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.LifeTime.Dead),
         typeof(Code.Gameplay.Features.LifeTime.MaxHp),
         typeof(Code.Gameplay.Features.LifeTime.ProcessingDeath),
+        typeof(Code.Gameplay.Features.Movement.Destination),
         typeof(Code.Gameplay.Features.Movement.Direction),
+        typeof(Code.Gameplay.Features.Movement.MovementAvailable),
         typeof(Code.Gameplay.Features.Movement.Moving),
+        typeof(Code.Gameplay.Features.Movement.RotationAlignedByDirection),
         typeof(Code.Gameplay.Features.Movement.Speed),
         typeof(Code.Gameplay.Features.Movement.TurnedAlongDirection),
         typeof(Code.Gameplay.Features.TargetCollection.CollectTargetsInterval),
