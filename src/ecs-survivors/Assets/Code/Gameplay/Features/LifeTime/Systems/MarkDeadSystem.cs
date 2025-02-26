@@ -8,9 +8,9 @@ namespace Code.Gameplay.Features.LifeTime.Systems
         private readonly IGroup<GameEntity> _entities;
         private readonly List<GameEntity> _buffer = new(128);
 
-        public MarkDeadSystem(Contexts contexts)
+        public MarkDeadSystem(GameContext game)
         {
-            _entities = contexts.game.GetGroup(GameMatcher
+            _entities = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.CurrentHp, 
                     GameMatcher.MaxHp)
