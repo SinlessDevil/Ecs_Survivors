@@ -11,24 +11,24 @@ namespace Code.Gameplay.Features.DamageApplication.Systems
         {
             _game = game;
             _damageDealers = game.GetGroup(GameMatcher
-                .AllOf(GameMatcher.Damage, 
-                    GameMatcher.DamageTakenAnimator));
+                .AllOf(
+                    GameMatcher.TargetsBuffer,
+                    GameMatcher.Damage));
         }
-        
+    
         public void Execute()
         {
             foreach (GameEntity damageDealer in _damageDealers)
             foreach (int targetId in damageDealer.TargetsBuffer)
             {
                 GameEntity target = _game.GetEntityWithId(targetId);
+        
                 if (target.hasCurrentHp)
                 {
                     target.ReplaceCurrentHp(target.CurrentHp - damageDealer.Damage);
-
-                    if (target.hasDamageTakenAnimator)
-                    {
+          
+                    if(target.hasDamageTakenAnimator)
                         target.DamageTakenAnimator.PlayDamageTaken();
-                    }
                 }
             }
         }
