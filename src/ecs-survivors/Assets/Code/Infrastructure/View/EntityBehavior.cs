@@ -22,7 +22,7 @@ namespace Code.Infrastructure.View
         {
             _entity = entity;
             _entity.AddView(this);
-            entity.Retain(this);
+            _entity.Retain(this);
 
             foreach (IEntityComponentRegistrar registrar in GetComponentsInChildren<IEntityComponentRegistrar>())
                 registrar.RegisterComponents();

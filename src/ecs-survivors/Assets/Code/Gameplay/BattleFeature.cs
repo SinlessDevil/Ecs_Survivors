@@ -6,14 +6,14 @@ using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay
 {
-  public class BattleFeature : Feature
-  {
-    public BattleFeature(ISystemFactory systemFactory)
+    public class BattleFeature : Feature
     {
-      Add(systemFactory.Create<InputFeature>());
-      Add(systemFactory.Create<HeroFeature>());
-      Add(systemFactory.Create<MovementFeature>());
-      Add(systemFactory.Create<ProcessDestructedFeature>());
+        public BattleFeature(ISystemFactory systemFactory)
+        {
+            Add(systemFactory.Create<InputFeature>());
+            Add(systemFactory.Create<HeroFeature>());
+            Add(systemFactory.Create<MovementFeature>());
+            Add(systemFactory.Create<ProcessDestructedFeature>());
+        }
     }
-  }
 }

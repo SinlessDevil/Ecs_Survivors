@@ -19,6 +19,7 @@ namespace Code.Infrastructure.View
         
         private void Awake()
         {
+            Debug.Log("2");
             GameEntity entity = CreateEntity.Empty()
                 .AddId(_identifierService.Next());
             

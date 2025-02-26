@@ -19,5 +19,4 @@ namespace Code.Common.Destruct.Systems
                 entity.Destroy();
         }
     }
-    
 }
