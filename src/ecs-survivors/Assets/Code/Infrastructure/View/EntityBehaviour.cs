@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Code.Infrastructure.View
 {
-    public class EntityBehavior : MonoBehaviour, IEntityView
+    public class EntityBehaviour : MonoBehaviour, IEntityView
     {
         private GameEntity _entity;
         private ICollisionRegistry _collisionRegistry;

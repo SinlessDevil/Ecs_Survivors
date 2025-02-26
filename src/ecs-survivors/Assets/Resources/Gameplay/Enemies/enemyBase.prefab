@@ -63,6 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b93c5ca1ebe44808b6f26c04d5e1d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <EntityView>k__BackingField: {fileID: 6062355763849841973}
   Speed: 1
 --- !u!114 &577685465015588123
 MonoBehaviour:
@@ -76,6 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 543f97dfc5714d109054263b26399582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <EntityView>k__BackingField: {fileID: 6062355763849841973}
 --- !u!114 &5007766697954106661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,6 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f1d0dc18e52407d8080f7009438894d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <EntityView>k__BackingField: {fileID: 6062355763849841973}
   SpriteRenderer: {fileID: 0}
 --- !u!114 &170473076778430347
 MonoBehaviour:
@@ -101,6 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ffdba1af12f4ac89670f25bbfb3343f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <EntityView>k__BackingField: {fileID: 6062355763849841973}
   EnemyAnimator: {fileID: 8783568025352136699}
 --- !u!114 &8783568025352136699
 MonoBehaviour:

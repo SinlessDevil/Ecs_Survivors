@@ -64,6 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a5913a92924e08bfb05fe05ff97220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <EntityView>k__BackingField: {fileID: 5935486631530829641}
   Speed: 2
 --- !u!114 &5562511788677721153
 MonoBehaviour:
@@ -77,6 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 543f97dfc5714d109054263b26399582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <EntityView>k__BackingField: {fileID: 5935486631530829641}
 --- !u!114 &6543989384898827490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,6 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f1d0dc18e52407d8080f7009438894d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <EntityView>k__BackingField: {fileID: 5935486631530829641}
   SpriteRenderer: {fileID: 2144268021912294448}
 --- !u!114 &9168467000438518836
 MonoBehaviour:
@@ -102,6 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b02775449a40609b42b0b504e0c964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <EntityView>k__BackingField: {fileID: 5935486631530829641}
   HeroAnimator: {fileID: -2241287277873108418}
 --- !u!114 &-2241287277873108418
 MonoBehaviour:
@@ -129,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54931a1d3c8c42a787e6584d6e2570e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EntityBehavior: {fileID: 5935486631530829641}
+  EntityBehaviour: {fileID: 5935486631530829641}
 --- !u!1 &1389770794421719611
 GameObject:
   m_ObjectHideFlags: 0

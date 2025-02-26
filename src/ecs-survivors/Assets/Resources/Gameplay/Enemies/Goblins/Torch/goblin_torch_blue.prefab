@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54931a1d3c8c42a787e6584d6e2570e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EntityBehavior: {fileID: 8795572897468621195}
+  EntityBehaviour: {fileID: 8795572897468621195}
 --- !u!114 &8795572897468621195 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6062355763849841973, guid: 87dfb064bc6d941469d685bf5de17e77, type: 3}

@@ -7,23 +7,20 @@ namespace Code.Infrastructure.View
 {
     public class SelfInitializedEntityView : MonoBehaviour
     {
-        public EntityBehavior EntityBehavior;
-        
-        private IIdentifierService _identifierService;
+        public EntityBehaviour EntityBehaviour;
+    
+        private IIdentifierService _identifiers;
 
         [Inject]
-        private void Construct(IIdentifierService identifierService)
-        {
-            _identifierService = identifierService;
-        }
-        
+        private void Construct(IIdentifierService identifiers) => 
+            _identifiers = identifiers;
+
         private void Awake()
         {
-            Debug.Log("2");
             GameEntity entity = CreateEntity.Empty()
-                .AddId(_identifierService.Next());
-            
-            EntityBehavior.SetEntity(entity);
+                .AddId(_identifiers.Next());
+      
+            EntityBehaviour.SetEntity(entity);
         }
     }
 }

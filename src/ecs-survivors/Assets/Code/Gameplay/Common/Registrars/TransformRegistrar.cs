@@ -1,5 +1,4 @@
 using Code.Infrastructure.View.Registrars;
-using UnityEngine;
 
 namespace Code.Gameplay.Common.Registrars
 {
@@ -7,7 +6,6 @@ namespace Code.Gameplay.Common.Registrars
     {
         public override void RegisterComponents()
         {
-            Debug.Log("1 " + Entity + " fffffffffffffff " + transform);
             Entity.AddTransform(transform);
         }
 
