@@ -8,5 +8,6 @@ namespace Code.Gameplay.Features.Abilities.Configs
         public float Speed;
         public int Pierce;
         public float ContactRadius;
+        public float LifeTime;
     }
 }

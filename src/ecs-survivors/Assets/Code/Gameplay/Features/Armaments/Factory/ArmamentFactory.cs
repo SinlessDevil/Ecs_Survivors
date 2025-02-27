@@ -11,6 +11,8 @@ namespace Code.Gameplay.Features.Armaments.Factory
 {
     public class ArmamentFactory : IArmamentFactory
     {
+        private const int TargetBufferSize = 16;
+        
         private readonly IIdentifierService _identifierService;
         private readonly IStaticDataService _staticDataService;
 
@@ -29,14 +31,18 @@ namespace Code.Gameplay.Features.Armaments.Factory
                 .AddId(_identifierService.Next())
                 .With(x => x.isArmament = true)
                 .AddViewPrefab(abilityLevel.ViewPrefab)
+                .AddWorldPosition(at)
                 .AddSpeed(setup.Speed)
                 .AddDamage(1)
                 .AddRadius(setup.ContactRadius)
-                .AddTargetsBuffer(new List<int>(16))
+                .AddTargetsBuffer(new List<int>(TargetBufferSize))
+                .AddProcessedTargets(new List<int>(TargetBufferSize))
                 .AddTargetLimit(setup.Pierce)
                 .AddLayerMask(CollisionLayer.Enemy.AsMask())
                 .With(x => x.isMovementAvailable = true)
-                .With(x => x.isReadyToCollectTargets = true);
+                .With(x => x.isReadyToCollectTargets = true)
+                .With(x => x.isCollectingTargetsContiuously = true)
+                .AddSelfDestructTimer(setup.LifeTime);
         }
     }
 }

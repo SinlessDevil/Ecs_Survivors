@@ -18,5 +18,5 @@ MonoBehaviour:
     ViewPrefab: {fileID: 1254211284008102895, guid: 08ce9f5922001044d87f0b92a159a8c4, type: 3}
     ProjectileSetup:
       Speed: 2
-      Pierce: 4
-      ContactRadius: 2
+      Pierce: 3
+      ContactRadius: 0.1

@@ -3,13 +3,15 @@ using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Features.Movement
 {
-  public class MovementFeature : Feature
-  {
-    public MovementFeature(ISystemFactory systemFactory)
+    public class MovementFeature : Feature
     {
-      Add(systemFactory.Create<DirectionalDeltaMoveSystem>());
-      Add(systemFactory.Create<TurnAlongDirectionSystem>());
-      Add(systemFactory.Create<UpdateTransformPositionSystem>());
+        public MovementFeature(ISystemFactory systemFactory)
+        {
+            Add(systemFactory.Create<DirectionalDeltaMoveSystem>());
+
+            Add(systemFactory.Create<TurnAlongDirectionSystem>());
+            Add(systemFactory.Create<UpdateTransformPositionSystem>());
+            Add(systemFactory.Create<RotateAlongDirectionSystem>());
+        }
     }
-  }
 }
