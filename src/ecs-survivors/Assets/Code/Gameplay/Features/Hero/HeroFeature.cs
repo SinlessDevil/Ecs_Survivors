@@ -1,8 +1,6 @@
 using Code.Gameplay.Cameras.Systems;
-using Code.Gameplay.Features.Enemies.Systems;
 using Code.Gameplay.Features.Hero.Systems;
 using Code.Infrastructure.Systems;
-using Unity.VisualScripting;
 
 namespace Code.Gameplay.Features.Hero
 {
@@ -10,6 +8,7 @@ namespace Code.Gameplay.Features.Hero
     {
         public HeroFeature(ISystemFactory systemFactory)
         {
+            Add(systemFactory.Create<InitializeHeroSystem>());
             Add(systemFactory.Create<SetHeroDirectionByInputSystem>());
             Add(systemFactory.Create<CameraFollowHeroSystem>());
             Add(systemFactory.Create<AnimateHeroMovementSystem>());

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1835253824857810547}
   - component: {fileID: 6062355763849841973}
-  - component: {fileID: 9209148999987499063}
   - component: {fileID: 577685465015588123}
   - component: {fileID: 5007766697954106661}
   - component: {fileID: 170473076778430347}
@@ -51,20 +50,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095dfe7e26e640b68c3c9aa58da3f2d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &9209148999987499063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1439855031686531578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b93c5ca1ebe44808b6f26c04d5e1d5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <EntityView>k__BackingField: {fileID: 6062355763849841973}
-  Speed: 1
 --- !u!114 &577685465015588123
 MonoBehaviour:
   m_ObjectHideFlags: 0
