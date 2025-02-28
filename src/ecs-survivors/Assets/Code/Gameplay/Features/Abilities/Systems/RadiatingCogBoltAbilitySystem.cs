@@ -56,6 +56,7 @@ namespace Code.Gameplay.Features.Abilities.Systems
                 {
                     _armamentFactory
                         .CreateRadiatingCogBolt(1, hero.WorldPosition)
+                        .AddProducerId(hero.Id)
                         .ReplaceDirection(i.GetDirectionByRadian(abilityLevel.ProjectileSetup.SpreadAngle, abilityLevel.ProjectileSetup.ProjectileCount))
                         .With(x => x.isMoving = true);
 

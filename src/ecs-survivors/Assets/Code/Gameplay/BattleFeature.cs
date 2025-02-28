@@ -1,7 +1,8 @@
 ﻿using Code.Common.Destruct;
 using Code.Gameplay.Features.Abilities.Systems;
 using Code.Gameplay.Features.Armaments;
-using Code.Gameplay.Features.DamageApplication;
+using Code.Gameplay.Features.EffectApplication;
+using Code.Gameplay.Features.Effects.Systems;
 using Code.Gameplay.Features.Enemies;
 using Code.Gameplay.Features.Hero;
 using Code.Gameplay.Features.LifeTime;
@@ -31,7 +32,8 @@ namespace Code.Gameplay
             Add(systemFactory.Create<AbilityFeature>());
             Add(systemFactory.Create<ArmamentFeature>());
             
-            Add(systemFactory.Create<DamageApplicationFeature>());
+            Add(systemFactory.Create<EffectApplicationFeature>());
+            Add(systemFactory.Create<EffectFeature>());
             
             Add(systemFactory.Create<ProcessDestructedFeature>());
         }

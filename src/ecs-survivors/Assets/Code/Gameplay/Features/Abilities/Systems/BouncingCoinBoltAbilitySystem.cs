@@ -52,6 +52,7 @@ namespace Code.Gameplay.Features.Abilities.Systems
                 
                 _armamentFactory
                     .CreateBouncingCoinBolt(1, hero.WorldPosition)
+                    .AddProducerId(hero.Id)
                     .ReplaceDirection((FirstAvailableTarget().WorldPosition - hero.WorldPosition).normalized)
                     .With(x => x.isMoving = true);
                 

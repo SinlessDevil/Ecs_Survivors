@@ -10,8 +10,11 @@ namespace Code.Gameplay.Features.Armaments.Systems
 {
     public class HandleScatteringAtTouchTargetSystem: IExecuteSystem
     {
+        private readonly IGroup<GameEntity> _heroes;
         private readonly IGroup<GameEntity> _armaments;
+        
         private readonly List<GameEntity> _bufferArmaments = new(16);
+        private readonly List<GameEntity> _bufferHeroes = new(1);
         
         private readonly GameContext _game;
         private readonly IArmamentFactory _armamentFactory;
@@ -29,10 +32,16 @@ namespace Code.Gameplay.Features.Armaments.Systems
                 .AllOf(GameMatcher.Armament,
                     GameMatcher.TargetsBuffer,
                     GameMatcher.Separable));
+            
+            _heroes = game.GetGroup(GameMatcher
+                .AllOf(
+                    GameMatcher.Hero,
+                    GameMatcher.WorldPosition));
         }
 
         public void Execute()
         {
+            foreach (GameEntity hero in _heroes.GetEntities(_bufferHeroes))
             foreach (GameEntity armament in _armaments.GetEntities(_bufferArmaments))
             foreach (int targetId in armament.TargetsBuffer)
             {
@@ -47,6 +56,7 @@ namespace Code.Gameplay.Features.Armaments.Systems
                 {
                     _armamentFactory
                         .CreateScatteringRuneStoneBolt(1, currentTarget.WorldPosition)
+                        .AddProducerId(hero.Id)
                         .ReplaceDirection(i.GetDirectionByRadian(abilityLevel.ProjectileSetup.SpreadAngle,
                             abilityLevel.ProjectileSetup.ProjectileCount))
                         .With(x => x.isMoving = true)

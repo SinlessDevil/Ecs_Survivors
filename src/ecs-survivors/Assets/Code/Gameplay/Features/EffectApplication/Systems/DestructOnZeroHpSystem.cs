@@ -1,6 +1,6 @@
 using Entitas;
 
-namespace Code.Gameplay.Features.DamageApplication.Systems
+namespace Code.Gameplay.Features.EffectApplication.Systems
 {
     public class DestructOnZeroHpSystem : IExecuteSystem
     {
