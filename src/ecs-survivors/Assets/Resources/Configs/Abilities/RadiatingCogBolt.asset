@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be200600f51647d0953ea7d87c62b4e2, type: 3}
-  m_Name: VegetableBolt
+  m_Name: RadiatingCogBolt
   m_EditorClassIdentifier: 
-  AbilityId: 1
+  AbilityId: 2
   Levels:
   - Cooldown: 1
-    ViewPrefab: {fileID: 1254211284008102895, guid: 08ce9f5922001044d87f0b92a159a8c4, type: 3}
+    ViewPrefab: {fileID: 1254211284008102895, guid: 5f53f4977fd46b046964e2e48e9b5ad5, type: 3}
     ProjectileSetup:
-      Speed: 2
+      Speed: 6
       Pierce: 3
       ContactRadius: 0.1
-      LifeTime: 3
-      ProjectileCount: 0
-      SpreadAngle: 0
+      LifeTime: 1.5
+      ProjectileCount: 6
+      SpreadAngle: 360
       MaxBounces: 0
       TargetSearchRadius: 0
       SpawnedProjectilesCount: 0
