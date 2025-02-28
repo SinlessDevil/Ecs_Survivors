@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Code.Common.Entity;
 using Code.Common.Extensions;
 using Code.Gameplay.Features.Abilities.Configs;
@@ -30,6 +31,32 @@ namespace Code.Gameplay.Features.Abilities.Factory
                 .AddCooldown(abilityLevel.Cooldown)
                 .With(x => x.isVegetableBoltAbility = true)
                 .PutOnCooldown();
+        }
+        
+        public GameEntity CreateRadiatingCogBoltAbility(int level)
+        {
+            AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(AbilityId.RadiatingCogBolt, level);
+            
+            return CreateEntity.Empty()
+                .AddId(_identifierService.Next())
+                .AddAbilityId(AbilityId.RadiatingCogBolt)
+                .AddCooldown(abilityLevel.Cooldown)
+                .With(x => x.isRadiatingCogBoltAbility = true)
+                .PutOnCooldown();
+        }
+        
+        public GameEntity CreateBouncingCoinBoltAbility(int level)
+        {
+            AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(AbilityId.BouncingCoinBolt, level);
+            
+            return CreateEntity.Empty()
+                .AddId(_identifierService.Next())
+                .AddAbilityId(AbilityId.BouncingCoinBolt)
+                .AddCooldown(abilityLevel.Cooldown)
+                .AddBounceRate(abilityLevel.ProjectileSetup.MaxBounces)
+                .With(x => x.isBouncingCoinAbility = true)
+                .PutOnCooldown();
+            
         }
     }
 }

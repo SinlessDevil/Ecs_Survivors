@@ -20,42 +20,46 @@ public static class GameComponentsLookup {
     public const int Transform = 9;
     public const int WorldPosition = 10;
     public const int AbilityId = 11;
-    public const int VegetableBoltAbility = 12;
-    public const int Armament = 13;
-    public const int Processed = 14;
-    public const int TargetLimit = 15;
-    public const int Cooldown = 16;
-    public const int CooldownLeft = 17;
-    public const int CooldownUp = 18;
-    public const int Enemy = 19;
-    public const int EnemyAnimator = 20;
-    public const int EnemyTypeID = 21;
-    public const int SpawnTimer = 22;
-    public const int Hero = 23;
-    public const int HeroAnimator = 24;
-    public const int CurrentHp = 25;
-    public const int Dead = 26;
-    public const int MaxHp = 27;
-    public const int ProcessingDeath = 28;
-    public const int Destination = 29;
-    public const int Direction = 30;
-    public const int MovementAvailable = 31;
-    public const int Moving = 32;
-    public const int RotationAlignedByDirection = 33;
-    public const int Speed = 34;
-    public const int TurnedAlongDirection = 35;
-    public const int CollectingTargetsContiuously = 36;
-    public const int CollectTargetsInterval = 37;
-    public const int CollectTargetsTimer = 38;
-    public const int LayerMask = 39;
-    public const int ProcessedTargets = 40;
-    public const int Radius = 41;
-    public const int ReadyToCollectTargets = 42;
-    public const int TargetsBuffer = 43;
-    public const int AxisInput = 44;
-    public const int Input = 45;
+    public const int BouncingCoinAbility = 12;
+    public const int RadiatingCogBoltAbility = 13;
+    public const int VegetableBoltAbility = 14;
+    public const int Armament = 15;
+    public const int BounceRate = 16;
+    public const int Processed = 17;
+    public const int Target = 18;
+    public const int TargetLimit = 19;
+    public const int Cooldown = 20;
+    public const int CooldownLeft = 21;
+    public const int CooldownUp = 22;
+    public const int Enemy = 23;
+    public const int EnemyAnimator = 24;
+    public const int EnemyTypeID = 25;
+    public const int SpawnTimer = 26;
+    public const int Hero = 27;
+    public const int HeroAnimator = 28;
+    public const int CurrentHp = 29;
+    public const int Dead = 30;
+    public const int MaxHp = 31;
+    public const int ProcessingDeath = 32;
+    public const int Destination = 33;
+    public const int Direction = 34;
+    public const int MovementAvailable = 35;
+    public const int Moving = 36;
+    public const int RotationAlignedByDirection = 37;
+    public const int Speed = 38;
+    public const int TurnedAlongDirection = 39;
+    public const int CollectingTargetsContiuously = 40;
+    public const int CollectTargetsInterval = 41;
+    public const int CollectTargetsTimer = 42;
+    public const int LayerMask = 43;
+    public const int ProcessedTargets = 44;
+    public const int Radius = 45;
+    public const int ReadyToCollectTargets = 46;
+    public const int TargetsBuffer = 47;
+    public const int AxisInput = 48;
+    public const int Input = 49;
 
-    public const int TotalComponents = 46;
+    public const int TotalComponents = 50;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -70,9 +74,13 @@ public static class GameComponentsLookup {
         "Transform",
         "WorldPosition",
         "AbilityId",
+        "BouncingCoinAbility",
+        "RadiatingCogBoltAbility",
         "VegetableBoltAbility",
         "Armament",
+        "BounceRate",
         "Processed",
+        "Target",
         "TargetLimit",
         "Cooldown",
         "CooldownLeft",
@@ -119,9 +127,13 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Common.TransformComponent),
         typeof(Code.Gameplay.Common.WorldPosition),
         typeof(Code.Gameplay.Features.Abilities.AbilityIdComponent),
+        typeof(Code.Gameplay.Features.Abilities.BouncingCoinAbility),
+        typeof(Code.Gameplay.Features.Abilities.RadiatingCogBoltAbility),
         typeof(Code.Gameplay.Features.Abilities.VegetableBoltAbility),
         typeof(Code.Gameplay.Features.Armaments.Armament),
+        typeof(Code.Gameplay.Features.Armaments.BounceRate),
         typeof(Code.Gameplay.Features.Armaments.Processed),
+        typeof(Code.Gameplay.Features.Armaments.Target),
         typeof(Code.Gameplay.Features.Armaments.TargetLimit),
         typeof(Code.Gameplay.Features.Cooldowns.Cooldown),
         typeof(Code.Gameplay.Features.Cooldowns.CooldownLeft),

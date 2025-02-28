@@ -6,5 +6,6 @@ namespace Code.Gameplay.Features.Armaments.Factory
     {
         GameEntity CreateVegetableBolt(int level, Vector3 at);
         GameEntity CreateRadiatingCogBolt(int level, Vector3 at);
+        GameEntity CreateBouncingCoinBolt(int level, Vector3 at);
     }
 }

@@ -25,12 +25,14 @@ namespace Code.Gameplay
             Add(systemFactory.Create<DeathFeature>());
             
             Add(systemFactory.Create<MovementFeature>());
+            
+            Add(systemFactory.Create<CollectTargetFeature>());
+           
             Add(systemFactory.Create<AbilityFeature>());
             Add(systemFactory.Create<ArmamentFeature>());
             
-            Add(systemFactory.Create<CollectTargetFeature>());
             Add(systemFactory.Create<DamageApplicationFeature>());
-           
+            
             Add(systemFactory.Create<ProcessDestructedFeature>());
         }
     }
