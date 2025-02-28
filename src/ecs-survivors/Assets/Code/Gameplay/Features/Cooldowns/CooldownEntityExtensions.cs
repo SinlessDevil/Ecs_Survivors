@@ -8,7 +8,7 @@ namespace Code.Gameplay.Features.Cooldowns
                 return entity;
             
             entity.isCooldownUp = false;
-            entity.ReplaceCooldownLeft(entity.cooldown.Value);
+            entity.ReplaceCooldownLeft(entity.Cooldown);
             return entity;
         }
         

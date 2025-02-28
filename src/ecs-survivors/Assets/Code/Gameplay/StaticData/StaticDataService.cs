@@ -19,7 +19,7 @@ namespace Code.Gameplay.StaticData
         public AbilityConfig GetAbilityConfig(AbilityId abilityId)
         {
             if(_abilityById.TryGetValue(abilityId, out AbilityConfig config)) 
-                return _abilityById[abilityId];
+                return config;
 
             throw new Exception($"Ability config for {abilityId} not found");
         }
@@ -36,7 +36,8 @@ namespace Code.Gameplay.StaticData
         
         private void LoadAbilities()
         {
-            _abilityById = Resources.LoadAll<AbilityConfig>("Configs/Abilities")
+            _abilityById = Resources
+                .LoadAll<AbilityConfig>("Configs/Abilities")
                 .ToDictionary(x => x.AbilityId, x => x);
         }
     }
