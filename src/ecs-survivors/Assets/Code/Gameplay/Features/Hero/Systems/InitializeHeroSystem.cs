@@ -26,7 +26,8 @@ namespace Code.Gameplay.Features.Hero.Systems
             _heroFactory.CreateHero(_levelDataProvider.StartPoint);
             //_abilityFactory.CreateVegetableBoltAbility(level: 1);
             //_abilityFactory.CreateRadiatingCogBoltAbility(level: 1);
-            _abilityFactory.CreateBouncingCoinBoltAbility(level: 1);
+            //_abilityFactory.CreateBouncingCoinBoltAbility(level: 1);
+            _abilityFactory.CreateScatteringRuneStoneBolt(level: 1);
         }
     }
 }

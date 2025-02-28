@@ -6,4 +6,5 @@ namespace Code.Gameplay.Features.Abilities
     [Game] public class VegetableBoltAbility : IComponent { }
     [Game] public class RadiatingCogBoltAbility : IComponent { }
     [Game] public class BouncingCoinAbility : IComponent { }
+    [Game] public class ScatteringRuneStoneAbility : IComponent { }
 }

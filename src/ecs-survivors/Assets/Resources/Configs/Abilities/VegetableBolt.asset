@@ -24,6 +24,4 @@ MonoBehaviour:
       ProjectileCount: 0
       SpreadAngle: 0
       MaxBounces: 0
-      TargetSearchRadius: 0
-      SpawnedProjectilesCount: 0
       ScaleFactor: 0

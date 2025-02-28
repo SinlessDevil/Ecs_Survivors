@@ -95,5 +95,29 @@ namespace Code.Gameplay.Features.Armaments.Factory
                 .With(x => x.isRotationAlignedByDirection = true)
                 .AddSelfDestructTimer(setup.LifeTime);
         }
+        
+        public GameEntity CreateScatteringRuneStoneBolt(int level, Vector3 at)
+        {
+            AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(AbilityId.ScatteringRuneStoneBolt, level);
+            ProjectileSetup setup = abilityLevel.ProjectileSetup;
+
+            return CreateEntity.Empty()
+                .AddId(_identifierService.Next())
+                .With(x => x.isArmament = true)
+                .AddViewPrefab(abilityLevel.ViewPrefab)
+                .AddWorldPosition(at)
+                .AddSpeed(setup.Speed)
+                .AddDamage(1)
+                .AddRadius(setup.ContactRadius)
+                .AddTargetsBuffer(new List<int>(TargetBufferSize))
+                .AddProcessedTargets(new List<int>(TargetBufferSize))
+                .AddTargetLimit(setup.Pierce)
+                .AddLayerMask(CollisionLayer.Enemy.AsMask())
+                .With(x => x.isMovementAvailable = true)
+                .With(x => x.isReadyToCollectTargets = true)
+                .With(x => x.isCollectingTargetsContiuously = true)
+                .With(x => x.isRotationAlignedByDirection = true)
+                .AddSelfDestructTimer(setup.LifeTime);
+        }
     }
 }

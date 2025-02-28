@@ -22,44 +22,46 @@ public static class GameComponentsLookup {
     public const int AbilityId = 11;
     public const int BouncingCoinAbility = 12;
     public const int RadiatingCogBoltAbility = 13;
-    public const int VegetableBoltAbility = 14;
-    public const int Armament = 15;
-    public const int BounceRate = 16;
-    public const int Processed = 17;
-    public const int Target = 18;
-    public const int TargetLimit = 19;
-    public const int Cooldown = 20;
-    public const int CooldownLeft = 21;
-    public const int CooldownUp = 22;
-    public const int Enemy = 23;
-    public const int EnemyAnimator = 24;
-    public const int EnemyTypeID = 25;
-    public const int SpawnTimer = 26;
-    public const int Hero = 27;
-    public const int HeroAnimator = 28;
-    public const int CurrentHp = 29;
-    public const int Dead = 30;
-    public const int MaxHp = 31;
-    public const int ProcessingDeath = 32;
-    public const int Destination = 33;
-    public const int Direction = 34;
-    public const int MovementAvailable = 35;
-    public const int Moving = 36;
-    public const int RotationAlignedByDirection = 37;
-    public const int Speed = 38;
-    public const int TurnedAlongDirection = 39;
-    public const int CollectingTargetsContiuously = 40;
-    public const int CollectTargetsInterval = 41;
-    public const int CollectTargetsTimer = 42;
-    public const int LayerMask = 43;
-    public const int ProcessedTargets = 44;
-    public const int Radius = 45;
-    public const int ReadyToCollectTargets = 46;
-    public const int TargetsBuffer = 47;
-    public const int AxisInput = 48;
-    public const int Input = 49;
+    public const int ScatteringRuneStoneAbility = 14;
+    public const int VegetableBoltAbility = 15;
+    public const int Armament = 16;
+    public const int BounceRate = 17;
+    public const int Processed = 18;
+    public const int Separable = 19;
+    public const int Target = 20;
+    public const int TargetLimit = 21;
+    public const int Cooldown = 22;
+    public const int CooldownLeft = 23;
+    public const int CooldownUp = 24;
+    public const int Enemy = 25;
+    public const int EnemyAnimator = 26;
+    public const int EnemyTypeID = 27;
+    public const int SpawnTimer = 28;
+    public const int Hero = 29;
+    public const int HeroAnimator = 30;
+    public const int CurrentHp = 31;
+    public const int Dead = 32;
+    public const int MaxHp = 33;
+    public const int ProcessingDeath = 34;
+    public const int Destination = 35;
+    public const int Direction = 36;
+    public const int MovementAvailable = 37;
+    public const int Moving = 38;
+    public const int RotationAlignedByDirection = 39;
+    public const int Speed = 40;
+    public const int TurnedAlongDirection = 41;
+    public const int CollectingTargetsContiuously = 42;
+    public const int CollectTargetsInterval = 43;
+    public const int CollectTargetsTimer = 44;
+    public const int LayerMask = 45;
+    public const int ProcessedTargets = 46;
+    public const int Radius = 47;
+    public const int ReadyToCollectTargets = 48;
+    public const int TargetsBuffer = 49;
+    public const int AxisInput = 50;
+    public const int Input = 51;
 
-    public const int TotalComponents = 50;
+    public const int TotalComponents = 52;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -76,10 +78,12 @@ public static class GameComponentsLookup {
         "AbilityId",
         "BouncingCoinAbility",
         "RadiatingCogBoltAbility",
+        "ScatteringRuneStoneAbility",
         "VegetableBoltAbility",
         "Armament",
         "BounceRate",
         "Processed",
+        "Separable",
         "Target",
         "TargetLimit",
         "Cooldown",
@@ -129,10 +133,12 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Abilities.AbilityIdComponent),
         typeof(Code.Gameplay.Features.Abilities.BouncingCoinAbility),
         typeof(Code.Gameplay.Features.Abilities.RadiatingCogBoltAbility),
+        typeof(Code.Gameplay.Features.Abilities.ScatteringRuneStoneAbility),
         typeof(Code.Gameplay.Features.Abilities.VegetableBoltAbility),
         typeof(Code.Gameplay.Features.Armaments.Armament),
         typeof(Code.Gameplay.Features.Armaments.BounceRate),
         typeof(Code.Gameplay.Features.Armaments.Processed),
+        typeof(Code.Gameplay.Features.Armaments.Separable),
         typeof(Code.Gameplay.Features.Armaments.Target),
         typeof(Code.Gameplay.Features.Armaments.TargetLimit),
         typeof(Code.Gameplay.Features.Cooldowns.Cooldown),

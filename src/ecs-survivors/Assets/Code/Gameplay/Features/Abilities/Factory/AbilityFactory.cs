@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Code.Common.Entity;
 using Code.Common.Extensions;
 using Code.Gameplay.Features.Abilities.Configs;
@@ -56,7 +55,18 @@ namespace Code.Gameplay.Features.Abilities.Factory
                 .AddBounceRate(abilityLevel.ProjectileSetup.MaxBounces)
                 .With(x => x.isBouncingCoinAbility = true)
                 .PutOnCooldown();
+        }
+        
+        public GameEntity CreateScatteringRuneStoneBolt(int level)
+        {
+            AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(AbilityId.ScatteringRuneStoneBolt, level);
             
+            return CreateEntity.Empty()
+                .AddId(_identifierService.Next())
+                .AddAbilityId(AbilityId.ScatteringRuneStoneBolt)
+                .AddCooldown(abilityLevel.Cooldown)
+                .With(x => x.isScatteringRuneStoneAbility = true)
+                .PutOnCooldown();
         }
     }
 }

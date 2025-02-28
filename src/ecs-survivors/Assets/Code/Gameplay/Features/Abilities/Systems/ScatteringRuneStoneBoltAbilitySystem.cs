@@ -1,6 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
 using Code.Common.Extensions;
-using Code.Gameplay.Features.Armaments.Extensions;
 using Code.Gameplay.Features.Armaments.Factory;
 using Code.Gameplay.Features.Cooldowns;
 using Code.Gameplay.StaticData;
@@ -8,19 +8,19 @@ using Entitas;
 
 namespace Code.Gameplay.Features.Abilities.Systems
 {
-    public class RadiatingCogBoltAbilitySystem : IExecuteSystem
+    public class ScatteringRuneStoneBoltAbilitySystem : IExecuteSystem
     {
         private readonly IStaticDataService _staticDataService;
         private readonly IArmamentFactory _armamentFactory;
-
+        
         private readonly IGroup<GameEntity> _abilities;
         private readonly IGroup<GameEntity> _heroes;
         private readonly IGroup<GameEntity> _enemies;
+        
+        private readonly List<GameEntity> _buffer = new(1);
 
-        private readonly List<GameEntity> _buffer = new(64);
-
-        public RadiatingCogBoltAbilitySystem(GameContext game,
-            IStaticDataService staticDataService,
+        public ScatteringRuneStoneBoltAbilitySystem(GameContext game, 
+            IStaticDataService staticDataService, 
             IArmamentFactory armamentFactory)
         {
             _staticDataService = staticDataService;
@@ -28,7 +28,7 @@ namespace Code.Gameplay.Features.Abilities.Systems
 
             _abilities = game.GetGroup(GameMatcher
                 .AllOf(
-                    GameMatcher.RadiatingCogBoltAbility,
+                    GameMatcher.ScatteringRuneStoneAbility, 
                     GameMatcher.CooldownUp));
 
             _heroes = game.GetGroup(GameMatcher
@@ -47,22 +47,23 @@ namespace Code.Gameplay.Features.Abilities.Systems
             foreach (GameEntity ability in _abilities.GetEntities(_buffer))
             foreach (GameEntity hero in _heroes)
             {
-                if (_enemies.count <= 0)
+                if(_enemies.count <= 0)
                     continue;
-
-                var abilityLevel = _staticDataService.GetAbilityLevel(AbilityId.RadiatingCogBolt, 1);
-
-                for (int i = 0; i < abilityLevel.ProjectileSetup.ProjectileCount; i++)
-                {
-                    _armamentFactory
-                        .CreateRadiatingCogBolt(1, hero.WorldPosition)
-                        .ReplaceDirection(i.GetDirectionByRadian(abilityLevel.ProjectileSetup.SpreadAngle, abilityLevel.ProjectileSetup.ProjectileCount))
-                        .With(x => x.isMoving = true);
-
-                    ability
-                        .PutOnCooldown(abilityLevel.Cooldown);
-                }
+                
+                _armamentFactory
+                    .CreateScatteringRuneStoneBolt(1, hero.WorldPosition)
+                    .ReplaceDirection((FirstAvailableTarget().WorldPosition - hero.WorldPosition).normalized)
+                    .With(x => x.isMoving = true)
+                    .With(x => x.isSeparable = true);
+                
+                ability
+                    .PutOnCooldown(_staticDataService.GetAbilityLevel(AbilityId.ScatteringRuneStoneBolt, 1).Cooldown);
             }
+        }
+
+        private GameEntity FirstAvailableTarget()
+        {
+            return _enemies.AsEnumerable().First();
         }
     }
 }

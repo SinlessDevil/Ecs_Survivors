@@ -18,10 +18,8 @@ namespace Code.Gameplay.Features.Abilities.Configs
         
         [Space(10)] [Header("Bouncing")]
         public int MaxBounces;
-        public float TargetSearchRadius;
         
         [Space(10)] [Header("Scattering")]
-        public int SpawnedProjectilesCount;
         public float ScaleFactor;
     }
 }

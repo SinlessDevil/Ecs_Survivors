@@ -5,5 +5,6 @@ namespace Code.Gameplay.Features.Abilities.Factory
         GameEntity CreateVegetableBoltAbility(int level);
         GameEntity CreateRadiatingCogBoltAbility(int level);
         GameEntity CreateBouncingCoinBoltAbility(int level);
+        GameEntity CreateScatteringRuneStoneBolt(int level);
     }
 }
