@@ -16,6 +16,9 @@ MonoBehaviour:
   Levels:
   - Cooldown: 1
     ViewPrefab: {fileID: 1254211284008102895, guid: f131b2a0597f7a2438f13f070b3f9ced, type: 3}
+    EffectSetups:
+    - EffectTypeId: 1
+      Value: 1
     ProjectileSetup:
       Speed: 6
       Pierce: 3
@@ -24,6 +27,4 @@ MonoBehaviour:
       ProjectileCount: 0
       SpreadAngle: 0
       MaxBounces: 3
-      TargetSearchRadius: 4
-      SpawnedProjectilesCount: 0
       ScaleFactor: 0
