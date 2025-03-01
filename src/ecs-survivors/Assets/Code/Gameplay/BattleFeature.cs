@@ -34,10 +34,9 @@ namespace Code.Gameplay
             Add(systemFactory.Create<ArmamentFeature>());
             
             Add(systemFactory.Create<EffectApplicationFeature>());
-            Add(systemFactory.Create<EffectFeature>());
             
+            Add(systemFactory.Create<EffectFeature>());
             Add(systemFactory.Create<StatusFeature>());
-            Add(systemFactory.Create<StatusVisualsFeature>());
             
             Add(systemFactory.Create<ProcessDestructedFeature>());
         }

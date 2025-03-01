@@ -1,3 +1,4 @@
+using Code.Gameplay.Features.Effects.Extensions;
 using System.Collections.Generic;
 using Entitas;
 
@@ -18,13 +19,13 @@ namespace Code.Gameplay.Features.Statuses.Systems.StatusVisuals
                     GameMatcher.Unapplied
                     ).Added());
 
-        protected override bool Filter(GameEntity entity) => entity.isStatus && entity.isPoison && entity.hasTarget;
+        protected override bool Filter(GameEntity entity) => entity.isStatus && entity.isPoison && entity.hasTargetId;
 
         protected override void Execute(List<GameEntity> statuses)
         {
             foreach (GameEntity status in statuses)
             {
-                GameEntity target = status.Target;
+                GameEntity target = status.Target();
                 if (target is {hasStatusVisuals: true}) 
                     target.StatusVisuals.UnapplyPoison();
             }

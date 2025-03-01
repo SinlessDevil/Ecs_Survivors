@@ -40,6 +40,7 @@ namespace Code.Gameplay.Features.Statuses.Factory
             return CreateEntity.Empty()
                 .AddId(_identifierService.Next())
                 .AddStatusTypeId(setup.StatusTypeId)
+                .AddEffectValue(setup.Value)
                 .AddProducerId(producerId)
                 .AddTargetId(targetId)
                 .With(x => x.isStatus = true)

@@ -21,7 +21,7 @@ namespace Code.Gameplay.Features.Effects.Systems
                 GameEntity target = effect.Target();
                 
                 if(target == null)
-                    target.Destroy();
+                    effect.Destroy();
             }
         }
     }
