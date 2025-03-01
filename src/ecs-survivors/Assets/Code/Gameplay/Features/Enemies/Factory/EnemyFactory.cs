@@ -2,7 +2,10 @@ using System;
 using System.Collections.Generic;
 using Code.Common.Entity;
 using Code.Common.Extensions;
+using Code.Gameplay.Features.Abilities.Configs;
 using Code.Gameplay.Features.Effects;
+using Code.Gameplay.Features.Enemies.Configs;
+using Code.Gameplay.StaticData;
 using Code.Infrastructure.Identifiers;
 using UnityEngine;
 
@@ -14,13 +17,17 @@ namespace Code.Gameplay.Features.Enemies.Factory
         private float _speed = 1;
         
         private readonly IIdentifierService _identifierService;
+        private readonly IStaticDataService _staticDataService;
 
-        public EnemyFactory(IIdentifierService identifierService)
+        public EnemyFactory(
+            IIdentifierService identifierService, 
+            IStaticDataService staticDataService)
         {
             _identifierService = identifierService;
+            _staticDataService = staticDataService;
         }
         
-        public GameEntity CreateEnemy(EnemyTypeId typeId, Vector3 at)
+        public GameEntity CreateEnemy(EnemyTypeId typeId, Vector3 at, int level = 1)
         {
             switch (typeId)
             {
@@ -31,20 +38,22 @@ namespace Code.Gameplay.Features.Enemies.Factory
             throw new Exception($"Enemy with type id {typeId} does not exist");
         }
 
-        private GameEntity CreateGoblin(EnemyTypeId typeId, Vector3 at)
+        private GameEntity CreateGoblin(EnemyTypeId typeId, Vector3 at, int level = 1)
         {
+            EnemyLevel enemyLevel = _staticDataService.GetEnemyLevel(EnemyTypeId.Goblin, level);
+
             return CreateEntity.Empty()
                 .AddId(_identifierService.Next())
                 .AddEnemyTypeID(typeId)
                 .AddWorldPosition(at)
                 .AddDirection(Vector2.zero)
-                .AddSpeed(_speed)
-                .AddCurrentHp(_hp)
-                .AddMaxHp(_hp)
-                .AddEffectSetups(new List<EffectSetup>(){new EffectSetup(){EffectTypeId = EffectTypeId.Damage, Value = 1}})
+                .AddSpeed(enemyLevel.Speed)
+                .AddCurrentHp(enemyLevel.Hp)
+                .AddMaxHp(enemyLevel.Hp)
+                .AddEffectSetups(enemyLevel.EffectSetups)
                 .AddTargetsBuffer(new List<int>(1))
-                .AddRadius(0.3f)
-                .AddCollectTargetsInterval(0.5f)
+                .AddRadius(enemyLevel.RadiusToCollectTargets)
+                .AddCollectTargetsInterval(enemyLevel.CollectTargetsInterval)
                 .AddCollectTargetsTimer(0)
                 .AddLayerMask(CollisionLayer.Hero.AsMask())
                 .AddViewPath("Gameplay/Enemies/Goblins/Torch/goblin_torch_blue")
