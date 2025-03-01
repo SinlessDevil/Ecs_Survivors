@@ -5,6 +5,7 @@ using Code.Gameplay.Features.Abilities;
 using Code.Gameplay.Features.Abilities.Configs;
 using Code.Gameplay.Features.Enemies;
 using Code.Gameplay.Features.Enemies.Configs;
+using Code.Gameplay.Features.Hero.Configs;
 using UnityEngine;
 
 namespace Code.Gameplay.StaticData
@@ -13,13 +14,17 @@ namespace Code.Gameplay.StaticData
     {
         private Dictionary<AbilityId, AbilityConfig> _abilityById;
         private Dictionary<EnemyTypeId, EnemyConfig> _enemyById;
+        private HeroConfig _heroConfig;
 
         public void LoadAll()
         {
             LoadAbilities();
             LoadEnemies();
+            LoadHeroConfig();
         }
 
+        public HeroConfig HeroConfig => _heroConfig;
+        
         public AbilityConfig GetAbilityConfig(AbilityId abilityId)
         {
             if(_abilityById.TryGetValue(abilityId, out AbilityConfig config)) 
@@ -68,6 +73,11 @@ namespace Code.Gameplay.StaticData
             _enemyById = Resources
                 .LoadAll<EnemyConfig>("Configs/Enemies")
                 .ToDictionary(x => x.EnemyTypeId, x => x);
+        }
+
+        private void LoadHeroConfig()
+        {
+            _heroConfig = Resources.Load<HeroConfig>("Configs/Heroes/HeroConfig");
         }
     }
 }
