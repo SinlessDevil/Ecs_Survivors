@@ -18,57 +18,68 @@ public static class GameComponentsLookup {
     public const int EntityLink = 7;
     public const int Id = 8;
     public const int SpriteRenderer = 9;
-    public const int Transform = 10;
-    public const int WorldPosition = 11;
-    public const int AbilityId = 12;
-    public const int BouncingCoinAbility = 13;
-    public const int RadiatingCogBoltAbility = 14;
-    public const int ScatteringRuneStoneAbility = 15;
-    public const int VegetableBoltAbility = 16;
-    public const int Armament = 17;
-    public const int BounceRate = 18;
-    public const int EffectSetups = 19;
-    public const int Processed = 20;
-    public const int Separable = 21;
-    public const int Target = 22;
-    public const int TargetLimit = 23;
-    public const int Cooldown = 24;
-    public const int CooldownLeft = 25;
-    public const int CooldownUp = 26;
-    public const int DamageEffect = 27;
-    public const int Effect = 28;
-    public const int EffectValue = 29;
-    public const int ProducerId = 30;
-    public const int TargetId = 31;
-    public const int Enemy = 32;
-    public const int EnemyAnimator = 33;
-    public const int EnemyTypeID = 34;
-    public const int SpawnTimer = 35;
-    public const int Hero = 36;
-    public const int HeroAnimator = 37;
-    public const int CurrentHp = 38;
-    public const int Dead = 39;
-    public const int MaxHp = 40;
-    public const int ProcessingDeath = 41;
-    public const int Destination = 42;
-    public const int Direction = 43;
-    public const int MovementAvailable = 44;
-    public const int Moving = 45;
-    public const int RotationAlignedByDirection = 46;
-    public const int Speed = 47;
-    public const int TurnedAlongDirection = 48;
-    public const int CollectingTargetsContiuously = 49;
-    public const int CollectTargetsInterval = 50;
-    public const int CollectTargetsTimer = 51;
-    public const int LayerMask = 52;
-    public const int ProcessedTargets = 53;
-    public const int Radius = 54;
-    public const int ReadyToCollectTargets = 55;
-    public const int TargetsBuffer = 56;
-    public const int AxisInput = 57;
-    public const int Input = 58;
+    public const int StatusVisuals = 10;
+    public const int Transform = 11;
+    public const int WorldPosition = 12;
+    public const int AbilityId = 13;
+    public const int BouncingCoinAbility = 14;
+    public const int RadiatingCogBoltAbility = 15;
+    public const int ScatteringRuneStoneAbility = 16;
+    public const int VegetableBoltAbility = 17;
+    public const int Armament = 18;
+    public const int BounceRate = 19;
+    public const int EffectSetups = 20;
+    public const int Processed = 21;
+    public const int Separable = 22;
+    public const int StatusSetups = 23;
+    public const int Target = 24;
+    public const int TargetLimit = 25;
+    public const int Cooldown = 26;
+    public const int CooldownLeft = 27;
+    public const int CooldownUp = 28;
+    public const int DamageEffect = 29;
+    public const int Effect = 30;
+    public const int EffectValue = 31;
+    public const int ProducerId = 32;
+    public const int TargetId = 33;
+    public const int Enemy = 34;
+    public const int EnemyAnimator = 35;
+    public const int EnemyTypeID = 36;
+    public const int SpawnTimer = 37;
+    public const int Hero = 38;
+    public const int HeroAnimator = 39;
+    public const int CurrentHp = 40;
+    public const int Dead = 41;
+    public const int MaxHp = 42;
+    public const int ProcessingDeath = 43;
+    public const int Destination = 44;
+    public const int Direction = 45;
+    public const int MovementAvailable = 46;
+    public const int Moving = 47;
+    public const int RotationAlignedByDirection = 48;
+    public const int Speed = 49;
+    public const int TurnedAlongDirection = 50;
+    public const int Applied = 51;
+    public const int Duration = 52;
+    public const int Period = 53;
+    public const int Poison = 54;
+    public const int Status = 55;
+    public const int StatusTypeId = 56;
+    public const int TimeLeft = 57;
+    public const int TimeSinceLastTick = 58;
+    public const int Unapplied = 59;
+    public const int CollectingTargetsContiuously = 60;
+    public const int CollectTargetsInterval = 61;
+    public const int CollectTargetsTimer = 62;
+    public const int LayerMask = 63;
+    public const int ProcessedTargets = 64;
+    public const int Radius = 65;
+    public const int ReadyToCollectTargets = 66;
+    public const int TargetsBuffer = 67;
+    public const int AxisInput = 68;
+    public const int Input = 69;
 
-    public const int TotalComponents = 59;
+    public const int TotalComponents = 70;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -81,6 +92,7 @@ public static class GameComponentsLookup {
         "EntityLink",
         "Id",
         "SpriteRenderer",
+        "StatusVisuals",
         "Transform",
         "WorldPosition",
         "AbilityId",
@@ -93,6 +105,7 @@ public static class GameComponentsLookup {
         "EffectSetups",
         "Processed",
         "Separable",
+        "StatusSetups",
         "Target",
         "TargetLimit",
         "Cooldown",
@@ -120,6 +133,15 @@ public static class GameComponentsLookup {
         "RotationAlignedByDirection",
         "Speed",
         "TurnedAlongDirection",
+        "Applied",
+        "Duration",
+        "Period",
+        "Poison",
+        "Status",
+        "StatusTypeId",
+        "TimeLeft",
+        "TimeSinceLastTick",
+        "Unapplied",
         "CollectingTargetsContiuously",
         "CollectTargetsInterval",
         "CollectTargetsTimer",
@@ -143,6 +165,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Common.EntityLink),
         typeof(Code.Gameplay.Common.Id),
         typeof(Code.Gameplay.Common.SpriteRendererComponent),
+        typeof(Code.Gameplay.Common.StatusVisualsComponent),
         typeof(Code.Gameplay.Common.TransformComponent),
         typeof(Code.Gameplay.Common.WorldPosition),
         typeof(Code.Gameplay.Features.Abilities.AbilityIdComponent),
@@ -155,6 +178,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Armaments.EffectSetups),
         typeof(Code.Gameplay.Features.Armaments.Processed),
         typeof(Code.Gameplay.Features.Armaments.Separable),
+        typeof(Code.Gameplay.Features.Armaments.StatusSetups),
         typeof(Code.Gameplay.Features.Armaments.Target),
         typeof(Code.Gameplay.Features.Armaments.TargetLimit),
         typeof(Code.Gameplay.Features.Cooldowns.Cooldown),
@@ -182,6 +206,15 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Movement.RotationAlignedByDirection),
         typeof(Code.Gameplay.Features.Movement.Speed),
         typeof(Code.Gameplay.Features.Movement.TurnedAlongDirection),
+        typeof(Code.Gameplay.Features.Statuses.Applied),
+        typeof(Code.Gameplay.Features.Statuses.Duration),
+        typeof(Code.Gameplay.Features.Statuses.Period),
+        typeof(Code.Gameplay.Features.Statuses.Poison),
+        typeof(Code.Gameplay.Features.Statuses.Status),
+        typeof(Code.Gameplay.Features.Statuses.StatusTypeIdComponent),
+        typeof(Code.Gameplay.Features.Statuses.TimeLeft),
+        typeof(Code.Gameplay.Features.Statuses.TimeSinceLastTick),
+        typeof(Code.Gameplay.Features.Statuses.Unapplied),
         typeof(Code.Gameplay.Features.TargetCollection.CollectingTargetsContiuously),
         typeof(Code.Gameplay.Features.TargetCollection.CollectTargetsInterval),
         typeof(Code.Gameplay.Features.TargetCollection.CollectTargetsTimer),
