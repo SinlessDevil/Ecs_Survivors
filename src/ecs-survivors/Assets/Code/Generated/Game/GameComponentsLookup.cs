@@ -62,27 +62,30 @@ public static class GameComponentsLookup {
     public const int RotationAlignedByDirection = 51;
     public const int Speed = 52;
     public const int TurnedAlongDirection = 53;
-    public const int Applied = 54;
-    public const int Duration = 55;
-    public const int Period = 56;
-    public const int Poison = 57;
-    public const int Status = 58;
-    public const int StatusTypeId = 59;
-    public const int TimeLeft = 60;
-    public const int TimeSinceLastTick = 61;
-    public const int Unapplied = 62;
-    public const int CollectingTargetsContiuously = 63;
-    public const int CollectTargetsInterval = 64;
-    public const int CollectTargetsTimer = 65;
-    public const int LayerMask = 66;
-    public const int ProcessedTargets = 67;
-    public const int Radius = 68;
-    public const int ReadyToCollectTargets = 69;
-    public const int TargetsBuffer = 70;
-    public const int AxisInput = 71;
-    public const int Input = 72;
+    public const int Affected = 54;
+    public const int Applied = 55;
+    public const int ApplierStatusLink = 56;
+    public const int Duration = 57;
+    public const int Freeze = 58;
+    public const int Period = 59;
+    public const int Poison = 60;
+    public const int Status = 61;
+    public const int StatusTypeId = 62;
+    public const int TimeLeft = 63;
+    public const int TimeSinceLastTick = 64;
+    public const int Unapplied = 65;
+    public const int CollectingTargetsContiuously = 66;
+    public const int CollectTargetsInterval = 67;
+    public const int CollectTargetsTimer = 68;
+    public const int LayerMask = 69;
+    public const int ProcessedTargets = 70;
+    public const int Radius = 71;
+    public const int ReadyToCollectTargets = 72;
+    public const int TargetsBuffer = 73;
+    public const int AxisInput = 74;
+    public const int Input = 75;
 
-    public const int TotalComponents = 73;
+    public const int TotalComponents = 76;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -139,8 +142,11 @@ public static class GameComponentsLookup {
         "RotationAlignedByDirection",
         "Speed",
         "TurnedAlongDirection",
+        "Affected",
         "Applied",
+        "ApplierStatusLink",
         "Duration",
+        "Freeze",
         "Period",
         "Poison",
         "Status",
@@ -215,8 +221,11 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Movement.RotationAlignedByDirection),
         typeof(Code.Gameplay.Features.Movement.Speed),
         typeof(Code.Gameplay.Features.Movement.TurnedAlongDirection),
+        typeof(Code.Gameplay.Features.Statuses.Affected),
         typeof(Code.Gameplay.Features.Statuses.Applied),
+        typeof(Code.Gameplay.Features.Statuses.ApplierStatusLink),
         typeof(Code.Gameplay.Features.Statuses.Duration),
+        typeof(Code.Gameplay.Features.Statuses.Freeze),
         typeof(Code.Gameplay.Features.Statuses.Period),
         typeof(Code.Gameplay.Features.Statuses.Poison),
         typeof(Code.Gameplay.Features.Statuses.Status),

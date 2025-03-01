@@ -8,7 +8,10 @@ namespace Code.Gameplay.Features.Statuses
         public StatusVisualsFeature(ISystemFactory systemFactory)
         {
             Add(systemFactory.Create<ApplyPoisonVisualsSystem>());
+            Add(systemFactory.Create<ApplyFreezeVisualsSystem>());
+            
             Add(systemFactory.Create<UnapplyPoisonVisualsSystem>());
+            Add(systemFactory.Create<UnapplyFreezeVisualsSystem>());
         }
     }
 }
