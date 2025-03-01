@@ -19,7 +19,8 @@ namespace Code.Gameplay.Features.Effects.Systems
             foreach (GameEntity effect in _effects)
             {
                 GameEntity target = effect.Target();
-                if(target != null)
+                
+                if(target == null)
                     target.Destroy();
             }
         }

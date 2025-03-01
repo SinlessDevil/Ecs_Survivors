@@ -60,7 +60,7 @@ namespace Code.Infrastructure.Installers
 
         private void BindGameplayFactories()
         {
-            Container.Bind<IEffectFactory>().To<EffectFactory>();
+            Container.Bind<IEffectFactory>().To<EffectFactory>().AsSingle();
             Container.Bind<IAbilityFactory>().To<AbilityFactory>().AsSingle();
             Container.Bind<IArmamentFactory>().To<ArmamentFactory>().AsSingle();
             Container.Bind<IEntityViewFactory>().To<EntityViewFactory>().AsSingle();

@@ -11,7 +11,6 @@ namespace Code.Gameplay.Features.Enemies.Factory
     public class EnemyFactory : IEnemyFactory
     {
         private float _hp = 3;
-        private float _damage = 1;
         private float _speed = 1;
         
         private readonly IIdentifierService _identifierService;
