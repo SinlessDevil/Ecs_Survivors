@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Code.Common.Entity;
 using Code.Common.Extensions;
 using Code.Gameplay.Features.Abilities.Configs;
+using Code.Gameplay.Features.CharacterStats;
 using Code.Gameplay.Features.Effects;
 using Code.Gameplay.Features.Enemies.Configs;
 using Code.Gameplay.StaticData;
@@ -41,15 +42,22 @@ namespace Code.Gameplay.Features.Enemies.Factory
         private GameEntity CreateGoblin(EnemyTypeId typeId, Vector3 at, int level = 1)
         {
             EnemyLevel enemyLevel = _staticDataService.GetEnemyLevel(EnemyTypeId.Goblin, level);
-
+            
+            Dictionary<Stats, float> baseStats = InitStats.EmptyStatDictionary()
+                .With(x => x[Stats.Speed] = enemyLevel.Speed)
+                .With(x => x[Stats.MaxHp] = enemyLevel.Hp)
+                .With(x => x[Stats.Damage] = 1);
+            
             return CreateEntity.Empty()
                 .AddId(_identifierService.Next())
                 .AddEnemyTypeID(typeId)
                 .AddWorldPosition(at)
                 .AddDirection(Vector2.zero)
-                .AddSpeed(enemyLevel.Speed)
-                .AddCurrentHp(enemyLevel.Hp)
-                .AddMaxHp(enemyLevel.Hp)
+                .AddBaseStats(baseStats)
+                .AddStatModifiers(InitStats.EmptyStatDictionary())
+                .AddSpeed(baseStats[Stats.Speed])
+                .AddCurrentHp(baseStats[Stats.MaxHp])
+                .AddMaxHp(baseStats[Stats.MaxHp])
                 .AddEffectSetups(enemyLevel.EffectSetups)
                 .AddTargetsBuffer(new List<int>(1))
                 .AddRadius(enemyLevel.RadiusToCollectTargets)

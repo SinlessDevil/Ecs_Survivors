@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using Code.Common.Entity;
 using Code.Common.Extensions;
+using Code.Gameplay.Features.CharacterStats;
 using Code.Gameplay.Features.Hero.Configs;
 using Code.Gameplay.StaticData;
 using Code.Infrastructure.Identifiers;
@@ -23,14 +25,20 @@ namespace Code.Gameplay.Features.Hero.Factory
         public GameEntity CreateHero(Vector3 at)
         {
             HeroConfig heroConfig = _staticDataService.HeroConfig;
+
+            Dictionary<Stats, float> baseStats = InitStats.EmptyStatDictionary()
+                .With(x => x[Stats.Speed] = heroConfig.Speed)
+                .With(x => x[Stats.MaxHp] = heroConfig.Hp);
             
             return CreateEntity.Empty()
                 .AddId(_identifierService.Next())
                 .AddWorldPosition(at)
                 .AddDirection(Vector2.zero)
-                .AddSpeed(heroConfig.Speed)
-                .AddCurrentHp(heroConfig.Hp)
-                .AddMaxHp(heroConfig.Hp)
+                .AddBaseStats(baseStats)
+                .AddStatModifiers(InitStats.EmptyStatDictionary())
+                .AddSpeed(baseStats[Stats.Speed])
+                .AddCurrentHp(baseStats[Stats.MaxHp])
+                .AddMaxHp(baseStats[Stats.MaxHp])
                 .AddViewPath("Gameplay/Hero/hero")
                 .With(x => x.isHero = true)
                 .With(x => x.isTurnedAlongDirection = true)
