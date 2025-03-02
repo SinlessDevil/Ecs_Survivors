@@ -13,39 +13,68 @@ namespace Code.Gameplay.Common.Visuals.StatusVisuals
         public Renderer Renderer;
         public Animator Animator;
 
-        [Header("Freeze")] public Color FreezeColor = new Color32(56, 163, 190, 255);
-        public float FreezeOutlineSize = 3;
-        public float FreezeOutlineSmoothness = 8;
-
-        [Header("Poison")] public Color PoisonColor = new Color32(56, 163, 190, 255);
-        public float PoisonColorIntensity = 0.6f;
-
-        public void ApplyFreeze()
+        public StatusEffect FreezeEffect = new()
         {
-            Renderer.material.SetColor(OutlineColorProperty, FreezeColor);
-            Renderer.material.SetFloat(OutlineSizeProperty, FreezeOutlineSize);
-            Renderer.material.SetFloat(OutlineSmoothnessProperty, FreezeOutlineSmoothness);
-            Animator.speed = 0;
+            Color = new StatusEffectColor(new Color32(56, 163, 190, 255), 1f),
+            OutlineSize = 3,
+            OutlineSmoothness = 8,
+            AffectsAnimator = true,
+            AnimatorSpeed = 0
+        };
+
+        public StatusEffectColor PoisonEffect = new(new Color32(0, 255, 0, 255), 0.6f);
+        public StatusEffectColor SpeedEffect = new(new Color32(255, 255, 0, 255), 0.6f);
+        public StatusEffectColor MaxHpEffect = new(new Color32(255, 0, 0, 255), 0.6f);
+
+        public StatusEffect InvulnerabilityEffect = new()
+        {
+            Color = new StatusEffectColor(new Color32(255, 255, 255, 255), 1f),
+            OutlineSize = 3,
+            OutlineSmoothness = 8,
+            AffectsAnimator = true,
+            AnimatorSpeed = 0
+        };
+
+        private void ApplyEffect(StatusEffect effect)
+        {
+            Renderer.material.SetColor(OutlineColorProperty, effect.Color.Color);
+            Renderer.material.SetFloat(OutlineSizeProperty, effect.OutlineSize);
+            Renderer.material.SetFloat(OutlineSmoothnessProperty, effect.OutlineSmoothness);
+
+            if (effect.AffectsAnimator)
+            {
+                Animator.speed = effect.AnimatorSpeed;
+            }
         }
 
-        public void UnapplyFreeze()
+        private void ApplyEffect(StatusEffectColor effectColor)
+        {
+            Renderer.material.SetColor(ColorProperty, effectColor.Color);
+            Renderer.material.SetFloat(ColorIntensityProperty, effectColor.Intensity);
+        }
+
+        private void UnapplyEffect()
         {
             Renderer.material.SetColor(OutlineColorProperty, Color.white);
             Renderer.material.SetFloat(OutlineSizeProperty, 0f);
             Renderer.material.SetFloat(OutlineSmoothnessProperty, 0f);
+            Renderer.material.SetFloat(ColorIntensityProperty, 0f);
             Animator.speed = 1;
         }
 
-        public void ApplyPoison()
-        {
-            Renderer.material.SetColor(ColorProperty, PoisonColor);
-            Renderer.material.SetFloat(ColorIntensityProperty, PoisonColorIntensity);
-        }
+        public void ApplyFreeze() => ApplyEffect(FreezeEffect);
+        public void UnapplyFreeze() => UnapplyEffect();
 
-        public void UnapplyPoison()
-        {
-            Renderer.material.SetColor(ColorProperty, Color.white);
-            Renderer.material.SetFloat(ColorIntensityProperty, 0f);
-        }
+        public void ApplyPoison() => ApplyEffect(PoisonEffect);
+        public void UnapplyPoison() => UnapplyEffect();
+
+        public void ApplySpeed() => ApplyEffect(SpeedEffect);
+        public void UnapplySpeed() => UnapplyEffect();
+
+        public void ApplyMaxHp() => ApplyEffect(MaxHpEffect);
+        public void UnapplyMaxHp() => UnapplyEffect();
+
+        public void ApplyInvulnerability() => ApplyEffect(InvulnerabilityEffect);
+        public void UnapplyInvulnerability() => UnapplyEffect();
     }
 }
