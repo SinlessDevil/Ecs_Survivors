@@ -2,6 +2,7 @@ using System.Linq;
 using Code.Common.EntityIndices;
 using Code.Common.Extensions;
 using Code.Gameplay.Features.Statuses.Factory;
+using Unity.VisualScripting;
 
 namespace Code.Gameplay.Features.Statuses.Applier
 {
@@ -20,8 +21,11 @@ namespace Code.Gameplay.Features.Statuses.Applier
         {
             GameEntity status = _gameContext.TargetStatusesOfType(setup.StatusTypeId, targetId).FirstOrDefault();
             
-            if (status != null)
+            if (status != null && setup.IsStackable)
                 return status.ReplaceTimeLeft(setup.Duration);
+
+            if (status != null)
+                return null;
             
             return _statusFactory
                 .CreateStatus(setup, producerId, targetId)
@@ -32,8 +36,11 @@ namespace Code.Gameplay.Features.Statuses.Applier
         {
             GameEntity status = _gameContext.TargetStatusesOfType(setup.StatusTypeId, producerId).FirstOrDefault();
             
-            if (status != null)
+            if (status != null && setup.IsStackable)
                 return status.ReplaceTimeLeft(setup.Duration);
+            
+            if (status != null)
+                return null;
             
             return _statusFactory
                 .CreateStatus(setup, producerId, targetId)

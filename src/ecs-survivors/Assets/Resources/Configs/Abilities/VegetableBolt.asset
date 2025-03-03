@@ -21,9 +21,12 @@ MonoBehaviour:
       Value: 1
     StatusSetups:
     - StatusTypeId: 3
-      Value: 6
-      Duration: 2
+      Value: 5
+      Duration: 3
       Period: 0
+      StatusApplicationTypeId: 1
+      StatusTriggerConditionTypeId: 2
+      IsStackable: 0
     ProjectileSetup:
       Speed: 2
       Pierce: 3
