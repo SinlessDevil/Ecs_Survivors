@@ -13,7 +13,8 @@ namespace Code.Gameplay.Features.Statuses.Systems
             _statuses = gameContext.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Status,
-                    GameMatcher.Unapplied));
+                    GameMatcher.Unapplied
+                    ));
         }
 
         public void Cleanup()
@@ -24,6 +25,4 @@ namespace Code.Gameplay.Features.Statuses.Systems
             }
         }
     }
-    
-    
 }

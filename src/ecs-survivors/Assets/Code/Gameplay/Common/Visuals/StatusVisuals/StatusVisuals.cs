@@ -68,8 +68,8 @@ namespace Code.Gameplay.Common.Visuals.StatusVisuals
         public void ApplyPoison() => ApplyEffect(PoisonEffect);
         public void UnapplyPoison() => UnapplyEffect();
 
-        public void ApplySpeed() => ApplyEffect(SpeedEffect);
-        public void UnapplySpeed() => UnapplyEffect();
+        public void ApplySpeedUp() => ApplyEffect(SpeedEffect);
+        public void UnapplySpeedUp() => UnapplyEffect();
 
         public void ApplyMaxHp() => ApplyEffect(MaxHpEffect);
         public void UnapplyMaxHp() => UnapplyEffect();

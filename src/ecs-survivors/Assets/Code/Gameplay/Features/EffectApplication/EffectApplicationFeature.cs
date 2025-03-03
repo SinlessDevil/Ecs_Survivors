@@ -8,7 +8,9 @@ namespace Code.Gameplay.Features.EffectApplication
         public EffectApplicationFeature(ISystemFactory systemFactory)
         {
             Add(systemFactory.Create<ApplyEffectsOnTargetsSystem>());
-            Add(systemFactory.Create<ApplyStatusOnTargetsSystem>());
+            Add(systemFactory.Create<ApplyStatusOnTargetsAfterTouchTargetSystem>());
+            Add(systemFactory.Create<ApplyStatusOnProducerAfterTouchTargetSystem>());
+            Add(systemFactory.Create<ApplyStatusOnProducerAfterDeathTargetSystem>());
         }
     }
 }

@@ -7,5 +7,14 @@ namespace Code.Gameplay.Common.Visuals.StatusVisuals
         
         void ApplyPoison();
         void UnapplyPoison();
+        
+        void ApplySpeedUp();
+        void UnapplySpeedUp();
+        
+        void ApplyMaxHp();
+        void UnapplyMaxHp();
+        
+        void ApplyInvulnerability();
+        void UnapplyInvulnerability();
     }
 }

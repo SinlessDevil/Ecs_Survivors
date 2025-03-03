@@ -10,7 +10,9 @@ namespace Code.Gameplay.Features.Statuses
             Add(systemFactory.Create<StatusDurationSystem>());
             Add(systemFactory.Create<PeriodicDamageStatusSystem>());
             Add(systemFactory.Create<ApplyFreezeStatusSystem>());
+            Add(systemFactory.Create<ApplySpeedUpStatusSystem>());
             
+            //Sub features
             Add(systemFactory.Create<StatusVisualsFeature>());
 
             Add(systemFactory.Create<CleanupUnappliedStatusLinkedChanges>());

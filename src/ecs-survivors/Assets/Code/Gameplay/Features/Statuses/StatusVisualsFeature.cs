@@ -9,9 +9,11 @@ namespace Code.Gameplay.Features.Statuses
         {
             Add(systemFactory.Create<ApplyPoisonVisualsSystem>());
             Add(systemFactory.Create<ApplyFreezeVisualsSystem>());
+            Add(systemFactory.Create<ApplySpeedUpVisualsSystem>());
             
             Add(systemFactory.Create<UnapplyPoisonVisualsSystem>());
             Add(systemFactory.Create<UnapplyFreezeVisualsSystem>());
+            Add(systemFactory.Create<UnapplySpeedUpVisualsSystem>());
         }
     }
 }

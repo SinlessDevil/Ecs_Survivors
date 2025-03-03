@@ -16,14 +16,28 @@ namespace Code.Gameplay.Features.Statuses.Applier
             _gameContext = gameContext;
         }
 
-        public GameEntity ApplyStatus(StatusSetup setup, int producerId, int targetId)
+        public GameEntity ApplyStatusOnTarget(StatusSetup setup, int producerId, int targetId)
         {
             GameEntity status = _gameContext.TargetStatusesOfType(setup.StatusTypeId, targetId).FirstOrDefault();
+            
             if (status != null)
                 return status.ReplaceTimeLeft(setup.Duration);
-            else 
-                return _statusFactory.CreateStatus(setup, producerId, targetId)
-                    .With(x => x.isApplied = true);
+            
+            return _statusFactory
+                .CreateStatus(setup, producerId, targetId)
+                .With(x => x.isApplied = true);
+        }
+
+        public GameEntity ApplyStatusOnProducer(StatusSetup setup, int producerId, int targetId)
+        {
+            GameEntity status = _gameContext.TargetStatusesOfType(setup.StatusTypeId, producerId).FirstOrDefault();
+            
+            if (status != null)
+                return status.ReplaceTimeLeft(setup.Duration);
+            
+            return _statusFactory
+                .CreateStatus(setup, producerId, targetId)
+                .With(x => x.isApplied = true);
         }
     }
 }

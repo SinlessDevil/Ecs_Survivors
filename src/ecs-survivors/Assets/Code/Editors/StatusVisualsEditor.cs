@@ -21,7 +21,7 @@ namespace Code.Editor
             {
                 { "Freeze", () => ToggleEffect(statusVisuals.ApplyFreeze, statusVisuals.UnapplyFreeze, "Freeze") },
                 { "Poison", () => ToggleEffect(statusVisuals.ApplyPoison, statusVisuals.UnapplyPoison, "Poison") },
-                { "Speed", () => ToggleEffect(statusVisuals.ApplySpeed, statusVisuals.UnapplySpeed, "Speed") },
+                { "Speed", () => ToggleEffect(statusVisuals.ApplySpeedUp, statusVisuals.UnapplySpeedUp, "Speed") },
                 { "Max Hp", () => ToggleEffect(statusVisuals.ApplyMaxHp, statusVisuals.UnapplyMaxHp, "Max Hp") },
                 { "Invulnerability", () => ToggleEffect(statusVisuals.ApplyInvulnerability, statusVisuals.UnapplyInvulnerability, "Invulnerability") }
             };

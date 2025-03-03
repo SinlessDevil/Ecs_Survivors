@@ -30,14 +30,5 @@ namespace Code.Gameplay.Features.CharacterStats.Systems
                     statOwner.StatModifiers[statsKey] += statChange.EffectValue;
             }
         }
-
-        // public void Initialize()
-        // {
-        //     CreateEntity.Empty()
-        //         .AddTargetId(2)
-        //         .AddEffectValue(6)
-        //         .AddStatChange(Stats.Speed)
-        //         .AddSelfDestructTimer(5);
-        // }
     }
 }

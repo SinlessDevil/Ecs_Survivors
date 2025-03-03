@@ -4,6 +4,9 @@ namespace Code.Gameplay.Features.Statuses
     {
         Unknown = 0,
         Poison = 1,
-        Freeze = 2
+        Freeze = 2,
+        SpeedUp = 3,
+        MaxHpUp = 4,
+        Invulnerability = 5,
     }
 }
