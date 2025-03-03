@@ -7,6 +7,8 @@ namespace Code.Gameplay.Features.Abilities
         RadiatingCogBolt = 2,
         BouncingCoinBolt = 3,
         ScatteringRuneStoneBolt = 4,
-        OrbitingMushroomBolt = 5
+        OrbitingMushroomBolt = 5,
+        
+        GarlicAura = 20
     }
 }

@@ -11,6 +11,8 @@ namespace Code.Gameplay.Features.Armaments
             Add(systems.Create<HandleScatteringAtTouchTargetSystem>());
             
             Add(systems.Create<MarkProcessedOnTargetLimitExceededSystem>());
+            Add(systems.Create<FollowProducerSystem>());
+            
             Add(systems.Create<FinalizeProcessedArmamentsSystem>());
         }
     }

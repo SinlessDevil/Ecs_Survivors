@@ -10,33 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be200600f51647d0953ea7d87c62b4e2, type: 3}
-  m_Name: OrbitingMushroomBolt
+  m_Name: GarlicAura
   m_EditorClassIdentifier: 
-  AbilityId: 5
+  AbilityId: 20
   Levels:
-  - Cooldown: 4
-    ViewPrefab: {fileID: 305485127122427316, guid: 92dc63e318e181a4a9587ecf7216ee46, type: 3}
-    EffectSetups:
-    - EffectTypeId: 1
-      Value: 1
+  - Cooldown: 0
+    ViewPrefab: {fileID: 8615003941349736562, guid: c4c8cf39ebe3672468c50bd2fedcd936, type: 3}
+    EffectSetups: []
     StatusSetups:
-    - StatusTypeId: 1
-      Value: 1
-      Duration: 3
-      Period: 1
+    - StatusTypeId: 2
+      Value: -5
+      Duration: 0.2
+      Period: 0
       StatusApplicationTypeId: 2
       StatusTriggerConditionTypeId: 1
       IsStackable: 1
     ProjectileSetup:
-      Speed: 2
+      Speed: 0
       Pierce: 0
-      ContactRadius: 0.1
-      LifeTime: 3
-      ProjectileCount: 3
+      ContactRadius: 0
+      LifeTime: 0
+      ProjectileCount: 0
       SpreadAngle: 0
       MaxBounces: 0
       ScaleFactor: 0
-      OrbitRadius: 1
+      OrbitRadius: 0
     AuraSetup:
-      Radius: 0
-      Interval: 0
+      Radius: 2
+      Interval: 0.5

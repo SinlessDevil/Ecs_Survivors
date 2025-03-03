@@ -1,3 +1,4 @@
+using Code.Gameplay.Features.Abilities;
 using UnityEngine;
 
 namespace Code.Gameplay.Features.Armaments.Factory
@@ -9,5 +10,7 @@ namespace Code.Gameplay.Features.Armaments.Factory
         GameEntity CreateBouncingCoinBolt(int level, Vector3 at);
         GameEntity CreateScatteringRuneStoneBolt(int level, Vector3 at);
         GameEntity CreateOrbitingMushroomBolt(int level, Vector3 at, float phase);
+        
+        GameEntity CreateEffectAura(AbilityId parentAbilityId, int producerId, int level);
     }
 }

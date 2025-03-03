@@ -80,5 +80,13 @@ namespace Code.Gameplay.Features.Abilities.Factory
                 .With(x => x.isOrbitingMushroomBoltAbility = true)
                 .PutOnCooldown();
         }
+        
+        public GameEntity CreateGarlicAuraAbility()
+        {
+            return CreateEntity.Empty()
+                .AddId(_identifierService.Next())
+                .AddAbilityId(AbilityId.GarlicAura)
+                .With(x => x.isGarlicAuraAbility = true);
+        }
     }
 }

@@ -15,6 +15,8 @@ namespace Code.Gameplay.Features.Abilities.Systems
             Add(systems.Create<BouncingCoinBoltAbilitySystem>());
             Add(systems.Create<ScatteringRuneStoneBoltAbilitySystem>());
             Add(systems.Create<OrbitingMushroomAbilitySystem>());
+            
+            Add(systems.Create<GarlicAuraAbilitySystem>());
         }
     }
 }

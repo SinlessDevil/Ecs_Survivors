@@ -7,5 +7,7 @@ namespace Code.Gameplay.Features.Abilities.Factory
         GameEntity CreateBouncingCoinBoltAbility(int level);
         GameEntity CreateScatteringRuneStoneBolt(int level);
         GameEntity CreateOrbitingMushroomBolt(int level);
+        
+        GameEntity CreateGarlicAuraAbility();
     }
 }

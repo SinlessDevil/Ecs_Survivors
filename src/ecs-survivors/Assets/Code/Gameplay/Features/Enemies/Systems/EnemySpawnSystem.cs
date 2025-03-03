@@ -11,7 +11,7 @@ namespace Code.Gameplay.Features.Enemies.Systems
     public class EnemySpawnSystem : IExecuteSystem
     {
         private const float SpawnDistanceGap = 0.5f;
-        private const float EnemySpawnTimer = 2;
+        private const float EnemySpawnTimer = 1;
         
         private readonly ITimeService _timeService;
         private readonly IEnemyFactory _enemyFactory;
