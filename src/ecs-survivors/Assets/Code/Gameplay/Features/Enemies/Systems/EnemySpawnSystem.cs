@@ -42,6 +42,8 @@ namespace Code.Gameplay.Features.Enemies.Systems
             foreach (GameEntity hero in _heroes)
             foreach (GameEntity timer in _timers)
             {
+                return;
+                
                 timer.ReplaceSpawnTimer(timer.SpawnTimer - _timeService.DeltaTime);
                 if (timer.SpawnTimer <= 0)
                 {

@@ -19,4 +19,5 @@ namespace Code.Gameplay.Features.Statuses
     [Game] public class Poison : IComponent { }
     [Game] public class Freeze : IComponent { }
     [Game] public class SpeedUp : IComponent { }
+    [Game] public class MaxHpUp : IComponent { }
 }

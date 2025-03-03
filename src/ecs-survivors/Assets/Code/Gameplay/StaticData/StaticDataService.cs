@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Code.Gameplay.Features.Abilities;
 using Code.Gameplay.Features.Abilities.Configs;
+using Code.Gameplay.Features.Boosters;
 using Code.Gameplay.Features.Enemies;
 using Code.Gameplay.Features.Enemies.Configs;
 using Code.Gameplay.Features.Hero.Configs;
@@ -14,6 +15,7 @@ namespace Code.Gameplay.StaticData
     {
         private Dictionary<AbilityId, AbilityConfig> _abilityById;
         private Dictionary<EnemyTypeId, EnemyConfig> _enemyById;
+        private Dictionary<BoosterTypeId, BoosterConfig> _boosterById;
         private HeroConfig _heroConfig;
 
         public void LoadAll()
@@ -21,6 +23,7 @@ namespace Code.Gameplay.StaticData
             LoadAbilities();
             LoadEnemies();
             LoadHeroConfig();
+            LoadBoosters();
         }
 
         public HeroConfig HeroConfig => _heroConfig;
@@ -51,6 +54,14 @@ namespace Code.Gameplay.StaticData
             throw new Exception($"Enemy config for {enemyTypeId} not found");
         }
 
+        public BoosterConfig GetBoosterConfig(BoosterTypeId boosterTypeId)
+        {
+            if(_boosterById.TryGetValue(boosterTypeId, out BoosterConfig config)) 
+                return config;
+
+            throw new Exception($"Booster config for {boosterTypeId} not found");
+        }
+        
         public EnemyLevel GetEnemyLevel(EnemyTypeId enemyTypeId, int level)
         {
             EnemyConfig config = GetEnemyConfig(enemyTypeId);
@@ -75,6 +86,13 @@ namespace Code.Gameplay.StaticData
                 .ToDictionary(x => x.EnemyTypeId, x => x);
         }
 
+        private void LoadBoosters()
+        {
+            _boosterById = Resources
+                .LoadAll<BoosterConfig>("Configs/Boosters")
+                .ToDictionary(x => x.BoosterTypeId, x => x);
+        }
+        
         private void LoadHeroConfig()
         {
             _heroConfig = Resources.Load<HeroConfig>("Configs/Heroes/HeroConfig");

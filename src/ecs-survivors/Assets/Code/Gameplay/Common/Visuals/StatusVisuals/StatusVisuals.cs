@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 
 namespace Code.Gameplay.Common.Visuals.StatusVisuals
 {
@@ -71,8 +72,25 @@ namespace Code.Gameplay.Common.Visuals.StatusVisuals
         public void ApplySpeedUp() => ApplyEffect(SpeedEffect);
         public void UnapplySpeedUp() => UnapplyEffect();
 
-        public void ApplyMaxHp() => ApplyEffect(MaxHpEffect);
-        public void UnapplyMaxHp() => UnapplyEffect();
+        public void ApplyMaxHp()
+        {
+            Debug.Log("ApplyMaxHp");
+            
+            ApplyEffect(MaxHpEffect);
+
+            transform.parent.DOScale(1.5f, 0.5f)
+                .SetEase(Ease.Linear);
+        }
+
+        public void UnapplyMaxHp()
+        {
+            Debug.Log("UnapplyMaxHp");
+            
+            UnapplyEffect();
+            
+            transform.parent.DOScale(1f, 0.5f)
+                .SetEase(Ease.Linear);
+        }
 
         public void ApplyInvulnerability() => ApplyEffect(InvulnerabilityEffect);
         public void UnapplyInvulnerability() => UnapplyEffect();

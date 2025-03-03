@@ -1,6 +1,7 @@
 using Code.Gameplay.Features.Statuses;
 using Code.Gameplay.Features.Statuses.Applier;
 using Entitas;
+using UnityEngine;
 
 namespace Code.Gameplay.Features.EffectApplication.Systems
 {

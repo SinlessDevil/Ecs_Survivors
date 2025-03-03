@@ -1,5 +1,6 @@
 ﻿using Code.Gameplay.Features.Abilities;
 using Code.Gameplay.Features.Abilities.Configs;
+using Code.Gameplay.Features.Boosters;
 using Code.Gameplay.Features.Enemies;
 using Code.Gameplay.Features.Enemies.Configs;
 using Code.Gameplay.Features.Hero.Configs;
@@ -16,5 +17,6 @@ namespace Code.Gameplay.StaticData
         public EnemyConfig GetEnemyConfig(EnemyTypeId enemyTypeId);
         public EnemyLevel GetEnemyLevel(EnemyTypeId enemyTypeId, int level);
         HeroConfig HeroConfig { get; }
+        BoosterConfig GetBoosterConfig(BoosterTypeId boosterTypeId);
     }
 }

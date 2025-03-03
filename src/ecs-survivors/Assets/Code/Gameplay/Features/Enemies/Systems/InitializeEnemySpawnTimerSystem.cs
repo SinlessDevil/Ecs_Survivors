@@ -3,7 +3,7 @@ using Entitas;
 
 namespace Code.Gameplay.Features.Enemies.Systems
 {
-    public class InitializeSpawnTimerSystem : IInitializeSystem
+    public class InitializeEnemySpawnTimerSystem : IInitializeSystem
     {
         private const float EnemySpawnTimer = 1;
         

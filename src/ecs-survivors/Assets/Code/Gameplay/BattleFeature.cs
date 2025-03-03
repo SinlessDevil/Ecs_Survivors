@@ -1,6 +1,7 @@
 ﻿using Code.Common.Destruct;
 using Code.Gameplay.Features.Abilities.Systems;
 using Code.Gameplay.Features.Armaments;
+using Code.Gameplay.Features.Boosters;
 using Code.Gameplay.Features.CharacterStats.Systems;
 using Code.Gameplay.Features.EffectApplication;
 using Code.Gameplay.Features.Effects.Systems;
@@ -25,7 +26,6 @@ namespace Code.Gameplay
             
             Add(systemFactory.Create<HeroFeature>());
             Add(systemFactory.Create<EnemyFeature>());
-            Add(systemFactory.Create<DeathFeature>());
             
             Add(systemFactory.Create<MovementFeature>());
             
@@ -35,10 +35,13 @@ namespace Code.Gameplay
             Add(systemFactory.Create<ArmamentFeature>());
             
             Add(systemFactory.Create<EffectApplicationFeature>());
+            Add(systemFactory.Create<BoosterFeature>());
             
             Add(systemFactory.Create<EffectFeature>());
             Add(systemFactory.Create<StatusFeature>());
             Add(systemFactory.Create<StatFeature>());
+            
+            Add(systemFactory.Create<DeathFeature>());
             
             Add(systemFactory.Create<ProcessDestructedFeature>());
         }

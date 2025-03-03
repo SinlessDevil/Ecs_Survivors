@@ -59,3 +59,6 @@ TagManager:
   - name: Forground
     uniqueID: 3782231809
     locked: 0
+  - name: Booster
+    uniqueID: 1723578891
+    locked: 0

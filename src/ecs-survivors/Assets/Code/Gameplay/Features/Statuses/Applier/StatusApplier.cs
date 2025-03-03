@@ -3,6 +3,7 @@ using Code.Common.EntityIndices;
 using Code.Common.Extensions;
 using Code.Gameplay.Features.Statuses.Factory;
 using Unity.VisualScripting;
+using UnityEngine;
 
 namespace Code.Gameplay.Features.Statuses.Applier
 {
