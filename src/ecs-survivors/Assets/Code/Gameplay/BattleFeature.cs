@@ -37,9 +37,9 @@ namespace Code.Gameplay
             Add(systemFactory.Create<EffectApplicationFeature>());
             Add(systemFactory.Create<BoosterFeature>());
             
-            Add(systemFactory.Create<EffectFeature>());
             Add(systemFactory.Create<StatusFeature>());
             Add(systemFactory.Create<StatFeature>());
+            Add(systemFactory.Create<EffectFeature>());
             
             Add(systemFactory.Create<DeathFeature>());
             

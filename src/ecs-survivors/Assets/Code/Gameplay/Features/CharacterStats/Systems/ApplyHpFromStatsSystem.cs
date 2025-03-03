@@ -21,10 +21,6 @@ namespace Code.Gameplay.Features.CharacterStats.Systems
             foreach (GameEntity statOwner in _statOwners)
             {
                 statOwner.ReplaceMaxHp(MoveMaxHp(statOwner).ZeroIfNegative());
-                if (HasMoveMaxHp(statOwner))
-                {
-                    statOwner.ReplaceCurrentHp(MoveMaxHp(statOwner).ZeroIfNegative());
-                }
             }
         }
         

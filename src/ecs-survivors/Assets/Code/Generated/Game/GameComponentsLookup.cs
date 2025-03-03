@@ -47,51 +47,52 @@ public static class GameComponentsLookup {
     public const int DamageEffect = 36;
     public const int Effect = 37;
     public const int EffectValue = 38;
-    public const int ProducerId = 39;
-    public const int TargetId = 40;
-    public const int Enemy = 41;
-    public const int EnemyAnimator = 42;
-    public const int EnemyTypeID = 43;
-    public const int SpawnTimer = 44;
-    public const int Hero = 45;
-    public const int HeroAnimator = 46;
-    public const int CurrentHp = 47;
-    public const int Dead = 48;
-    public const int MaxHp = 49;
-    public const int ProcessingDeath = 50;
-    public const int Destination = 51;
-    public const int Direction = 52;
-    public const int MovementAvailable = 53;
-    public const int Moving = 54;
-    public const int RotationAlignedByDirection = 55;
-    public const int Speed = 56;
-    public const int TurnedAlongDirection = 57;
-    public const int Affected = 58;
-    public const int Applied = 59;
-    public const int ApplierStatusLink = 60;
-    public const int Duration = 61;
-    public const int Freeze = 62;
-    public const int MaxHpUp = 63;
-    public const int Period = 64;
-    public const int Poison = 65;
-    public const int SpeedUp = 66;
-    public const int Status = 67;
-    public const int StatusTypeId = 68;
-    public const int TimeLeft = 69;
-    public const int TimeSinceLastTick = 70;
-    public const int Unapplied = 71;
-    public const int CollectingTargetsContiuously = 72;
-    public const int CollectTargetsInterval = 73;
-    public const int CollectTargetsTimer = 74;
-    public const int LayerMask = 75;
-    public const int ProcessedTargets = 76;
-    public const int Radius = 77;
-    public const int ReadyToCollectTargets = 78;
-    public const int TargetsBuffer = 79;
-    public const int AxisInput = 80;
-    public const int Input = 81;
+    public const int HealEffect = 39;
+    public const int ProducerId = 40;
+    public const int TargetId = 41;
+    public const int Enemy = 42;
+    public const int EnemyAnimator = 43;
+    public const int EnemyTypeID = 44;
+    public const int SpawnTimer = 45;
+    public const int Hero = 46;
+    public const int HeroAnimator = 47;
+    public const int CurrentHp = 48;
+    public const int Dead = 49;
+    public const int MaxHp = 50;
+    public const int ProcessingDeath = 51;
+    public const int Destination = 52;
+    public const int Direction = 53;
+    public const int MovementAvailable = 54;
+    public const int Moving = 55;
+    public const int RotationAlignedByDirection = 56;
+    public const int Speed = 57;
+    public const int TurnedAlongDirection = 58;
+    public const int Affected = 59;
+    public const int Applied = 60;
+    public const int ApplierStatusLink = 61;
+    public const int Duration = 62;
+    public const int Freeze = 63;
+    public const int MaxHpUp = 64;
+    public const int Period = 65;
+    public const int Poison = 66;
+    public const int SpeedUp = 67;
+    public const int Status = 68;
+    public const int StatusTypeId = 69;
+    public const int TimeLeft = 70;
+    public const int TimeSinceLastTick = 71;
+    public const int Unapplied = 72;
+    public const int CollectingTargetsContiuously = 73;
+    public const int CollectTargetsInterval = 74;
+    public const int CollectTargetsTimer = 75;
+    public const int LayerMask = 76;
+    public const int ProcessedTargets = 77;
+    public const int Radius = 78;
+    public const int ReadyToCollectTargets = 79;
+    public const int TargetsBuffer = 80;
+    public const int AxisInput = 81;
+    public const int Input = 82;
 
-    public const int TotalComponents = 82;
+    public const int TotalComponents = 83;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -133,6 +134,7 @@ public static class GameComponentsLookup {
         "DamageEffect",
         "Effect",
         "EffectValue",
+        "HealEffect",
         "ProducerId",
         "TargetId",
         "Enemy",
@@ -218,6 +220,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Effects.DamageEffect),
         typeof(Code.Gameplay.Features.Effects.Effect),
         typeof(Code.Gameplay.Features.Effects.EffectValue),
+        typeof(Code.Gameplay.Features.Effects.HealEffect),
         typeof(Code.Gameplay.Features.Effects.ProducerId),
         typeof(Code.Gameplay.Features.Effects.TargetId),
         typeof(Code.Gameplay.Features.Enemies.Enemy),
