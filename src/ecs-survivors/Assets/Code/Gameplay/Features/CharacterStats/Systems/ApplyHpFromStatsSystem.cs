@@ -21,7 +21,10 @@ namespace Code.Gameplay.Features.CharacterStats.Systems
             foreach (GameEntity statOwner in _statOwners)
             {
                 statOwner.ReplaceMaxHp(MoveMaxHp(statOwner).ZeroIfNegative());
-                statOwner.ReplaceCurrentHp(MoveMaxHp(statOwner).ZeroIfNegative());
+                if (HasMoveMaxHp(statOwner))
+                {
+                    statOwner.ReplaceCurrentHp(MoveMaxHp(statOwner).ZeroIfNegative());
+                }
             }
         }
         
@@ -30,5 +33,9 @@ namespace Code.Gameplay.Features.CharacterStats.Systems
             return statOwner.BaseStats[Stats.MaxHp] + statOwner.StatModifiers[Stats.MaxHp];
         }
         
+        private bool HasMoveMaxHp(GameEntity statOwner)
+        {
+            return statOwner.StatModifiers[Stats.MaxHp] != 0;
+        }
     }
 }

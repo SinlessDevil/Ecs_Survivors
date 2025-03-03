@@ -1,6 +1,6 @@
 ﻿using Code.Gameplay.Common.Visuals;
-using DG.Tweening;
 using UnityEngine;
+using DG.Tweening;
 
 namespace Code.Gameplay.Features.Enemies.Behaviours
 {

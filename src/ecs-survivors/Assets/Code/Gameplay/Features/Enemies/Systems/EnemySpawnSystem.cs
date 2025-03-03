@@ -11,7 +11,7 @@ namespace Code.Gameplay.Features.Enemies.Systems
     public class EnemySpawnSystem : IExecuteSystem
     {
         private const float SpawnDistanceGap = 0.5f;
-        private const float EnemySpawnTimer = 1;
+        private const float EnemySpawnTimer = 2;
         
         private readonly ITimeService _timeService;
         private readonly IEnemyFactory _enemyFactory;
@@ -42,8 +42,6 @@ namespace Code.Gameplay.Features.Enemies.Systems
             foreach (GameEntity hero in _heroes)
             foreach (GameEntity timer in _timers)
             {
-                return;
-                
                 timer.ReplaceSpawnTimer(timer.SpawnTimer - _timeService.DeltaTime);
                 if (timer.SpawnTimer <= 0)
                 {

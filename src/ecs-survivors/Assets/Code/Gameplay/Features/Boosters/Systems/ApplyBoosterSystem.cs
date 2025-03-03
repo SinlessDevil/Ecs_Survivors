@@ -30,6 +30,7 @@ namespace Code.Gameplay.Features.Boosters.Systems
             foreach (int targetId in booster.TargetsBuffer)
             {
                 GameEntity currentTarget = _game.GetEntityWithId(targetId);
+                Debug.Log($"{currentTarget.isHero}");
                 
                 if (currentTarget.isHero)
                 {

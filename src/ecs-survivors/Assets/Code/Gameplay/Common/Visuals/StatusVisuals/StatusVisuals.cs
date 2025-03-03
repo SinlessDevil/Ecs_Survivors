@@ -74,8 +74,6 @@ namespace Code.Gameplay.Common.Visuals.StatusVisuals
 
         public void ApplyMaxHp()
         {
-            Debug.Log("ApplyMaxHp");
-            
             ApplyEffect(MaxHpEffect);
 
             transform.parent.DOScale(1.5f, 0.5f)
@@ -84,8 +82,6 @@ namespace Code.Gameplay.Common.Visuals.StatusVisuals
 
         public void UnapplyMaxHp()
         {
-            Debug.Log("UnapplyMaxHp");
-            
             UnapplyEffect();
             
             transform.parent.DOScale(1f, 0.5f)

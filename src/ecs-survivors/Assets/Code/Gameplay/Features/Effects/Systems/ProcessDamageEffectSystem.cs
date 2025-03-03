@@ -1,5 +1,6 @@
 using Code.Gameplay.Features.Effects.Extensions;
 using Entitas;
+using Unity.VisualScripting;
 
 namespace Code.Gameplay.Features.Effects.Systems
 {
@@ -25,6 +26,9 @@ namespace Code.Gameplay.Features.Effects.Systems
                 
                 if(target.isDead)
                     continue;
+                
+                if(!target.hasCurrentHp)
+                    return;
                 
                 target.ReplaceCurrentHp(target.CurrentHp - effect.EffectValue);
                 
