@@ -34,59 +34,64 @@ public static class GameComponentsLookup {
     public const int StatusSetups = 23;
     public const int Target = 24;
     public const int TargetLimit = 25;
-    public const int BaseStats = 26;
-    public const int StatChange = 27;
-    public const int StatModifiers = 28;
-    public const int Cooldown = 29;
-    public const int CooldownLeft = 30;
-    public const int CooldownUp = 31;
-    public const int DamageEffect = 32;
-    public const int Effect = 33;
-    public const int EffectValue = 34;
-    public const int ProducerId = 35;
-    public const int TargetId = 36;
-    public const int Enemy = 37;
-    public const int EnemyAnimator = 38;
-    public const int EnemyTypeID = 39;
-    public const int SpawnTimer = 40;
-    public const int Hero = 41;
-    public const int HeroAnimator = 42;
-    public const int CurrentHp = 43;
-    public const int Dead = 44;
-    public const int MaxHp = 45;
-    public const int ProcessingDeath = 46;
-    public const int Destination = 47;
-    public const int Direction = 48;
-    public const int MovementAvailable = 49;
-    public const int Moving = 50;
-    public const int RotationAlignedByDirection = 51;
-    public const int Speed = 52;
-    public const int TurnedAlongDirection = 53;
-    public const int Affected = 54;
-    public const int Applied = 55;
-    public const int ApplierStatusLink = 56;
-    public const int Duration = 57;
-    public const int Freeze = 58;
-    public const int Period = 59;
-    public const int Poison = 60;
-    public const int SpeedUp = 61;
-    public const int Status = 62;
-    public const int StatusTypeId = 63;
-    public const int TimeLeft = 64;
-    public const int TimeSinceLastTick = 65;
-    public const int Unapplied = 66;
-    public const int CollectingTargetsContiuously = 67;
-    public const int CollectTargetsInterval = 68;
-    public const int CollectTargetsTimer = 69;
-    public const int LayerMask = 70;
-    public const int ProcessedTargets = 71;
-    public const int Radius = 72;
-    public const int ReadyToCollectTargets = 73;
-    public const int TargetsBuffer = 74;
-    public const int AxisInput = 75;
-    public const int Input = 76;
+    public const int ApplyBooster = 26;
+    public const int Booster = 27;
+    public const int BoosterSpawnTimer = 28;
+    public const int BoosterTypeId = 29;
+    public const int BaseStats = 30;
+    public const int StatChange = 31;
+    public const int StatModifiers = 32;
+    public const int Cooldown = 33;
+    public const int CooldownLeft = 34;
+    public const int CooldownUp = 35;
+    public const int DamageEffect = 36;
+    public const int Effect = 37;
+    public const int EffectValue = 38;
+    public const int ProducerId = 39;
+    public const int TargetId = 40;
+    public const int Enemy = 41;
+    public const int EnemyAnimator = 42;
+    public const int EnemyTypeID = 43;
+    public const int SpawnTimer = 44;
+    public const int Hero = 45;
+    public const int HeroAnimator = 46;
+    public const int CurrentHp = 47;
+    public const int Dead = 48;
+    public const int MaxHp = 49;
+    public const int ProcessingDeath = 50;
+    public const int Destination = 51;
+    public const int Direction = 52;
+    public const int MovementAvailable = 53;
+    public const int Moving = 54;
+    public const int RotationAlignedByDirection = 55;
+    public const int Speed = 56;
+    public const int TurnedAlongDirection = 57;
+    public const int Affected = 58;
+    public const int Applied = 59;
+    public const int ApplierStatusLink = 60;
+    public const int Duration = 61;
+    public const int Freeze = 62;
+    public const int MaxHpUp = 63;
+    public const int Period = 64;
+    public const int Poison = 65;
+    public const int SpeedUp = 66;
+    public const int Status = 67;
+    public const int StatusTypeId = 68;
+    public const int TimeLeft = 69;
+    public const int TimeSinceLastTick = 70;
+    public const int Unapplied = 71;
+    public const int CollectingTargetsContiuously = 72;
+    public const int CollectTargetsInterval = 73;
+    public const int CollectTargetsTimer = 74;
+    public const int LayerMask = 75;
+    public const int ProcessedTargets = 76;
+    public const int Radius = 77;
+    public const int ReadyToCollectTargets = 78;
+    public const int TargetsBuffer = 79;
+    public const int AxisInput = 80;
+    public const int Input = 81;
 
-    public const int TotalComponents = 77;
+    public const int TotalComponents = 82;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -115,6 +120,10 @@ public static class GameComponentsLookup {
         "StatusSetups",
         "Target",
         "TargetLimit",
+        "ApplyBooster",
+        "Booster",
+        "BoosterSpawnTimer",
+        "BoosterTypeId",
         "BaseStats",
         "StatChange",
         "StatModifiers",
@@ -148,6 +157,7 @@ public static class GameComponentsLookup {
         "ApplierStatusLink",
         "Duration",
         "Freeze",
+        "MaxHpUp",
         "Period",
         "Poison",
         "SpeedUp",
@@ -195,6 +205,10 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Armaments.StatusSetups),
         typeof(Code.Gameplay.Features.Armaments.Target),
         typeof(Code.Gameplay.Features.Armaments.TargetLimit),
+        typeof(Code.Gameplay.Features.Boosters.ApplyBooster),
+        typeof(Code.Gameplay.Features.Boosters.Booster),
+        typeof(Code.Gameplay.Features.Boosters.BoosterSpawnTimer),
+        typeof(Code.Gameplay.Features.Boosters.BoosterTypeIdComponent),
         typeof(Code.Gameplay.Features.CharacterStats.BaseStats),
         typeof(Code.Gameplay.Features.CharacterStats.StatChange),
         typeof(Code.Gameplay.Features.CharacterStats.StatModifiers),
@@ -228,6 +242,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Statuses.ApplierStatusLink),
         typeof(Code.Gameplay.Features.Statuses.Duration),
         typeof(Code.Gameplay.Features.Statuses.Freeze),
+        typeof(Code.Gameplay.Features.Statuses.MaxHpUp),
         typeof(Code.Gameplay.Features.Statuses.Period),
         typeof(Code.Gameplay.Features.Statuses.Poison),
         typeof(Code.Gameplay.Features.Statuses.SpeedUp),
