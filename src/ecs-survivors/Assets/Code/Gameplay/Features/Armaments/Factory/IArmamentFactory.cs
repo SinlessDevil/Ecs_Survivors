@@ -8,5 +8,6 @@ namespace Code.Gameplay.Features.Armaments.Factory
         GameEntity CreateRadiatingCogBolt(int level, Vector3 at);
         GameEntity CreateBouncingCoinBolt(int level, Vector3 at);
         GameEntity CreateScatteringRuneStoneBolt(int level, Vector3 at);
+        GameEntity CreateOrbitingMushroomBolt(int level, Vector3 at, float phase);
     }
 }

@@ -21,5 +21,8 @@ namespace Code.Gameplay.Features.Abilities.Configs
         
         [Space(10)] [Header("Scattering")]
         public float ScaleFactor;
+        
+        [Space(10)] [Header("Orbiting")]
+        public float OrbitRadius;
     }
 }

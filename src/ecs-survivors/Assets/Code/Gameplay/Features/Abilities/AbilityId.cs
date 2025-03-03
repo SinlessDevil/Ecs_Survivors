@@ -6,6 +6,7 @@ namespace Code.Gameplay.Features.Abilities
         VegetableBolt = 1,
         RadiatingCogBolt = 2,
         BouncingCoinBolt = 3,
-        ScatteringRuneStoneBolt = 4
+        ScatteringRuneStoneBolt = 4,
+        OrbitingMushroomBolt = 5
     }
 }

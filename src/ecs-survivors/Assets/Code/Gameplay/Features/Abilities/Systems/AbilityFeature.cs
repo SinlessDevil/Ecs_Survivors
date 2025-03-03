@@ -1,5 +1,6 @@
 using Code.Gameplay.Features.Cooldowns.Systems;
 using Code.Infrastructure.Systems;
+using Unity.VisualScripting;
 
 namespace Code.Gameplay.Features.Abilities.Systems
 {
@@ -13,6 +14,7 @@ namespace Code.Gameplay.Features.Abilities.Systems
             Add(systems.Create<RadiatingCogBoltAbilitySystem>());
             Add(systems.Create<BouncingCoinBoltAbilitySystem>());
             Add(systems.Create<ScatteringRuneStoneBoltAbilitySystem>());
+            Add(systems.Create<OrbitingMushroomAbilitySystem>());
         }
     }
 }

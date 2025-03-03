@@ -68,5 +68,17 @@ namespace Code.Gameplay.Features.Abilities.Factory
                 .With(x => x.isScatteringRuneStoneAbility = true)
                 .PutOnCooldown();
         }
+        
+        public GameEntity CreateOrbitingMushroomBolt(int level)
+        {
+            AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(AbilityId.OrbitingMushroomBolt, level);
+            
+            return CreateEntity.Empty()
+                .AddId(_identifierService.Next())
+                .AddAbilityId(AbilityId.OrbitingMushroomBolt)
+                .AddCooldown(abilityLevel.Cooldown)
+                .With(x => x.isOrbitingMushroomBoltAbility = true)
+                .PutOnCooldown();
+        }
     }
 }
