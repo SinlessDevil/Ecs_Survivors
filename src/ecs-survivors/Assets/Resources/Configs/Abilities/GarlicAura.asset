@@ -36,5 +36,5 @@ MonoBehaviour:
       ScaleFactor: 0
       OrbitRadius: 0
     AuraSetup:
-      Radius: 2
+      Radius: 4
       Interval: 0.5

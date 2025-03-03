@@ -320,7 +320,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5150,7 +5150,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -9713,6 +9713,7 @@ GameObject:
   - component: {fileID: 7897260696194773655}
   - component: {fileID: 8615003941349736562}
   - component: {fileID: 1307497442584915754}
+  - component: {fileID: 8222910175842367191}
   m_Layer: 0
   m_Name: garlicAura
   m_TagString: Untagged
@@ -9761,3 +9762,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <EntityView>k__BackingField: {fileID: 8615003941349736562}
+--- !u!114 &8222910175842367191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8783522936459097793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a98cfc3bfc04d86be9e6bb86b88446e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <EntityView>k__BackingField: {fileID: 8615003941349736562}
+  Container: {fileID: 5444044905996140599}
