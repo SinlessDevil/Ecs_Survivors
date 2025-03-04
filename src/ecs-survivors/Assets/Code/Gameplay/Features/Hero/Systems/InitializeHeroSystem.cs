@@ -30,11 +30,11 @@ namespace Code.Gameplay.Features.Hero.Systems
         {
             GameEntity hero = _heroFactory.CreateHero(_levelDataProvider.StartPoint);
             
-            _abilityFactory.CreateVegetableBoltAbility(level: 1);
+            // _abilityFactory.CreateVegetableBoltAbility(level: 1);
             // _abilityFactory.CreateOrbitingMushroomBolt(level: 1);
             //_abilityFactory.CreateRadiatingCogBoltAbility(level: 1);
             //_abilityFactory.CreateBouncingCoinBoltAbility(level: 1);
-            //_abilityFactory.CreateScatteringRuneStoneBolt(level: 1);
+            _abilityFactory.CreateScatteringRuneStoneBolt(level: 1);
             
             // _abilityFactory.CreateGarlicAuraAbility();
             
@@ -45,7 +45,7 @@ namespace Code.Gameplay.Features.Hero.Systems
             //     StatusApplicationTypeId = StatusApplicationTypeId.Target,
             //     StatusTriggerConditionTypeId =StatusTriggerConditionTypeId.OnTouch,
             // }, hero.Id, hero.Id);
-            
+
             // _statusApplier.ApplyStatusOnTarget(new StatusSetup()
             // {
             //     StatusTypeId = StatusTypeId.ExplosiveEnchant,

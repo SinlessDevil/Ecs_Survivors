@@ -16,7 +16,7 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: cbfa5431ffdac7d49ae5bf38d894904b, type: 3}
   EffectSetups:
   - EffectTypeId: 1
-    Value: 3
+    Value: 1
   StatusSetups: []
   Radius: 3
   ViewPrefab: {fileID: 8790890799380060639, guid: 1341d554ea3ef934da5f10cbfae07840, type: 3}

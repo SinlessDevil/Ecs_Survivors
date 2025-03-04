@@ -19,8 +19,8 @@ MonoBehaviour:
   StatusSetups:
   - StatusTypeId: 20
     Value: 0
-    Duration: 20
+    Duration: 5
     Period: 0
-    StatusApplicationTypeId: 2
-    StatusTriggerConditionTypeId: 1
+    StatusApplicationTypeId: 0
+    StatusTriggerConditionTypeId: 0
     IsStackable: 1

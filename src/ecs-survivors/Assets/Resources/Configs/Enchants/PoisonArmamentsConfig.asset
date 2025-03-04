@@ -20,8 +20,8 @@ MonoBehaviour:
     Value: 0.35
     Duration: 2
     Period: 0.5
-    StatusApplicationTypeId: 2
-    StatusTriggerConditionTypeId: 1
-    IsStackable: 1
+    StatusApplicationTypeId: 0
+    StatusTriggerConditionTypeId: 0
+    IsStackable: 0
   Radius: 0
   ViewPrefab: {fileID: 0}

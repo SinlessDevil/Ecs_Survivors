@@ -35,19 +35,19 @@ namespace Code.Gameplay.Features.Enchants.Systems
         public void Execute()
         {
             foreach (GameEntity enchant in _enchants)
-            foreach (GameEntity armamet in _armamets.GetEntities(_buffer))
+            foreach (GameEntity armament in _armamets.GetEntities(_buffer))
             {
-                if (enchant.ProducerId == armamet.ProducerId)
+                if (enchant.ProducerId == armament.ProducerId)
                 {
-                    GetOrAddStatusSetups(armamet)
+                    GetOrAddStatusSetups(armament)
                         .AddRange(_staticDataService.GetEnchantConfig(EnchantTypeId.PoisonArmaments).StatusSetups);
                     
-                    armamet.isPoisonEnchant = true;
+                    armament.isPoisonEnchant = true;
                 }
             }
         }
 
-        private static List<StatusSetup> GetOrAddStatusSetups(GameEntity armamet)
+        private List<StatusSetup> GetOrAddStatusSetups(GameEntity armamet)
         {
             if(!armamet.hasStatusSetups)
                 armamet.AddStatusSetups(new List<StatusSetup>());

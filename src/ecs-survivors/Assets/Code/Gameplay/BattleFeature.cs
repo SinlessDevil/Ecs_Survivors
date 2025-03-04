@@ -22,33 +22,32 @@ namespace Code.Gameplay
 {
     public class BattleFeature : Feature
     {
-        public BattleFeature(ISystemFactory systemFactory)
+        public BattleFeature(ISystemFactory system)
         {
-            Add(systemFactory.Create<InputFeature>());
-            Add(systemFactory.Create<BindViewFeature>());
+            Add(system.Create<InputFeature>());
+            Add(system.Create<BindViewFeature>());
             
-            Add(systemFactory.Create<HeroFeature>());
-            Add(systemFactory.Create<EnemyFeature>());
+            Add(system.Create<HeroFeature>());
+            Add(system.Create<EnemyFeature>());
+            Add(system.Create<DeathFeature>());
             
-            Add(systemFactory.Create<MovementFeature>());
+            Add(system.Create<LootingFeature>());
             
-            Add(systemFactory.Create<CollectTargetFeature>());
-           
-            Add(systemFactory.Create<AbilityFeature>());
-            Add(systemFactory.Create<ArmamentFeature>());
+            Add(system.Create<MovementFeature>());
+            Add(system.Create<AbilityFeature>());
             
-            Add(systemFactory.Create<EffectApplicationFeature>());
+            Add(system.Create<ArmamentFeature>());
+            
+            Add(system.Create<CollectTargetFeature>());
+            Add(system.Create<EffectApplicationFeature>());
            // Add(systemFactory.Create<BoosterFeature>());
-            Add(systemFactory.Create<LootingFeature>());
            
-            Add(systemFactory.Create<EnchantFeature>());
-            Add(systemFactory.Create<StatusFeature>());
-            Add(systemFactory.Create<StatFeature>());
-            Add(systemFactory.Create<EffectFeature>());
+            Add(system.Create<EnchantFeature>());
+            Add(system.Create<EffectFeature>());
+            Add(system.Create<StatusFeature>());
+            Add(system.Create<StatFeature>());
             
-            Add(systemFactory.Create<DeathFeature>());
-            
-            Add(systemFactory.Create<ProcessDestructedFeature>());
+            Add(system.Create<ProcessDestructedFeature>());
         }
     }
 }

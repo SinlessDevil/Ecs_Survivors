@@ -106,7 +106,6 @@ namespace Code.Gameplay.Features.Statuses.Factory
                 .AddId(_identifierService.Next())
                 .AddStatusTypeId(StatusTypeId.PoisonEnchant)
                 .AddEnchantTypeId(EnchantTypeId.PoisonArmaments)
-                .AddEffectValue(setup.Value)
                 .AddProducerId(producerId)
                 .AddTargetId(targetId)
                 .With(x => x.isStatus = true)

@@ -1,5 +1,6 @@
 using Code.Gameplay.Common.Time;
 using Entitas;
+using UnityEngine;
 
 namespace Code.Gameplay.Features.Statuses.Systems
 {
@@ -26,7 +27,10 @@ namespace Code.Gameplay.Features.Statuses.Systems
                 if (status.TimeLeft >= 0)
                     status.ReplaceTimeLeft(status.TimeLeft - _timeService.DeltaTime);
                 else
+                {
+                    Debug.LogError("StatusDurationSystem: Status " + status + " has no time left");
                     status.isUnapplied = true;
+                }
             }
         }
     }

@@ -19,14 +19,7 @@ MonoBehaviour:
     EffectSetups:
     - EffectTypeId: 1
       Value: 1
-    StatusSetups:
-    - StatusTypeId: 1
-      Value: 0.5
-      Duration: 3
-      Period: 1
-      StatusApplicationTypeId: 2
-      StatusTriggerConditionTypeId: 1
-      IsStackable: 1
+    StatusSetups: []
     ProjectileSetup:
       Speed: 2
       Pierce: 3

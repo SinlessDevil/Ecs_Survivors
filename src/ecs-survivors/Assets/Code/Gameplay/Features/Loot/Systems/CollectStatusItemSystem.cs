@@ -1,22 +1,22 @@
-using Code.Gameplay.Features.Effects;
-using Code.Gameplay.Features.Effects.Factory;
+using Code.Gameplay.Features.Statuses;
+using Code.Gameplay.Features.Statuses.Applier;
 using Entitas;
 
 namespace Code.Gameplay.Features.Loot.Systems
 {
     public class CollectStatusItemSystem : IExecuteSystem
     {
-        private readonly IEffectFactory _effectFactory;
+        private readonly IStatusApplier _statusApplier;
         private readonly IGroup<GameEntity> _collected;
         private readonly IGroup<GameEntity> _heroes;
 
-        public CollectStatusItemSystem(GameContext game, IEffectFactory effectFactory)
+        public CollectStatusItemSystem(GameContext game, IStatusApplier statusApplier)
         {
-            _effectFactory = effectFactory;
+            _statusApplier = statusApplier;
             
             _collected = game.GetGroup(GameMatcher
                 .AllOf(GameMatcher.Collected,
-                    GameMatcher.EffectSetups));
+                    GameMatcher.StatusSetups));
 
             _heroes = game.GetGroup(GameMatcher
                 .AllOf(GameMatcher.Hero,
@@ -28,9 +28,9 @@ namespace Code.Gameplay.Features.Loot.Systems
         {
             foreach (GameEntity collect in _collected)
             foreach (GameEntity hero in _heroes)
-            foreach (EffectSetup effectSetup in collect.EffectSetups)
+            foreach (StatusSetup statusSetup in collect.StatusSetups)
             {
-                _effectFactory.CreateEffect(effectSetup, hero.Id, hero.Id);
+                _statusApplier.ApplyStatusOnTarget(statusSetup, hero.Id, hero.Id);
             }
         }
     }

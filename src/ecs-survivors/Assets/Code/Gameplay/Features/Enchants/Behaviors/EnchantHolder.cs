@@ -20,6 +20,8 @@ namespace Code.Gameplay.Features.Enchants.Behaviors
         
         public void AddEnchant(EnchantTypeId enchantTypeId)
         {
+            //Debug.Log($"{enchantTypeId} added to holder");
+            
             if (EnchantAlreadyHeld(enchantTypeId))
                 return;
             
@@ -29,6 +31,8 @@ namespace Code.Gameplay.Features.Enchants.Behaviors
 
         public void RemoveEnchant(EnchantTypeId enchantTypeId)
         {
+            //Debug.Log($"{enchantTypeId} added to holder");
+            
             Enchant enchant = _enchants.Find(x => x.EnchantTypeId == enchantTypeId);
 
             if (enchant != null)
