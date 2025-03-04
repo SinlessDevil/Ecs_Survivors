@@ -9,6 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7589477673726770556}
+  - component: {fileID: 5398947392639322723}
+  - component: {fileID: 9216119886587645296}
+  - component: {fileID: 3072866626094999069}
+  - component: {fileID: 2937216460279819175}
   m_Layer: 5
   m_Name: ExperienceMeter
   m_TagString: Untagged
@@ -38,6 +42,59 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 200}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &5398947392639322723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422563144223820131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 095dfe7e26e640b68c3c9aa58da3f2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9216119886587645296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422563144223820131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 604511864cd94a64a30264c5bfd0faac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <EntityView>k__BackingField: {fileID: 5398947392639322723}
+  ExperienceMeter: {fileID: 3072866626094999069}
+--- !u!114 &3072866626094999069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422563144223820131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8996e11f105347d9bf573562ffdffd48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ProgressBar: {fileID: 4316122374815336477}
+  Fill: {fileID: 3855879650170727451}
+--- !u!114 &2937216460279819175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422563144223820131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54931a1d3c8c42a787e6584d6e2570e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EntityBehaviour: {fileID: 5398947392639322723}
 --- !u!1 &529028645316253066
 GameObject:
   m_ObjectHideFlags: 0

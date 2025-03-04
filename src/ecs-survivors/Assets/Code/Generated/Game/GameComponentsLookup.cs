@@ -65,54 +65,55 @@ public static class GameComponentsLookup {
     public const int SpawnTimer = 54;
     public const int Hero = 55;
     public const int HeroAnimator = 56;
-    public const int CurrentHp = 57;
-    public const int Dead = 58;
-    public const int MaxHp = 59;
-    public const int ProcessingDeath = 60;
-    public const int Collected = 61;
-    public const int Experience = 62;
-    public const int LootTypeId = 63;
-    public const int PickupRadius = 64;
-    public const int Pullable = 65;
-    public const int Pulling = 66;
-    public const int Destination = 67;
-    public const int Direction = 68;
-    public const int MovementAvailable = 69;
-    public const int Moving = 70;
-    public const int OrbitCenterFollowTarget = 71;
-    public const int OrbitCenterPosition = 72;
-    public const int OrbitPhase = 73;
-    public const int OrbitRadius = 74;
-    public const int RotationAlignedByDirection = 75;
-    public const int Speed = 76;
-    public const int TurnedAlongDirection = 77;
-    public const int Affected = 78;
-    public const int Applied = 79;
-    public const int ApplierStatusLink = 80;
-    public const int Duration = 81;
-    public const int Freeze = 82;
-    public const int MaxHpUp = 83;
-    public const int Period = 84;
-    public const int Poison = 85;
-    public const int SpeedUp = 86;
-    public const int Status = 87;
-    public const int StatusTypeId = 88;
-    public const int TimeLeft = 89;
-    public const int TimeSinceLastTick = 90;
-    public const int Unapplied = 91;
-    public const int CollectingTargetsContinuously = 92;
-    public const int CollectTargetsInterval = 93;
-    public const int CollectTargetsTimer = 94;
-    public const int LayerMask = 95;
-    public const int ProcessedTargets = 96;
-    public const int Radius = 97;
-    public const int Reached = 98;
-    public const int ReadyToCollectTargets = 99;
-    public const int TargetsBuffer = 100;
-    public const int AxisInput = 101;
-    public const int Input = 102;
+    public const int ExperienceMeter = 57;
+    public const int CurrentHp = 58;
+    public const int Dead = 59;
+    public const int MaxHp = 60;
+    public const int ProcessingDeath = 61;
+    public const int Collected = 62;
+    public const int Experience = 63;
+    public const int LootTypeId = 64;
+    public const int PickupRadius = 65;
+    public const int Pullable = 66;
+    public const int Pulling = 67;
+    public const int Destination = 68;
+    public const int Direction = 69;
+    public const int MovementAvailable = 70;
+    public const int Moving = 71;
+    public const int OrbitCenterFollowTarget = 72;
+    public const int OrbitCenterPosition = 73;
+    public const int OrbitPhase = 74;
+    public const int OrbitRadius = 75;
+    public const int RotationAlignedByDirection = 76;
+    public const int Speed = 77;
+    public const int TurnedAlongDirection = 78;
+    public const int Affected = 79;
+    public const int Applied = 80;
+    public const int ApplierStatusLink = 81;
+    public const int Duration = 82;
+    public const int Freeze = 83;
+    public const int MaxHpUp = 84;
+    public const int Period = 85;
+    public const int Poison = 86;
+    public const int SpeedUp = 87;
+    public const int Status = 88;
+    public const int StatusTypeId = 89;
+    public const int TimeLeft = 90;
+    public const int TimeSinceLastTick = 91;
+    public const int Unapplied = 92;
+    public const int CollectingTargetsContinuously = 93;
+    public const int CollectTargetsInterval = 94;
+    public const int CollectTargetsTimer = 95;
+    public const int LayerMask = 96;
+    public const int ProcessedTargets = 97;
+    public const int Radius = 98;
+    public const int Reached = 99;
+    public const int ReadyToCollectTargets = 100;
+    public const int TargetsBuffer = 101;
+    public const int AxisInput = 102;
+    public const int Input = 103;
 
-    public const int TotalComponents = 103;
+    public const int TotalComponents = 104;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -172,6 +173,7 @@ public static class GameComponentsLookup {
         "SpawnTimer",
         "Hero",
         "HeroAnimator",
+        "ExperienceMeter",
         "CurrentHp",
         "Dead",
         "MaxHp",
@@ -278,6 +280,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Enemies.SpawnTimer),
         typeof(Code.Gameplay.Features.Hero.Hero),
         typeof(Code.Gameplay.Features.Hero.HeroAnimatorComponent),
+        typeof(Code.Gameplay.Features.LevelUp.ExperienceMeterComponent),
         typeof(Code.Gameplay.Features.LifeTime.CurrentHp),
         typeof(Code.Gameplay.Features.LifeTime.Dead),
         typeof(Code.Gameplay.Features.LifeTime.MaxHp),
