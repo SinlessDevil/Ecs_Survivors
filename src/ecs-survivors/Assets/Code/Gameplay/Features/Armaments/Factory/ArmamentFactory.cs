@@ -51,7 +51,6 @@ namespace Code.Gameplay.Features.Armaments.Factory
 
             return CreateProjectileEntity(at, abilityLevel, setup)
                 .AddParentAbility(AbilityId.BouncingCoinBolt)
-                .AddTarget(null)
                 .AddBounceRate(abilityLevel.ProjectileSetup.MaxBounces)
                 .With(x => x.isRotationAlignedByDirection = true);
         }

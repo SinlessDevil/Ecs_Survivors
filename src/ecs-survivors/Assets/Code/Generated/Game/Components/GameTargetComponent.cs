@@ -34,10 +34,10 @@ public sealed partial class GameMatcher {
 public partial class GameEntity {
 
     public Code.Gameplay.Features.Armaments.Target target { get { return (Code.Gameplay.Features.Armaments.Target)GetComponent(GameComponentsLookup.Target); } }
-    public GameEntity Target { get { return target.Value; } }
+    public int Target { get { return target.Value; } }
     public bool hasTarget { get { return HasComponent(GameComponentsLookup.Target); } }
 
-    public GameEntity AddTarget(GameEntity newValue) {
+    public GameEntity AddTarget(int newValue) {
         var index = GameComponentsLookup.Target;
         var component = (Code.Gameplay.Features.Armaments.Target)CreateComponent(index, typeof(Code.Gameplay.Features.Armaments.Target));
         component.Value = newValue;
@@ -45,7 +45,7 @@ public partial class GameEntity {
         return this;
     }
 
-    public GameEntity ReplaceTarget(GameEntity newValue) {
+    public GameEntity ReplaceTarget(int newValue) {
         var index = GameComponentsLookup.Target;
         var component = (Code.Gameplay.Features.Armaments.Target)CreateComponent(index, typeof(Code.Gameplay.Features.Armaments.Target));
         component.Value = newValue;

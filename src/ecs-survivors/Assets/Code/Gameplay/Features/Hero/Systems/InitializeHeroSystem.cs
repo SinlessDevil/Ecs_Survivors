@@ -15,7 +15,7 @@ namespace Code.Gameplay.Features.Hero.Systems
         private readonly IStatusApplier _statusApplier;
 
         public InitializeHeroSystem(
-            IHeroFactory heroFactory, 
+            IHeroFactory heroFactory,
             ILevelDataProvider levelDataProvider,
             IAbilityFactory abilityFactory,
             IStatusApplier statusApplier)
@@ -25,19 +25,19 @@ namespace Code.Gameplay.Features.Hero.Systems
             _abilityFactory = abilityFactory;
             _statusApplier = statusApplier;
         }
-        
+
         public void Initialize()
         {
             GameEntity hero = _heroFactory.CreateHero(_levelDataProvider.StartPoint);
-            
+
             // _abilityFactory.CreateVegetableBoltAbility(level: 1);
-            // _abilityFactory.CreateOrbitingMushroomBolt(level: 1);
+            //_abilityFactory.CreateOrbitingMushroomBolt(level: 1);
             //_abilityFactory.CreateRadiatingCogBoltAbility(level: 1);
-            //_abilityFactory.CreateBouncingCoinBoltAbility(level: 1);
-            _abilityFactory.CreateScatteringRuneStoneBolt(level: 1);
-            
+            _abilityFactory.CreateBouncingCoinBoltAbility(level: 1);
+            //_abilityFactory.CreateScatteringRuneStoneBolt(level: 1);
+
             // _abilityFactory.CreateGarlicAuraAbility();
-            
+
             // _statusApplier.ApplyStatusOnTarget(new StatusSetup()
             // {
             //     StatusTypeId = StatusTypeId.PoisonEnchant,

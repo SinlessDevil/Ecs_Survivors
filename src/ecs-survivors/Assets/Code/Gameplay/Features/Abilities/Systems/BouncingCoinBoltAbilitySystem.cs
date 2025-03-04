@@ -49,17 +49,16 @@ namespace Code.Gameplay.Features.Abilities.Systems
             {
                 if(_enemies.count <= 0)
                     continue;
-                
+
                 _armamentFactory
                     .CreateBouncingCoinBolt(1, hero.WorldPosition)
                     .AddProducerId(hero.Id)
+                    .AddTarget(FirstAvailableTarget().Id)
                     .ReplaceDirection((FirstAvailableTarget().WorldPosition - hero.WorldPosition).normalized)
                     .With(x => x.isMoving = true);
                 
-                ability
-                    .PutOnCooldown(_staticDataService.GetAbilityLevel(AbilityId.BouncingCoinBolt, 1).Cooldown);
+                ability.PutOnCooldown(_staticDataService.GetAbilityLevel(AbilityId.BouncingCoinBolt, 1).Cooldown);
             }
-            
         }
         
         private GameEntity FirstAvailableTarget()
