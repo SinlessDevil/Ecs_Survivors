@@ -18,4 +18,4 @@ MonoBehaviour:
     Value: 3
   StatusSetups: []
   Radius: 3
-  ViewPrefab: {fileID: 0}
+  ViewPrefab: {fileID: 8790890799380060639, guid: 1341d554ea3ef934da5f10cbfae07840, type: 3}
