@@ -10,8 +10,11 @@ namespace Code.Gameplay.Features.Enchants.Configs
     public class EnchantConfig : ScriptableObject
     {
         public EnchantTypeId EnchantTypeId;
+        public Sprite Icon;
+        
         public List<EffectSetup> EffectSetups;
         public List<StatusSetup> StatusSetups;
+        
         public float Radius;
         public EntityBehaviour ViewPrefab;
     }

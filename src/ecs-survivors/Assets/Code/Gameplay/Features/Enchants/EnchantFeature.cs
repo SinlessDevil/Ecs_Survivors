@@ -10,6 +10,9 @@ namespace Code.Gameplay.Features.Enchants.Systems
             Add(systems.Create<ExplosiveEnchantSystem>());
             
             Add(systems.Create<ApplyPoisonEnchantVisualsSystem>());
+            
+            //UI Systems
+            Add(systems.Create<AddEnchantsToHolderSystem>());
         }
     }
 }

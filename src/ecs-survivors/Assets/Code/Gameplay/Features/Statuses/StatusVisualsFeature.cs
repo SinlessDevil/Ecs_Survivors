@@ -1,3 +1,4 @@
+using Code.Gameplay.Features.Enchants.Systems;
 using Code.Gameplay.Features.Statuses.Systems.StatusVisuals;
 using Code.Infrastructure.Systems;
 
@@ -16,6 +17,9 @@ namespace Code.Gameplay.Features.Statuses
             Add(systemFactory.Create<UnapplyFreezeVisualsSystem>());
             Add(systemFactory.Create<UnapplySpeedUpVisualsSystem>());
             Add(systemFactory.Create<UnapplyMaxHpUpVisualsSystem>());
+            
+            //UI Remove Systems
+            Add(systemFactory.Create<RemoveUnappliedEnchantFromHolder>());
         }
     }
 }
