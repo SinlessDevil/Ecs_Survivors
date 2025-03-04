@@ -1,5 +1,8 @@
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 using Code.Common.Extensions;
+using Code.Gameplay.Common.Physics;
 using Code.Gameplay.Features.Abilities;
 using Code.Gameplay.Features.Armaments.Extensions;
 using Code.Gameplay.Features.Armaments.Factory;
@@ -17,21 +20,27 @@ namespace Code.Gameplay.Features.Armaments.Systems
         private readonly List<GameEntity> _bufferHeroes = new(1);
         
         private readonly GameContext _game;
+        
         private readonly IArmamentFactory _armamentFactory;
         private readonly IStaticDataService _staticDataService;
+        private readonly IPhysicsService _physicsService;
 
         public HandleScatteringAtTouchTargetSystem (GameContext game, 
             IArmamentFactory armamentFactory,
-            IStaticDataService staticDataService)
+            IStaticDataService staticDataService,
+            IPhysicsService physicsService)
         {
             _game = game;
             _armamentFactory = armamentFactory;
             _staticDataService = staticDataService;
+            _physicsService = physicsService;
 
             _armaments = game.GetGroup(GameMatcher
                 .AllOf(GameMatcher.Armament,
-                    GameMatcher.TargetsBuffer,
-                    GameMatcher.Separable));
+                    GameMatcher.Separable,
+                    GameMatcher.WorldPosition,
+                    GameMatcher.Radius,
+                    GameMatcher.LayerMask));
             
             _heroes = game.GetGroup(GameMatcher
                 .AllOf(
@@ -43,9 +52,13 @@ namespace Code.Gameplay.Features.Armaments.Systems
         {
             foreach (GameEntity hero in _heroes.GetEntities(_bufferHeroes))
             foreach (GameEntity armament in _armaments.GetEntities(_bufferArmaments))
-            foreach (int targetId in armament.TargetsBuffer)
             {
                 if(armament.isSeparable == false)
+                    continue;
+
+                var targetId = TargetsInRadius(armament);
+                
+                if (targetId == 0)
                     continue;
                 
                 GameEntity currentTarget = _game.GetEntityWithId(targetId);
@@ -62,7 +75,20 @@ namespace Code.Gameplay.Features.Armaments.Systems
                         .With(x => x.isMoving = true)
                         .With(x => x.isSeparable = false);
                 }
+
+                armament.isSeparable = false;
             }
+        }
+        
+        private int TargetsInRadius(GameEntity entity)
+        {
+            var targets = _physicsService
+                .CircleCast(entity.WorldPosition, entity.Radius, entity.LayerMask)
+                .OrderBy(t => Vector3.Distance(entity.WorldPosition, t.WorldPosition))
+                .Select(t => t.Id)
+                .ToList();
+
+            return targets.FirstOrDefault();
         }
     }
 }
