@@ -6,6 +6,8 @@ using Code.Gameplay.Features.Enchants.Configs;
 using Code.Gameplay.Features.Enemies;
 using Code.Gameplay.Features.Enemies.Configs;
 using Code.Gameplay.Features.Hero.Configs;
+using Code.Gameplay.Features.Loot;
+using Code.Gameplay.Features.Loot.Configs;
 
 namespace Code.Gameplay.StaticData
 {
@@ -18,8 +20,10 @@ namespace Code.Gameplay.StaticData
 
         public EnemyConfig GetEnemyConfig(EnemyTypeId enemyTypeId);
         public EnemyLevel GetEnemyLevel(EnemyTypeId enemyTypeId, int level);
+        
         public BoosterConfig GetBoosterConfig(BoosterTypeId boosterTypeId);
         public EnchantConfig GetEnchantConfig(EnchantTypeId enchantTypeId);
+        public LootConfig GetLootConfig(LootTypeId lootTypeId);
         
         HeroConfig HeroConfig { get; }
     }

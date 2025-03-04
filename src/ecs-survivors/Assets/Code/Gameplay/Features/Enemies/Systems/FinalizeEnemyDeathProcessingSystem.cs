@@ -24,5 +24,6 @@ namespace Code.Gameplay.Features.Enemies.Systems
                 enemy.isProcessingDeath = false;
             }
         }
+
     }
 }

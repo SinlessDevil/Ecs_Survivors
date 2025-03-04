@@ -10,6 +10,7 @@ using Code.Gameplay.Features.Boosters.Factroy;
 using Code.Gameplay.Features.Effects.Factory;
 using Code.Gameplay.Features.Enemies.Factory;
 using Code.Gameplay.Features.Hero.Factory;
+using Code.Gameplay.Features.Loot.Factory;
 using Code.Gameplay.Features.Statuses.Applier;
 using Code.Gameplay.Features.Statuses.Factory;
 using Code.Gameplay.Input.Service;
@@ -61,6 +62,7 @@ namespace Code.Infrastructure.Installers
 
         private void BindGameplayFactories()
         {
+            Container.Bind<ILootFactory>().To<LootFactory>().AsSingle();
             Container.Bind<IStatusFactory>().To<StatusFactory>().AsSingle();
             Container.Bind<IEffectFactory>().To<EffectFactory>().AsSingle();
             Container.Bind<IAbilityFactory>().To<AbilityFactory>().AsSingle();

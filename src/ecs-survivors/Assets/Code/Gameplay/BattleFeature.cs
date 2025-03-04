@@ -9,6 +9,7 @@ using Code.Gameplay.Features.Enchants.Systems;
 using Code.Gameplay.Features.Enemies;
 using Code.Gameplay.Features.Hero;
 using Code.Gameplay.Features.LifeTime;
+using Code.Gameplay.Features.Loot;
 using Code.Gameplay.Features.Movement;
 using Code.Gameplay.Features.Statuses;
 using Code.Gameplay.Features.TargetCollection;
@@ -38,7 +39,8 @@ namespace Code.Gameplay
             
             Add(systemFactory.Create<EffectApplicationFeature>());
            // Add(systemFactory.Create<BoosterFeature>());
-            
+            Add(systemFactory.Create<LootingFeature>());
+           
             Add(systemFactory.Create<EnchantFeature>());
             Add(systemFactory.Create<StatusFeature>());
             Add(systemFactory.Create<StatFeature>());

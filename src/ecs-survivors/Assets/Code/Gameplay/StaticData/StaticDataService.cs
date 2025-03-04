@@ -9,6 +9,8 @@ using Code.Gameplay.Features.Enchants.Configs;
 using Code.Gameplay.Features.Enemies;
 using Code.Gameplay.Features.Enemies.Configs;
 using Code.Gameplay.Features.Hero.Configs;
+using Code.Gameplay.Features.Loot;
+using Code.Gameplay.Features.Loot.Configs;
 using UnityEngine;
 
 namespace Code.Gameplay.StaticData
@@ -19,6 +21,7 @@ namespace Code.Gameplay.StaticData
         private Dictionary<EnemyTypeId, EnemyConfig> _enemyById;
         private Dictionary<BoosterTypeId, BoosterConfig> _boosterById;
         private Dictionary<EnchantTypeId, EnchantConfig> _enchantById;
+        private Dictionary<LootTypeId, LootConfig> _lootById;
         
         private HeroConfig _heroConfig;
 
@@ -29,7 +32,9 @@ namespace Code.Gameplay.StaticData
             LoadHeroConfig();
             LoadBoosters();
             LoadEnchants();
+            LoadLoots();
         }
+        
 
         public HeroConfig HeroConfig => _heroConfig;
         
@@ -74,6 +79,14 @@ namespace Code.Gameplay.StaticData
 
             throw new Exception($"Enchant config for {enchantTypeId} not found");
         }
+
+        public LootConfig GetLootConfig(LootTypeId lootTypeId)
+        {
+            if(_lootById.TryGetValue(lootTypeId, out LootConfig config)) 
+                return config;
+
+            throw new Exception($"Loot config config for {lootTypeId} not found");
+        }
         
         public EnemyLevel GetEnemyLevel(EnemyTypeId enemyTypeId, int level)
         {
@@ -111,6 +124,13 @@ namespace Code.Gameplay.StaticData
             _enchantById = Resources
                 .LoadAll<EnchantConfig>("Configs/Enchants")
                 .ToDictionary(x => x.EnchantTypeId, x => x);
+        }
+
+        private void LoadLoots()
+        {
+            _lootById = Resources
+                .LoadAll<LootConfig>("Configs/Loots")
+                .ToDictionary(x => x.LootTypeId, x => x);
         }
         
         private void LoadHeroConfig()
