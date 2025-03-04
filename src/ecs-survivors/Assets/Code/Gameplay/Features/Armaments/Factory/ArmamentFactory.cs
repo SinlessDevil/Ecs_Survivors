@@ -3,8 +3,10 @@ using Code.Common.Entity;
 using Code.Common.Extensions;
 using Code.Gameplay.Features.Abilities;
 using Code.Gameplay.Features.Abilities.Configs;
+using Code.Gameplay.Features.Effects;
 using Code.Gameplay.Features.Enchants;
 using Code.Gameplay.Features.Enchants.Configs;
+using Code.Gameplay.Features.Statuses;
 using Code.Gameplay.StaticData;
 using Code.Infrastructure.Identifiers;
 using UnityEngine;
@@ -126,8 +128,10 @@ namespace Code.Gameplay.Features.Armaments.Factory
                 .AddViewPrefab(abilityLevel.ViewPrefab)
                 .AddWorldPosition(at)
                 .AddSpeed(setup.Speed)
-                .With(x => x.AddEffectSetups(abilityLevel.EffectSetups), when: !abilityLevel.EffectSetups.IsNullOrEmpty())
-                .With(x => x.AddStatusSetups(abilityLevel.StatusSetups), when: !abilityLevel.StatusSetups.IsNullOrEmpty())
+                .With(x => x.AddEffectSetups(new List<EffectSetup>(abilityLevel.EffectSetups)), 
+                    when: !abilityLevel.EffectSetups.IsNullOrEmpty())
+                .With(x => x.AddStatusSetups(new List<StatusSetup>(abilityLevel.StatusSetups)), 
+                    when: !abilityLevel.StatusSetups.IsNullOrEmpty())
                 .With(x => x.AddTargetLimit(setup.Pierce), when: setup.Pierce > 0)
                 .AddRadius(setup.ContactRadius)
                 .AddTargetsBuffer(new List<int>(TargetBufferSize))

@@ -39,20 +39,21 @@ namespace Code.Gameplay.Features.Enchants.Systems
             {
                 if (enchant.ProducerId == armament.ProducerId)
                 {
-                    GetOrAddStatusSetups(armament)
-                        .AddRange(_staticDataService.GetEnchantConfig(EnchantTypeId.PoisonArmaments).StatusSetups);
+                    var newStatusSetups = new List<StatusSetup>();
+                    newStatusSetups.AddRange(_staticDataService.GetEnchantConfig(EnchantTypeId.PoisonArmaments).StatusSetups);
                     
+                    GetOrAddStatusSetups(armament).AddRange(newStatusSetups);
                     armament.isPoisonEnchant = true;
                 }
             }
         }
-
-        private List<StatusSetup> GetOrAddStatusSetups(GameEntity armamet)
+        
+        private List<StatusSetup> GetOrAddStatusSetups(GameEntity armament)
         {
-            if(!armamet.hasStatusSetups)
-                armamet.AddStatusSetups(new List<StatusSetup>());
-            
-            return armamet.StatusSetups;
+            if (!armament.hasStatusSetups)
+                armament.AddStatusSetups(new List<StatusSetup>());
+
+            return armament.StatusSetups;
         }
     }
 }
