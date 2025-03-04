@@ -11,6 +11,8 @@ using Code.Gameplay.Features.Enemies.Configs;
 using Code.Gameplay.Features.Hero.Configs;
 using Code.Gameplay.Features.Loot;
 using Code.Gameplay.Features.Loot.Configs;
+using Code.Gameplay.Windows;
+using Code.Gameplay.Windows.Configs;
 using UnityEngine;
 
 namespace Code.Gameplay.StaticData
@@ -22,6 +24,7 @@ namespace Code.Gameplay.StaticData
         private Dictionary<BoosterTypeId, BoosterConfig> _boosterById;
         private Dictionary<EnchantTypeId, EnchantConfig> _enchantById;
         private Dictionary<LootTypeId, LootConfig> _lootById;
+        private Dictionary<WindowId, GameObject> _windowPrefabsById;
         
         private HeroConfig _heroConfig;
 
@@ -33,8 +36,8 @@ namespace Code.Gameplay.StaticData
             LoadBoosters();
             LoadEnchants();
             LoadLoots();
+            LoadWindows();
         }
-        
 
         public HeroConfig HeroConfig => _heroConfig;
         
@@ -98,6 +101,13 @@ namespace Code.Gameplay.StaticData
             return config.Levels[level - 1];
         }
         
+        public GameObject GetWindowPrefab(WindowId windowId)
+        {
+           return _windowPrefabsById.TryGetValue(windowId, out GameObject windowPrefab)
+                ? windowPrefab
+                : throw new Exception($"Prefab config for window {windowId} was not found");
+        }
+        
         private void LoadAbilities()
         {
             _abilityById = Resources
@@ -136,6 +146,14 @@ namespace Code.Gameplay.StaticData
         private void LoadHeroConfig()
         {
             _heroConfig = Resources.Load<HeroConfig>("Configs/Heroes/HeroConfig");
+        }
+        
+        private void LoadWindows()
+        {
+            _windowPrefabsById = Resources
+                .Load<WindowsConfig>("Configs/Windows/windowsConfig")
+                .WindowConfigs
+                .ToDictionary(x => x.Id, x => x.Prefab);
         }
     }
 }
