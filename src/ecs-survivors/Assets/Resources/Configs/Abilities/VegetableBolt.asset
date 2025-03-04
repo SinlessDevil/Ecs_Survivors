@@ -21,7 +21,7 @@ MonoBehaviour:
       Value: 1
     StatusSetups:
     - StatusTypeId: 1
-      Value: 1
+      Value: 0.5
       Duration: 3
       Period: 1
       StatusApplicationTypeId: 2
