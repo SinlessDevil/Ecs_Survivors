@@ -57,54 +57,56 @@ public static class GameComponentsLookup {
     public const int TargetId = 46;
     public const int EnchantTypeId = 47;
     public const int EnchantVisuals = 48;
-    public const int PoisonEnchant = 49;
-    public const int Enemy = 50;
-    public const int EnemyAnimator = 51;
-    public const int EnemyTypeID = 52;
-    public const int SpawnTimer = 53;
-    public const int Hero = 54;
-    public const int HeroAnimator = 55;
-    public const int CurrentHp = 56;
-    public const int Dead = 57;
-    public const int MaxHp = 58;
-    public const int ProcessingDeath = 59;
-    public const int Destination = 60;
-    public const int Direction = 61;
-    public const int MovementAvailable = 62;
-    public const int Moving = 63;
-    public const int OrbitCenterFollowTarget = 64;
-    public const int OrbitCenterPosition = 65;
-    public const int OrbitPhase = 66;
-    public const int OrbitRadius = 67;
-    public const int RotationAlignedByDirection = 68;
-    public const int Speed = 69;
-    public const int TurnedAlongDirection = 70;
-    public const int Affected = 71;
-    public const int Applied = 72;
-    public const int ApplierStatusLink = 73;
-    public const int Duration = 74;
-    public const int Freeze = 75;
-    public const int MaxHpUp = 76;
-    public const int Period = 77;
-    public const int Poison = 78;
-    public const int SpeedUp = 79;
-    public const int Status = 80;
-    public const int StatusTypeId = 81;
-    public const int TimeLeft = 82;
-    public const int TimeSinceLastTick = 83;
-    public const int Unapplied = 84;
-    public const int CollectingTargetsContiuously = 85;
-    public const int CollectTargetsInterval = 86;
-    public const int CollectTargetsTimer = 87;
-    public const int LayerMask = 88;
-    public const int ProcessedTargets = 89;
-    public const int Radius = 90;
-    public const int ReadyToCollectTargets = 91;
-    public const int TargetsBuffer = 92;
-    public const int AxisInput = 93;
-    public const int Input = 94;
+    public const int ExplosiveEnchant = 49;
+    public const int PoisonEnchant = 50;
+    public const int Enemy = 51;
+    public const int EnemyAnimator = 52;
+    public const int EnemyTypeID = 53;
+    public const int SpawnTimer = 54;
+    public const int Hero = 55;
+    public const int HeroAnimator = 56;
+    public const int CurrentHp = 57;
+    public const int Dead = 58;
+    public const int MaxHp = 59;
+    public const int ProcessingDeath = 60;
+    public const int Destination = 61;
+    public const int Direction = 62;
+    public const int MovementAvailable = 63;
+    public const int Moving = 64;
+    public const int OrbitCenterFollowTarget = 65;
+    public const int OrbitCenterPosition = 66;
+    public const int OrbitPhase = 67;
+    public const int OrbitRadius = 68;
+    public const int RotationAlignedByDirection = 69;
+    public const int Speed = 70;
+    public const int TurnedAlongDirection = 71;
+    public const int Affected = 72;
+    public const int Applied = 73;
+    public const int ApplierStatusLink = 74;
+    public const int Duration = 75;
+    public const int Freeze = 76;
+    public const int MaxHpUp = 77;
+    public const int Period = 78;
+    public const int Poison = 79;
+    public const int SpeedUp = 80;
+    public const int Status = 81;
+    public const int StatusTypeId = 82;
+    public const int TimeLeft = 83;
+    public const int TimeSinceLastTick = 84;
+    public const int Unapplied = 85;
+    public const int CollectingTargetsContinuously = 86;
+    public const int CollectTargetsInterval = 87;
+    public const int CollectTargetsTimer = 88;
+    public const int LayerMask = 89;
+    public const int ProcessedTargets = 90;
+    public const int Radius = 91;
+    public const int Reached = 92;
+    public const int ReadyToCollectTargets = 93;
+    public const int TargetsBuffer = 94;
+    public const int AxisInput = 95;
+    public const int Input = 96;
 
-    public const int TotalComponents = 95;
+    public const int TotalComponents = 97;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -156,6 +158,7 @@ public static class GameComponentsLookup {
         "TargetId",
         "EnchantTypeId",
         "EnchantVisuals",
+        "ExplosiveEnchant",
         "PoisonEnchant",
         "Enemy",
         "EnemyAnimator",
@@ -192,12 +195,13 @@ public static class GameComponentsLookup {
         "TimeLeft",
         "TimeSinceLastTick",
         "Unapplied",
-        "CollectingTargetsContiuously",
+        "CollectingTargetsContinuously",
         "CollectTargetsInterval",
         "CollectTargetsTimer",
         "LayerMask",
         "ProcessedTargets",
         "Radius",
+        "Reached",
         "ReadyToCollectTargets",
         "TargetsBuffer",
         "AxisInput",
@@ -254,6 +258,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Effects.TargetId),
         typeof(Code.Gameplay.Features.Enchants.EnchantTypeIdComponent),
         typeof(Code.Gameplay.Features.Enchants.EnchantVisualsComponent),
+        typeof(Code.Gameplay.Features.Enchants.ExplosiveEnchant),
         typeof(Code.Gameplay.Features.Enchants.PoisonEnchant),
         typeof(Code.Gameplay.Features.Enemies.Enemy),
         typeof(Code.Gameplay.Features.Enemies.EnemyAnimatorComponent),
@@ -290,12 +295,13 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Statuses.TimeLeft),
         typeof(Code.Gameplay.Features.Statuses.TimeSinceLastTick),
         typeof(Code.Gameplay.Features.Statuses.Unapplied),
-        typeof(Code.Gameplay.Features.TargetCollection.CollectingTargetsContiuously),
+        typeof(Code.Gameplay.Features.TargetCollection.CollectingTargetsContinuously),
         typeof(Code.Gameplay.Features.TargetCollection.CollectTargetsInterval),
         typeof(Code.Gameplay.Features.TargetCollection.CollectTargetsTimer),
         typeof(Code.Gameplay.Features.TargetCollection.LayerMask),
         typeof(Code.Gameplay.Features.TargetCollection.ProcessedTargets),
         typeof(Code.Gameplay.Features.TargetCollection.Radius),
+        typeof(Code.Gameplay.Features.TargetCollection.Reached),
         typeof(Code.Gameplay.Features.TargetCollection.ReadyToCollectTargets),
         typeof(Code.Gameplay.Features.TargetCollection.TargetsBuffer),
         typeof(Code.Gameplay.Input.AxisInput),

@@ -8,17 +8,17 @@
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherCollectingTargetsContiuously;
+    static Entitas.IMatcher<GameEntity> _matcherReached;
 
-    public static Entitas.IMatcher<GameEntity> CollectingTargetsContiuously {
+    public static Entitas.IMatcher<GameEntity> Reached {
         get {
-            if (_matcherCollectingTargetsContiuously == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.CollectingTargetsContiuously);
+            if (_matcherReached == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Reached);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherCollectingTargetsContiuously = matcher;
+                _matcherReached = matcher;
             }
 
-            return _matcherCollectingTargetsContiuously;
+            return _matcherReached;
         }
     }
 }
@@ -33,18 +33,18 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Gameplay.Features.TargetCollection.CollectingTargetsContiuously collectingTargetsContiuouslyComponent = new Code.Gameplay.Features.TargetCollection.CollectingTargetsContiuously();
+    static readonly Code.Gameplay.Features.TargetCollection.Reached reachedComponent = new Code.Gameplay.Features.TargetCollection.Reached();
 
-    public bool isCollectingTargetsContiuously {
-        get { return HasComponent(GameComponentsLookup.CollectingTargetsContiuously); }
+    public bool isReached {
+        get { return HasComponent(GameComponentsLookup.Reached); }
         set {
-            if (value != isCollectingTargetsContiuously) {
-                var index = GameComponentsLookup.CollectingTargetsContiuously;
+            if (value != isReached) {
+                var index = GameComponentsLookup.Reached;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : collectingTargetsContiuouslyComponent;
+                            : reachedComponent;
 
                     AddComponent(index, component);
                 } else {

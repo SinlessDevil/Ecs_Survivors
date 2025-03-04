@@ -12,5 +12,7 @@ namespace Code.Gameplay.Features.Armaments.Factory
         GameEntity CreateOrbitingMushroomBolt(int level, Vector3 at, float phase);
         
         GameEntity CreateEffectAura(AbilityId parentAbilityId, int producerId, int level);
+        
+        GameEntity CreateExplosionEnchant(int producerId, Vector3 at);
     }
 }

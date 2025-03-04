@@ -50,7 +50,7 @@ namespace Code.Gameplay.Features.Boosters.Factroy
                     .AddTargetsBuffer(new List<int>(TargetBufferSize))
                     .AddLayerMask(CollisionLayer.Hero.AsMask())
                     .With(x => x.isReadyToCollectTargets = true)
-                    .With(x => x.isCollectingTargetsContiuously = true)
+                    .With(x => x.isCollectingTargetsContinuously = true)
                     .AddSelfDestructTimer(boosterConfig.LifeTime)
                     .AddViewPath("Gameplay/Boosters/MaxHPUpBooster")
                     .With(x => x.isBooster = true);
@@ -70,7 +70,7 @@ namespace Code.Gameplay.Features.Boosters.Factroy
                 .AddTargetsBuffer(new List<int>(TargetBufferSize))
                 .AddLayerMask(CollisionLayer.Hero.AsMask())
                 .With(x => x.isReadyToCollectTargets = true)
-                .With(x => x.isCollectingTargetsContiuously = true)
+                .With(x => x.isCollectingTargetsContinuously = true)
                 .AddSelfDestructTimer(boosterConfig.LifeTime)
                 .AddViewPath("Gameplay/Boosters/InvulnerabilityBooster")
                 .With(x => x.isBooster = true);

@@ -37,7 +37,7 @@ namespace Code.Gameplay
             Add(systemFactory.Create<ArmamentFeature>());
             
             Add(systemFactory.Create<EffectApplicationFeature>());
-            Add(systemFactory.Create<BoosterFeature>());
+           // Add(systemFactory.Create<BoosterFeature>());
             
             Add(systemFactory.Create<EnchantFeature>());
             Add(systemFactory.Create<StatusFeature>());

@@ -42,7 +42,7 @@ namespace Code.Gameplay.Features.TargetCollection.Systems
                     }
                 }
                 
-                if(!entity.isCollectingTargetsContiuously) 
+                if(!entity.isCollectingTargetsContinuously) 
                     entity.isReadyToCollectTargets = false;
             }
         }

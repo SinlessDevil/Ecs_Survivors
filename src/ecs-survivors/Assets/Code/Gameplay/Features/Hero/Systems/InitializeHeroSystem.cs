@@ -38,9 +38,17 @@ namespace Code.Gameplay.Features.Hero.Systems
             
             // _abilityFactory.CreateGarlicAuraAbility();
             
+            // _statusApplier.ApplyStatusOnTarget(new StatusSetup()
+            // {
+            //     StatusTypeId = StatusTypeId.PoisonEnchant,
+            //     Duration = 10,
+            //     StatusApplicationTypeId = StatusApplicationTypeId.Target,
+            //     StatusTriggerConditionTypeId =StatusTriggerConditionTypeId.OnTouch,
+            // }, hero.Id, hero.Id);
+            
             _statusApplier.ApplyStatusOnTarget(new StatusSetup()
             {
-                StatusTypeId = StatusTypeId.PoisonEnchant,
+                StatusTypeId = StatusTypeId.ExplosiveEnchant,
                 Duration = 10,
                 StatusApplicationTypeId = StatusApplicationTypeId.Target,
                 StatusTriggerConditionTypeId =StatusTriggerConditionTypeId.OnTouch,

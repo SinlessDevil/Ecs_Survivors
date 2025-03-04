@@ -30,7 +30,7 @@ namespace Code.Gameplay.Features.TargetCollection.Systems
             {
                 entity.TargetsBuffer.AddRange(TargetsInRadius(entity));
                 
-                if(!entity.isCollectingTargetsContiuously) 
+                if(!entity.isCollectingTargetsContinuously) 
                     entity.isReadyToCollectTargets = false;
             }
         }

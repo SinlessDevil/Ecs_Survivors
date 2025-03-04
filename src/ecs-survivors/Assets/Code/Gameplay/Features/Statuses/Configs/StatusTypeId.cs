@@ -10,5 +10,6 @@ namespace Code.Gameplay.Features.Statuses
         Invulnerability = 5,
         
         PoisonEnchant = 20,
+        ExplosiveEnchant = 21,
     }
 }
