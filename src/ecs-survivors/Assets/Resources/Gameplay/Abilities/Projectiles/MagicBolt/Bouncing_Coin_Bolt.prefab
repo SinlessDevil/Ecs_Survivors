@@ -92,6 +92,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bouncing_Coin_Bolt
       objectReference: {fileID: 0}
+    - target: {fileID: 3528162001275323589, guid: 02c1c61dae6b7e34d976ffa02368e391, type: 3}
+      propertyPath: <EntityView>k__BackingField
+      value: 
+      objectReference: {fileID: 1254211284008102895}
     - target: {fileID: 5653278803542377902, guid: 02c1c61dae6b7e34d976ffa02368e391, type: 3}
       propertyPath: PoisonColor.r
       value: 0.003921569

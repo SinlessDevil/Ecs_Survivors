@@ -5,6 +5,7 @@ using Code.Gameplay.Features.Boosters;
 using Code.Gameplay.Features.CharacterStats.Systems;
 using Code.Gameplay.Features.EffectApplication;
 using Code.Gameplay.Features.Effects.Systems;
+using Code.Gameplay.Features.Enchants.Systems;
 using Code.Gameplay.Features.Enemies;
 using Code.Gameplay.Features.Hero;
 using Code.Gameplay.Features.LifeTime;
@@ -14,6 +15,7 @@ using Code.Gameplay.Features.TargetCollection;
 using Code.Gameplay.Input;
 using Code.Infrastructure.Systems;
 using Code.Infrastructure.View;
+using Unity.VisualScripting;
 
 namespace Code.Gameplay
 {
@@ -37,6 +39,7 @@ namespace Code.Gameplay
             Add(systemFactory.Create<EffectApplicationFeature>());
             Add(systemFactory.Create<BoosterFeature>());
             
+            Add(systemFactory.Create<EnchantFeature>());
             Add(systemFactory.Create<StatusFeature>());
             Add(systemFactory.Create<StatFeature>());
             Add(systemFactory.Create<EffectFeature>());

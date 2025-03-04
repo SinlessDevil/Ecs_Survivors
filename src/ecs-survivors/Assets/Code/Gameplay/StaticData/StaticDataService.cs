@@ -4,6 +4,8 @@ using System.Linq;
 using Code.Gameplay.Features.Abilities;
 using Code.Gameplay.Features.Abilities.Configs;
 using Code.Gameplay.Features.Boosters;
+using Code.Gameplay.Features.Enchants;
+using Code.Gameplay.Features.Enchants.Configs;
 using Code.Gameplay.Features.Enemies;
 using Code.Gameplay.Features.Enemies.Configs;
 using Code.Gameplay.Features.Hero.Configs;
@@ -16,6 +18,8 @@ namespace Code.Gameplay.StaticData
         private Dictionary<AbilityId, AbilityConfig> _abilityById;
         private Dictionary<EnemyTypeId, EnemyConfig> _enemyById;
         private Dictionary<BoosterTypeId, BoosterConfig> _boosterById;
+        private Dictionary<EnchantTypeId, EnchantConfig> _enchantById;
+        
         private HeroConfig _heroConfig;
 
         public void LoadAll()
@@ -24,6 +28,7 @@ namespace Code.Gameplay.StaticData
             LoadEnemies();
             LoadHeroConfig();
             LoadBoosters();
+            LoadEnchants();
         }
 
         public HeroConfig HeroConfig => _heroConfig;
@@ -62,6 +67,14 @@ namespace Code.Gameplay.StaticData
             throw new Exception($"Booster config for {boosterTypeId} not found");
         }
         
+        public EnchantConfig GetEnchantConfig(EnchantTypeId enchantTypeId)
+        {
+            if(_enchantById.TryGetValue(enchantTypeId, out EnchantConfig config)) 
+                return config;
+
+            throw new Exception($"Enchant config for {enchantTypeId} not found");
+        }
+        
         public EnemyLevel GetEnemyLevel(EnemyTypeId enemyTypeId, int level)
         {
             EnemyConfig config = GetEnemyConfig(enemyTypeId);
@@ -91,6 +104,13 @@ namespace Code.Gameplay.StaticData
             _boosterById = Resources
                 .LoadAll<BoosterConfig>("Configs/Boosters")
                 .ToDictionary(x => x.BoosterTypeId, x => x);
+        }
+
+        private void LoadEnchants()
+        {
+            _enchantById = Resources
+                .LoadAll<EnchantConfig>("Configs/Enchants")
+                .ToDictionary(x => x.EnchantTypeId, x => x);
         }
         
         private void LoadHeroConfig()

@@ -1,6 +1,7 @@
 using System;
 using Code.Common.Entity;
 using Code.Common.Extensions;
+using Code.Gameplay.Features.Enchants;
 using Code.Infrastructure.Identifiers;
 using UnityEngine;
 
@@ -33,6 +34,9 @@ namespace Code.Gameplay.Features.Statuses.Factory
                 case StatusTypeId.MaxHpUp:
                     status = CreateMaxHpUpStatus(setup, producerId, targetId);
                     break;
+                case StatusTypeId.PoisonEnchant:
+                    status = CreatePoisonEnchantStatus(setup, producerId, targetId);
+                    break;
                 default:
                     throw new Exception($"Status with type id {setup.StatusTypeId} does not exist");
             }
@@ -45,12 +49,12 @@ namespace Code.Gameplay.Features.Statuses.Factory
 
             return status;
         }
-        
+
         private GameEntity CreatePoisonStatus(StatusSetup setup, int producerId, int targetId)
         {
             return CreateEntity.Empty()
                 .AddId(_identifierService.Next())
-                .AddStatusTypeId(setup.StatusTypeId)
+                .AddStatusTypeId(StatusTypeId.Poison)
                 .AddEffectValue(setup.Value)
                 .AddProducerId(producerId)
                 .AddTargetId(targetId)
@@ -62,7 +66,7 @@ namespace Code.Gameplay.Features.Statuses.Factory
         {
             return CreateEntity.Empty()
                 .AddId(_identifierService.Next())
-                .AddStatusTypeId(setup.StatusTypeId)
+                .AddStatusTypeId(StatusTypeId.Freeze)
                 .AddEffectValue(setup.Value)
                 .AddProducerId(producerId)
                 .AddTargetId(targetId)
@@ -74,7 +78,7 @@ namespace Code.Gameplay.Features.Statuses.Factory
         {
             return CreateEntity.Empty()
                 .AddId(_identifierService.Next())
-                .AddStatusTypeId(setup.StatusTypeId)
+                .AddStatusTypeId(StatusTypeId.SpeedUp)
                 .AddEffectValue(setup.Value)
                 .AddProducerId(producerId)
                 .AddTargetId(targetId)
@@ -86,12 +90,26 @@ namespace Code.Gameplay.Features.Statuses.Factory
         {
             return CreateEntity.Empty()
                 .AddId(_identifierService.Next())
-                .AddStatusTypeId(setup.StatusTypeId)
+                .AddStatusTypeId(StatusTypeId.MaxHpUp)
                 .AddEffectValue(setup.Value)
                 .AddProducerId(producerId)
                 .AddTargetId(targetId)
                 .With(x => x.isStatus = true)
                 .With(x => x.isMaxHpUp = true);
+        }
+        
+        private GameEntity CreatePoisonEnchantStatus(StatusSetup setup, int producerId, int targetId)
+        {
+            return CreateEntity.Empty()
+                .AddId(_identifierService.Next())
+                .AddStatusTypeId(StatusTypeId.PoisonEnchant)
+                .AddEnchantTypeId(EnchantTypeId.PoisonArmaments)
+                .AddEffectValue(setup.Value)
+                .AddProducerId(producerId)
+                .AddTargetId(targetId)
+                .With(x => x.isStatus = true)
+                .With(x => x.isPoison = true)
+                .With(x => x.isPoisonEnchant = true);
         }
     }
 }

@@ -8,5 +8,7 @@ namespace Code.Gameplay.Features.Statuses
         SpeedUp = 3,
         MaxHpUp = 4,
         Invulnerability = 5,
+        
+        PoisonEnchant = 20,
     }
 }

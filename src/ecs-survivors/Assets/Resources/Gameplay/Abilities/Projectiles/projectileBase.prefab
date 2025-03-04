@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6848469130549857095}
   - component: {fileID: 1557407318731609291}
+  - component: {fileID: 4050077328785626518}
   m_Layer: 0
   m_Name: sprite
   m_TagString: Untagged
@@ -84,6 +85,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4050077328785626518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792109486133688577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fea46d9a21f47a1a494e6ddce632159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Renderer: {fileID: 1557407318731609291}
+  FreezeColor: {r: 0.21960784, g: 0.6392157, b: 0.74509805, a: 1}
+  FreezeOutlineSize: 3
+  FreezeOutlineSmoothness: 8
+  PoisonColor: {r: 0.21960782, g: 0.74509805, b: 0.2850855, a: 1}
+  PoisonColorIntensity: 0.6
 --- !u!1 &3360128356117953061
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,6 +112,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1045153556455938967}
+  - component: {fileID: 3528162001275323589}
   m_Layer: 0
   m_Name: projectileBase
   m_TagString: Untagged
@@ -116,6 +136,20 @@ Transform:
   - {fileID: 1065704985033883940}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3528162001275323589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3360128356117953061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c6c3db69eff4fcd9c0eeb5235aad978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <EntityView>k__BackingField: {fileID: 0}
+  EnchantVisuals: {fileID: 4050077328785626518}
 --- !u!1 &7376349850620682343
 GameObject:
   m_ObjectHideFlags: 0
