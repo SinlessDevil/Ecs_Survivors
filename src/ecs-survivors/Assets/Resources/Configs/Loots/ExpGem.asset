@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LootTypeId: 1
   Experience: 1
-  ViewPrefab: {fileID: 0}
+  Prefab: {fileID: 663175118152134105, guid: ed05576a6ea2aad4893feb6303a2f872, type: 3}
   EffectSetups: []
   StatusSetups: []
