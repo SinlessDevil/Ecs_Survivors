@@ -10,6 +10,8 @@ namespace Code.Gameplay.Features.Effects.Systems
             
             Add(systems.Create<ProcessDamageEffectSystem>());
             Add(systems.Create<ProcessHealEffectSystem>());
+            Add(systems.Create<ProcessSpeedEffectSystem>());
+            
             Add(systems.Create<CleanupProcessedEffects>());
         }
     }

@@ -24,6 +24,8 @@ namespace Code.Gameplay.Features.Effects.Factory
                     return CreateDamage(producerId, targetId, setup.Value);
                 case EffectTypeId.Heal:
                     return CreateHeal(producerId, targetId, setup.Value);
+                case EffectTypeId.Speed:
+                    return CreateSpeed(producerId, targetId, setup.Value);
             }
             
             throw new Exception($"Effect with type id {setup.EffectTypeId} does not exist");
@@ -40,7 +42,18 @@ namespace Code.Gameplay.Features.Effects.Factory
                 .AddTargetId(targetId);
         }
 
-        public GameEntity CreateDamage(int producerId, int targetId, float damage)
+        private GameEntity CreateSpeed(int producerId, int targetId, float heal)
+        {
+            return CreateEntity.Empty()
+                .AddId(_identifierService.Next())
+                .With(x => x.isEffect = true)
+                .With(x => x.isSpeedEffect = true)
+                .AddEffectValue(heal)
+                .AddProducerId(producerId)
+                .AddTargetId(targetId);
+        }
+        
+        private GameEntity CreateDamage(int producerId, int targetId, float damage)
         {
             return CreateEntity.Empty()
                 .AddId(_identifierService.Next())

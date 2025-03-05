@@ -9,5 +9,5 @@ namespace Code.Gameplay.Features.Effects
     
     [Game] public class DamageEffect : IComponent { }
     [Game] public class HealEffect : IComponent { }
-
+    [Game] public class SpeedEffect : IComponent { }
 }
