@@ -28,3 +28,10 @@ MonoBehaviour:
     EffectSetups:
     - EffectTypeId: 1
       Value: 2
+  - Hp: 10
+    Speed: 2
+    RadiusToCollectTargets: 0.3
+    CollectTargetsInterval: 0.5
+    EffectSetups:
+    - EffectTypeId: 1
+      Value: 3
