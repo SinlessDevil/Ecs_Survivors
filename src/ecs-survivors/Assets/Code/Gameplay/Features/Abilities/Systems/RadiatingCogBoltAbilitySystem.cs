@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Code.Common.Extensions;
+using Code.Gameplay.Features.Abilities.Upgrade;
 using Code.Gameplay.Features.Armaments.Extensions;
 using Code.Gameplay.Features.Armaments.Factory;
 using Code.Gameplay.Features.Cooldowns;
@@ -12,6 +13,7 @@ namespace Code.Gameplay.Features.Abilities.Systems
     {
         private readonly IStaticDataService _staticDataService;
         private readonly IArmamentFactory _armamentFactory;
+        private readonly IAbilityUpgradeService _abilityUpgradeService;
 
         private readonly IGroup<GameEntity> _abilities;
         private readonly IGroup<GameEntity> _heroes;
@@ -21,10 +23,12 @@ namespace Code.Gameplay.Features.Abilities.Systems
 
         public RadiatingCogBoltAbilitySystem(GameContext game,
             IStaticDataService staticDataService,
-            IArmamentFactory armamentFactory)
+            IArmamentFactory armamentFactory,
+            IAbilityUpgradeService abilityUpgradeService)
         {
             _staticDataService = staticDataService;
             _armamentFactory = armamentFactory;
+            _abilityUpgradeService = abilityUpgradeService;
 
             _abilities = game.GetGroup(GameMatcher
                 .AllOf(
@@ -50,12 +54,13 @@ namespace Code.Gameplay.Features.Abilities.Systems
                 if (_enemies.count <= 0)
                     continue;
 
-                var abilityLevel = _staticDataService.GetAbilityLevel(AbilityId.RadiatingCogBolt, 1);
-
+                int level = _abilityUpgradeService.GetAbilityLevel(AbilityId.RadiatingCogBolt);
+                var abilityLevel = _staticDataService.GetAbilityLevel(AbilityId.RadiatingCogBolt, level);
+                
                 for (int i = 0; i < abilityLevel.ProjectileSetup.ProjectileCount; i++)
                 {
                     _armamentFactory
-                        .CreateRadiatingCogBolt(1, hero.WorldPosition)
+                        .CreateRadiatingCogBolt(level, hero.WorldPosition)
                         .AddProducerId(hero.Id)
                         .ReplaceDirection(i.GetDirectionByRadian(abilityLevel.ProjectileSetup.SpreadAngle, abilityLevel.ProjectileSetup.ProjectileCount))
                         .With(x => x.isMoving = true);

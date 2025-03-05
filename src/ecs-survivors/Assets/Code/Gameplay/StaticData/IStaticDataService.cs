@@ -17,6 +17,10 @@ namespace Code.Gameplay.StaticData
     {
         public void LoadAll();
 
+        public HeroConfig HeroConfig { get; }
+        public int MaxLevel { get; }
+        public float ExperienceForLevel(int level);
+        
         public AbilityConfig GetAbilityConfig(AbilityId abilityId);
         public AbilityLevel GetAbilityLevel(AbilityId abilityId, int level);
 
@@ -28,7 +32,5 @@ namespace Code.Gameplay.StaticData
         public LootConfig GetLootConfig(LootTypeId lootTypeId);
         
         public GameObject GetWindowPrefab(WindowId windowId);
-        
-        public HeroConfig HeroConfig { get; }
     }
 }

@@ -41,6 +41,7 @@ namespace Code.Gameplay.Features.Abilities.Factory
                 .AddAbilityId(AbilityId.RadiatingCogBolt)
                 .AddCooldown(abilityLevel.Cooldown)
                 .With(x => x.isRadiatingCogBoltAbility = true)
+                .With(x => x.isRecreatedOnUpgrade = true)
                 .PutOnCooldown();
         }
         
@@ -54,6 +55,7 @@ namespace Code.Gameplay.Features.Abilities.Factory
                 .AddCooldown(abilityLevel.Cooldown)
                 .AddBounceRate(abilityLevel.ProjectileSetup.MaxBounces)
                 .With(x => x.isBouncingCoinAbility = true)
+                .With(x => x.isRecreatedOnUpgrade = true)
                 .PutOnCooldown();
         }
         
@@ -66,6 +68,7 @@ namespace Code.Gameplay.Features.Abilities.Factory
                 .AddAbilityId(AbilityId.ScatteringRuneStoneBolt)
                 .AddCooldown(abilityLevel.Cooldown)
                 .With(x => x.isScatteringRuneStoneAbility = true)
+                .With(x => x.isRecreatedOnUpgrade = true)
                 .PutOnCooldown();
         }
         
@@ -78,6 +81,7 @@ namespace Code.Gameplay.Features.Abilities.Factory
                 .AddAbilityId(AbilityId.OrbitingMushroomBolt)
                 .AddCooldown(abilityLevel.Cooldown)
                 .With(x => x.isOrbitingMushroomBoltAbility = true)
+                .With(x => x.isRecreatedOnUpgrade = true)
                 .PutOnCooldown();
         }
         
@@ -86,7 +90,8 @@ namespace Code.Gameplay.Features.Abilities.Factory
             return CreateEntity.Empty()
                 .AddId(_identifierService.Next())
                 .AddAbilityId(AbilityId.GarlicAura)
-                .With(x => x.isGarlicAuraAbility = true);
+                .With(x => x.isGarlicAuraAbility = true)
+                .With(x => x.isRecreatedOnUpgrade = true);
         }
     }
 }

@@ -9,6 +9,7 @@ using Code.Gameplay.Features.Enchants.Configs;
 using Code.Gameplay.Features.Enemies;
 using Code.Gameplay.Features.Enemies.Configs;
 using Code.Gameplay.Features.Hero.Configs;
+using Code.Gameplay.Features.LevelUp.Configs;
 using Code.Gameplay.Features.Loot;
 using Code.Gameplay.Features.Loot.Configs;
 using Code.Gameplay.Windows;
@@ -25,7 +26,8 @@ namespace Code.Gameplay.StaticData
         private Dictionary<EnchantTypeId, EnchantConfig> _enchantById;
         private Dictionary<LootTypeId, LootConfig> _lootById;
         private Dictionary<WindowId, GameObject> _windowPrefabsById;
-        
+
+        private LevelupConfig _levelupRules;
         private HeroConfig _heroConfig;
 
         public void LoadAll()
@@ -37,8 +39,13 @@ namespace Code.Gameplay.StaticData
             LoadEnchants();
             LoadLoots();
             LoadWindows();
+            LoadLevelUpRules();
         }
+        
+        public int MaxLevel => _levelupRules.MaxLevel;
 
+        public float ExperienceForLevel(int level) => _levelupRules.ExperienceForLevel[level];
+        
         public HeroConfig HeroConfig => _heroConfig;
         
         public AbilityConfig GetAbilityConfig(AbilityId abilityId)
@@ -151,9 +158,13 @@ namespace Code.Gameplay.StaticData
         private void LoadWindows()
         {
             _windowPrefabsById = Resources
-                .Load<WindowsConfig>("Configs/Windows/windowsConfig")
+                .Load<WindowsConfig>("Configs/Windows/WindowConfig")
                 .WindowConfigs
                 .ToDictionary(x => x.Id, x => x.Prefab);
+        }
+        private void LoadLevelUpRules()
+        {
+            _levelupRules = Resources.Load<LevelupConfig>("Configs/Levelup/LevelupConfig");
         }
     }
 }

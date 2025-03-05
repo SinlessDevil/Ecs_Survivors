@@ -4,6 +4,7 @@ using UnityEngine;
 using Code.Common.Extensions;
 using Code.Gameplay.Common.Physics;
 using Code.Gameplay.Features.Abilities;
+using Code.Gameplay.Features.Abilities.Upgrade;
 using Code.Gameplay.Features.Armaments.Extensions;
 using Code.Gameplay.Features.Armaments.Factory;
 using Code.Gameplay.StaticData;
@@ -24,16 +25,19 @@ namespace Code.Gameplay.Features.Armaments.Systems
         private readonly IArmamentFactory _armamentFactory;
         private readonly IStaticDataService _staticDataService;
         private readonly IPhysicsService _physicsService;
+        private readonly IAbilityUpgradeService _abilityUpgradeService;
 
         public HandleScatteringAtTouchTargetSystem (GameContext game, 
             IArmamentFactory armamentFactory,
             IStaticDataService staticDataService,
-            IPhysicsService physicsService)
+            IPhysicsService physicsService,
+            IAbilityUpgradeService abilityUpgradeService)
         {
             _game = game;
             _armamentFactory = armamentFactory;
             _staticDataService = staticDataService;
             _physicsService = physicsService;
+            _abilityUpgradeService = abilityUpgradeService;
 
             _armaments = game.GetGroup(GameMatcher
                 .AllOf(GameMatcher.Armament,
@@ -62,13 +66,14 @@ namespace Code.Gameplay.Features.Armaments.Systems
                     continue;
                 
                 GameEntity currentTarget = _game.GetEntityWithId(targetId);
-                
-                var abilityLevel = _staticDataService.GetAbilityLevel(AbilityId.ScatteringRuneStoneBolt, 1);
+
+                int level = _abilityUpgradeService.GetAbilityLevel(AbilityId.ScatteringRuneStoneBolt);
+                var abilityLevel = _staticDataService.GetAbilityLevel(AbilityId.ScatteringRuneStoneBolt, level);
                 
                 for (int i = 0; i < abilityLevel.ProjectileSetup.ProjectileCount; i++)
                 {
                     _armamentFactory
-                        .CreateScatteringRuneStoneBolt(1, currentTarget.WorldPosition)
+                        .CreateScatteringRuneStoneBolt(level, currentTarget.WorldPosition)
                         .AddProducerId(hero.Id)
                         .ReplaceDirection(i.GetDirectionByRadian(abilityLevel.ProjectileSetup.SpreadAngle,
                             abilityLevel.ProjectileSetup.ProjectileCount))

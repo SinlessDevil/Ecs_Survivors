@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Code.Gameplay.Features.Effects;
 using Code.Gameplay.Features.Statuses;
 using Code.Infrastructure.View;
+using UnityEngine;
 
 namespace Code.Gameplay.Features.Abilities.Configs
 {
@@ -17,5 +18,7 @@ namespace Code.Gameplay.Features.Abilities.Configs
         
         public ProjectileSetup ProjectileSetup;
         public AuraSetup AuraSetup;
+        public Sprite Icon;
+        public string Description;
     }
 }
