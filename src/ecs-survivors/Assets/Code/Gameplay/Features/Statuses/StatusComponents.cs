@@ -21,4 +21,5 @@ namespace Code.Gameplay.Features.Statuses
     [Game] public class SpeedUp : IComponent { }
     [Game] public class MaxHpUp : IComponent { }
     [Game] public class Invulnerability : IComponent { }
+    [Game] public class Hex : IComponent { }
 }

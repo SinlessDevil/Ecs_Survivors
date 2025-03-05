@@ -25,6 +25,10 @@ PrefabInstance:
       value: 0.6875
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: a24b7ff8ec2e6aa4eb9c74ac14285813, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: a24b7ff8ec2e6aa4eb9c74ac14285813, type: 3}
       propertyPath: m_SortingLayer
       value: 3
       objectReference: {fileID: 0}
@@ -118,6 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Renderer: {fileID: 3224600182354190819}
   Animator: {fileID: 1049083796407712975}
+  ParentVisual: {fileID: 3364866181197663004}
   FreezeEffect:
     Color:
       Color: {r: 0.21960784, g: 0.6392157, b: 0.74509805, a: 1}

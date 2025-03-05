@@ -16,6 +16,7 @@ using Code.Gameplay.Features.LevelUp.UIFactory;
 using Code.Gameplay.Features.Loot.Factory;
 using Code.Gameplay.Features.Statuses.Applier;
 using Code.Gameplay.Features.Statuses.Factory;
+using Code.Gameplay.Features.Visuals.Factory;
 using Code.Gameplay.Input.Service;
 using Code.Gameplay.Levels;
 using Code.Gameplay.StaticData;
@@ -118,6 +119,7 @@ namespace Code.Infrastructure.Installers
             Container.Bind<IEntityViewFactory>().To<EntityViewFactory>().AsSingle();
             Container.Bind<IHeroFactory>().To<HeroFactory>().AsSingle();
             Container.Bind<IEnemyFactory>().To<EnemyFactory>().AsSingle();
+            Container.Bind<IVisualFactory>().To<VisualFactory>().AsSingle();
         }
 
         private void BindUIFactories()

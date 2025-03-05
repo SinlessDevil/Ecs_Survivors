@@ -1,5 +1,8 @@
-﻿using DG.Tweening;
+﻿using Code.Gameplay.Features.Visuals.Behaviors;
+using Code.Gameplay.Features.Visuals.Factory;
 using UnityEngine;
+using Zenject;
+using DG.Tweening;
 
 namespace Code.Gameplay.Common.Visuals.StatusVisuals
 {
@@ -11,8 +14,9 @@ namespace Code.Gameplay.Common.Visuals.StatusVisuals
         private static readonly int OutlineColorProperty = Shader.PropertyToID("_OutlineColor");
         private static readonly int OutlineSmoothnessProperty = Shader.PropertyToID("_OutlineSmoothness");
 
-        public Renderer Renderer;
+        public SpriteRenderer Renderer;
         public Animator Animator;
+        public Transform ParentVisual;
 
         public StatusEffect FreezeEffect = new()
         {
@@ -36,6 +40,15 @@ namespace Code.Gameplay.Common.Visuals.StatusVisuals
             AnimatorSpeed = 0
         };
 
+        private Sheep _sheep;
+        private IVisualFactory _visualFactory;
+        
+        [Inject]
+        private void Construct(IVisualFactory visualFactory)
+        {
+            _visualFactory = visualFactory;
+        }
+        
         private void ApplyEffect(StatusEffect effect)
         {
             Renderer.material.SetColor(OutlineColorProperty, effect.Color.Color);
@@ -70,6 +83,7 @@ namespace Code.Gameplay.Common.Visuals.StatusVisuals
         public void UnapplyPoison() => UnapplyEffect();
 
         public void ApplySpeedUp() => ApplyEffect(SpeedEffect);
+
         public void UnapplySpeedUp() => UnapplyEffect();
 
         public void ApplyMaxHp()
@@ -90,5 +104,26 @@ namespace Code.Gameplay.Common.Visuals.StatusVisuals
 
         public void ApplyInvulnerability() => ApplyEffect(InvulnerabilityEffect);
         public void UnapplyInvulnerability() => UnapplyEffect();
+
+        public void ApplyHex()
+        {
+            if(_sheep != null)
+                return;
+            
+            var sheep = _visualFactory.CreateSheep(Vector3.zero, ParentVisual);
+            _sheep = sheep;
+            
+            _sheep.PlayBouncing();
+            
+            Renderer.enabled = false;
+        }
+
+        public void UnapplyHex()
+        {
+            Destroy(_sheep);
+            _sheep = null;
+            
+            Renderer.enabled = true;
+        }
     }
 }

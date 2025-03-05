@@ -13,6 +13,7 @@ namespace Code.Gameplay.Features.Statuses
             Add(systemFactory.Create<ApplySpeedUpStatusSystem>());
             Add(systemFactory.Create<ApplyMaxHpUpStatusSystem>());
             Add(systemFactory.Create<ApplyInvulnerabilityStatusSystem>());
+            Add(systemFactory.Create<ApplyHexStatusSystem>());
             
             //Sub features
             Add(systemFactory.Create<StatusVisualsFeature>());

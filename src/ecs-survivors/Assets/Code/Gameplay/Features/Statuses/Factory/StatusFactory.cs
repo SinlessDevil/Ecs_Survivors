@@ -37,6 +37,9 @@ namespace Code.Gameplay.Features.Statuses.Factory
                 case StatusTypeId.Invulnerability:
                     status = CreateInvulnerabilityStatus(setup, producerId, targetId);
                     break;
+                case StatusTypeId.Hex:
+                    status = CreateHexStatus(setup, producerId, targetId);
+                    break;
                 case StatusTypeId.PoisonEnchant:
                     status = CreatePoisonEnchantStatus(setup, producerId, targetId);
                     break;
@@ -114,6 +117,18 @@ namespace Code.Gameplay.Features.Statuses.Factory
                 .AddTargetId(targetId)
                 .With(x => x.isStatus = true)
                 .With(x => x.isInvulnerability = true);
+        }
+        
+        private GameEntity CreateHexStatus(StatusSetup setup, int producerId, int targetId)
+        {
+            return CreateEntity.Empty()
+                .AddId(_identifierService.Next())
+                .AddStatusTypeId(StatusTypeId.Hex)
+                .AddEffectValue(setup.Value)
+                .AddProducerId(producerId)
+                .AddTargetId(targetId)
+                .With(x => x.isStatus = true)
+                .With(x => x.isHex = true);
         }
         
         private GameEntity CreatePoisonEnchantStatus(StatusSetup setup, int producerId, int targetId)
