@@ -16,12 +16,12 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: f65023889763c7644b5579f0b019da6b, type: 3}
   EffectSetups: []
   StatusSetups:
-  - StatusTypeId: 22
+  - StatusTypeId: 6
     Value: -0.75
     Duration: 2
     Period: 0
-    StatusApplicationTypeId: 0
-    StatusTriggerConditionTypeId: 0
-    IsStackable: 0
+    StatusApplicationTypeId: 2
+    StatusTriggerConditionTypeId: 1
+    IsStackable: 1
   Radius: 0
   ViewPrefab: {fileID: 0}
