@@ -76,6 +76,18 @@ PrefabInstance:
       propertyPath: <EntityView>k__BackingField
       value: 
       objectReference: {fileID: 1254211284008102895}
+    - target: {fileID: 4050077328785626518, guid: 02c1c61dae6b7e34d976ffa02368e391, type: 3}
+      propertyPath: HexColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4050077328785626518, guid: 02c1c61dae6b7e34d976ffa02368e391, type: 3}
+      propertyPath: HexColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4050077328785626518, guid: 02c1c61dae6b7e34d976ffa02368e391, type: 3}
+      propertyPath: HexColor.r
+      value: 0.96608496
+      objectReference: {fileID: 0}
     - target: {fileID: 5653278803542377902, guid: 02c1c61dae6b7e34d976ffa02368e391, type: 3}
       propertyPath: PoisonColor.r
       value: 0.003921569

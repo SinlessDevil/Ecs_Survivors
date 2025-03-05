@@ -12,5 +12,6 @@ namespace Code.Gameplay.Features.Loot
         ExplosionEnchantItem = 4,
         MaxHPUpItem = 5,
         InvulnerabilityItem = 6,
+        HexEnchantItem = 7,
     }
 }

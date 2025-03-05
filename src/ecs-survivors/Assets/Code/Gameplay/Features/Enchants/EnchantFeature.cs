@@ -7,8 +7,10 @@ namespace Code.Gameplay.Features.Enchants.Systems
         public EnchantFeature(ISystemFactory systems)
         {
             Add(systems.Create<PoisonEnchantSystem>());
+            Add(systems.Create<HexEnchantSystem>());
             Add(systems.Create<ExplosiveEnchantSystem>());
             
+            Add(systems.Create<ApplyHexEnchantVisualsSystem>());
             Add(systems.Create<ApplyPoisonEnchantVisualsSystem>());
             
             //UI Systems

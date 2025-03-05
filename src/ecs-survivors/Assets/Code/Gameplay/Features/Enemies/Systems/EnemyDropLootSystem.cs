@@ -33,6 +33,8 @@ namespace Code.Gameplay.Features.Enemies.Systems
                     _lootFactory.CreateLootItem(LootTypeId.PoisonEnchantItem, enemy.WorldPosition);
                 else if (UnityEngine.Random.Range(0, 1f) <= 0.15f)
                     _lootFactory.CreateLootItem(LootTypeId.ExplosionEnchantItem, enemy.WorldPosition);
+                else if (UnityEngine.Random.Range(0, 1f) <= 0.15f)
+                    _lootFactory.CreateLootItem(LootTypeId.HexEnchantItem, enemy.WorldPosition);
                 else
                     _lootFactory.CreateLootItem(LootTypeId.ExpGem, enemy.WorldPosition);
             }

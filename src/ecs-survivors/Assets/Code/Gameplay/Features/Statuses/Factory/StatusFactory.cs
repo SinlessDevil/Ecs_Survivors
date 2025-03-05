@@ -46,6 +46,9 @@ namespace Code.Gameplay.Features.Statuses.Factory
                 case StatusTypeId.ExplosiveEnchant:
                     status = CreateExplosiveEnchantStatus(setup, producerId, targetId);
                     break;
+                case StatusTypeId.HexEnchant:
+                    status = CreateHexEnchantStatus(setup, producerId, targetId);
+                    break;
                 default:
                     throw new Exception($"Status with type id {setup.StatusTypeId} does not exist");
             }
@@ -154,6 +157,19 @@ namespace Code.Gameplay.Features.Statuses.Factory
                 .AddTargetId(targetId)
                 .With(x => x.isStatus = true)
                 .With(x => x.isExplosiveEnchant = true);
+        }
+        
+        private GameEntity CreateHexEnchantStatus(StatusSetup setup, int producerId, int targetId)
+        {
+            return CreateEntity.Empty()
+                .AddId(_identifierService.Next())
+                .AddStatusTypeId(StatusTypeId.HexEnchant)
+                .AddEnchantTypeId(EnchantTypeId.HexArmaments)
+                .AddEffectValue(setup.Value)
+                .AddProducerId(producerId)
+                .AddTargetId(targetId)
+                .With(x => x.isStatus = true)
+                .With(x => x.isHexEnchant = true);
         }
     }
 }

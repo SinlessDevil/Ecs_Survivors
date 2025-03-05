@@ -12,5 +12,6 @@ namespace Code.Gameplay.Features.Statuses
         
         PoisonEnchant = 20,
         ExplosiveEnchant = 21,
+        HexEnchant = 22,
     }
 }

@@ -6,5 +6,7 @@ namespace Code.Gameplay.Common.Visuals.Enchants
     void UnapplyFreeze();
     void ApplyPoison();
     void UnapplyPoison();
+    void ApplyHex();
+    void UnapplyHex();
   }
 }
