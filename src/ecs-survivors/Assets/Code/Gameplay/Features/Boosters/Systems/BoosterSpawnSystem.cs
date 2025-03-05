@@ -48,7 +48,7 @@ namespace Code.Gameplay.Features.Boosters.Systems
                     timer.ReplaceBoosterSpawnTimer(BoosterSpawnTimer);
                     
                     _lootFactory.CreateLootItem(LootTypeId.MaxHPUpItem, at: RandomSpawnPosition(hero.WorldPosition));
-                   // _boosterFactory.CreateBooster(BoosterTypeId.InvulnerabilityBooster, at: RandomSpawnPosition(hero.WorldPosition)); //TODO : Create logic InvulnerabilityBooster
+                    _lootFactory.CreateLootItem(LootTypeId.InvulnerabilityItem, at: RandomSpawnPosition(hero.WorldPosition));
                 }
             }
         }

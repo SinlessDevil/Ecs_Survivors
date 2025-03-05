@@ -12,6 +12,7 @@ namespace Code.Gameplay.Features.Statuses
             Add(systemFactory.Create<ApplyFreezeStatusSystem>());
             Add(systemFactory.Create<ApplySpeedUpStatusSystem>());
             Add(systemFactory.Create<ApplyMaxHpUpStatusSystem>());
+            Add(systemFactory.Create<ApplyInvulnerabilityStatusSystem>());
             
             //Sub features
             Add(systemFactory.Create<StatusVisualsFeature>());

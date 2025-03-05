@@ -6,5 +6,6 @@ namespace Code.Gameplay.Features.CharacterStats
         Speed = 1,
         MaxHp = 2,
         Damage = 3,
+        Invulnerability = 4,
     }
 }

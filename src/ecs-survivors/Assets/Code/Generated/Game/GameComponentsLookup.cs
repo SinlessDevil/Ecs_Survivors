@@ -94,28 +94,29 @@ public static class GameComponentsLookup {
     public const int ApplierStatusLink = 83;
     public const int Duration = 84;
     public const int Freeze = 85;
-    public const int MaxHpUp = 86;
-    public const int Period = 87;
-    public const int Poison = 88;
-    public const int SpeedUp = 89;
-    public const int Status = 90;
-    public const int StatusTypeId = 91;
-    public const int TimeLeft = 92;
-    public const int TimeSinceLastTick = 93;
-    public const int Unapplied = 94;
-    public const int CollectingTargetsContinuously = 95;
-    public const int CollectTargetsInterval = 96;
-    public const int CollectTargetsTimer = 97;
-    public const int LayerMask = 98;
-    public const int ProcessedTargets = 99;
-    public const int Radius = 100;
-    public const int Reached = 101;
-    public const int ReadyToCollectTargets = 102;
-    public const int TargetsBuffer = 103;
-    public const int AxisInput = 104;
-    public const int Input = 105;
+    public const int Invulnerability = 86;
+    public const int MaxHpUp = 87;
+    public const int Period = 88;
+    public const int Poison = 89;
+    public const int SpeedUp = 90;
+    public const int Status = 91;
+    public const int StatusTypeId = 92;
+    public const int TimeLeft = 93;
+    public const int TimeSinceLastTick = 94;
+    public const int Unapplied = 95;
+    public const int CollectingTargetsContinuously = 96;
+    public const int CollectTargetsInterval = 97;
+    public const int CollectTargetsTimer = 98;
+    public const int LayerMask = 99;
+    public const int ProcessedTargets = 100;
+    public const int Radius = 101;
+    public const int Reached = 102;
+    public const int ReadyToCollectTargets = 103;
+    public const int TargetsBuffer = 104;
+    public const int AxisInput = 105;
+    public const int Input = 106;
 
-    public const int TotalComponents = 106;
+    public const int TotalComponents = 107;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -204,6 +205,7 @@ public static class GameComponentsLookup {
         "ApplierStatusLink",
         "Duration",
         "Freeze",
+        "Invulnerability",
         "MaxHpUp",
         "Period",
         "Poison",
@@ -313,6 +315,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Statuses.ApplierStatusLink),
         typeof(Code.Gameplay.Features.Statuses.Duration),
         typeof(Code.Gameplay.Features.Statuses.Freeze),
+        typeof(Code.Gameplay.Features.Statuses.Invulnerability),
         typeof(Code.Gameplay.Features.Statuses.MaxHpUp),
         typeof(Code.Gameplay.Features.Statuses.Period),
         typeof(Code.Gameplay.Features.Statuses.Poison),

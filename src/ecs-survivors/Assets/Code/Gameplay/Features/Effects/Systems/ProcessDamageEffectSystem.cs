@@ -1,28 +1,38 @@
 using Code.Gameplay.Features.Effects.Extensions;
 using Entitas;
-using Unity.VisualScripting;
+using UnityEngine;
 
 namespace Code.Gameplay.Features.Effects.Systems
 {
     public class ProcessDamageEffectSystem : IExecuteSystem
     {
-        private readonly IGroup<GameEntity> _effects;
+        private readonly IGroup<GameEntity> _damageEffects;
+        private readonly IGroup<GameEntity> _invulnerabilityEffects;
         
         public ProcessDamageEffectSystem(GameContext game)
         {
-            _effects = game.GetGroup(GameMatcher.AllOf(
+            _damageEffects = game.GetGroup(GameMatcher.AllOf(
                 GameMatcher.DamageEffect,
+                GameMatcher.EffectValue,
+                GameMatcher.TargetId));
+
+            _invulnerabilityEffects = game.GetGroup(GameMatcher.AllOf(
+                GameMatcher.Invulnerability,
                 GameMatcher.EffectValue,
                 GameMatcher.TargetId));
         }
         
         public void Execute()
         {
-            foreach (GameEntity effect in _effects)
+            foreach (GameEntity damageEffect in _damageEffects)
             {
-                GameEntity target = effect.Target();
+                GameEntity target = damageEffect.Target();
 
-                effect.isProcessed = true;
+                foreach (var invulnerabilityEffect in _invulnerabilityEffects)
+                    if(target.Id == invulnerabilityEffect.TargetId)
+                        return;
+                
+                damageEffect.isProcessed = true;
                 
                 if(target.isDead)
                     continue;
@@ -30,7 +40,7 @@ namespace Code.Gameplay.Features.Effects.Systems
                 if(!target.hasCurrentHp)
                     return;
                 
-                target.ReplaceCurrentHp(target.CurrentHp - effect.EffectValue);
+                target.ReplaceCurrentHp(target.CurrentHp - damageEffect.EffectValue);
                 
                 if(target.hasDamageTakenAnimator)
                     target.DamageTakenAnimator.PlayDamageTaken();

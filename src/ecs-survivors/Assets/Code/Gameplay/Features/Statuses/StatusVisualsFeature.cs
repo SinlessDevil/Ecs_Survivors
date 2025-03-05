@@ -12,11 +12,13 @@ namespace Code.Gameplay.Features.Statuses
             Add(systemFactory.Create<ApplyFreezeVisualsSystem>());
             Add(systemFactory.Create<ApplySpeedUpVisualsSystem>());
             Add(systemFactory.Create<ApplyMaxHpUpVisualsSystem>());
+            Add(systemFactory.Create<ApplyInvulnerabilityVisualsSystem>());
             
             Add(systemFactory.Create<UnapplyPoisonVisualsSystem>());
             Add(systemFactory.Create<UnapplyFreezeVisualsSystem>());
             Add(systemFactory.Create<UnapplySpeedUpVisualsSystem>());
             Add(systemFactory.Create<UnapplyMaxHpUpVisualsSystem>());
+            Add(systemFactory.Create<UnapplyInvulnerabilityVisualsSystem>());
             
             //UI Remove Systems
             Add(systemFactory.Create<RemoveUnappliedEnchantFromHolder>());
