@@ -12,5 +12,7 @@ namespace Code.Gameplay.Features.Enemies.Configs
         public float RadiusToCollectTargets = 0.3f;
         public float CollectTargetsInterval = 0.5f;
         public List<EffectSetup> EffectSetups;
+        public float RadiusToFindEnemy = 3;
+        public float CreateEffectInterval = 3;
     }
 }

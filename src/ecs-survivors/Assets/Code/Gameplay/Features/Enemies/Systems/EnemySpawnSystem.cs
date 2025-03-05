@@ -43,13 +43,21 @@ namespace Code.Gameplay.Features.Enemies.Systems
             foreach (GameEntity timer in _timers)
             {
                 timer.ReplaceSpawnTimer(timer.SpawnTimer - _timeService.DeltaTime);
+        
                 if (timer.SpawnTimer <= 0)
                 {
                     timer.ReplaceSpawnTimer(EnemySpawnTimer);
-                    _enemyFactory.CreateEnemy(EnemyTypeId.Goblin,at: RandomSpawnPosition(hero.WorldPosition), level: 1);
+                    
+                    _enemyFactory.CreateEnemy(EnemyTypeId.Goblin, at: RandomSpawnPosition(hero.WorldPosition), level: 1);
+                    
+                    if (UnityEngine.Random.value < 0.5f)  
+                    {
+                        _enemyFactory.CreateEnemy(EnemyTypeId.GoblinShamanHealer, at: RandomSpawnPosition(hero.WorldPosition), level: 1);
+                    }
                 }
             }
         }
+
         
         private Vector2 RandomSpawnPosition(Vector2 aroundPosition)
         {
