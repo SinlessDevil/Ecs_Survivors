@@ -120,7 +120,7 @@ namespace Code.Gameplay.Common.Visuals.StatusVisuals
 
         public void UnapplyHex()
         {
-            Destroy(_sheep);
+            Destroy(_sheep.gameObject);
             _sheep = null;
             
             Renderer.enabled = true;
