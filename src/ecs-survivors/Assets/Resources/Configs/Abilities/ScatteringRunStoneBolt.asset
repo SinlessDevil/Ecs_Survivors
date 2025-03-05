@@ -21,11 +21,11 @@ MonoBehaviour:
       Value: 1
     StatusSetups:
     - StatusTypeId: 3
-      Value: 0
+      Value: 6
       Duration: 3
       Period: 0
       StatusApplicationTypeId: 2
-      StatusTriggerConditionTypeId: 1
+      StatusTriggerConditionTypeId: 2
       IsStackable: 1
     ProjectileSetup:
       Speed: 6
@@ -49,11 +49,11 @@ MonoBehaviour:
       Value: 1
     StatusSetups:
     - StatusTypeId: 3
-      Value: 0
+      Value: 6
       Duration: 3
       Period: 0
       StatusApplicationTypeId: 2
-      StatusTriggerConditionTypeId: 1
+      StatusTriggerConditionTypeId: 2
       IsStackable: 1
     ProjectileSetup:
       Speed: 6
@@ -77,11 +77,11 @@ MonoBehaviour:
       Value: 1
     StatusSetups:
     - StatusTypeId: 3
-      Value: 0
+      Value: 6
       Duration: 3
       Period: 0
       StatusApplicationTypeId: 2
-      StatusTriggerConditionTypeId: 1
+      StatusTriggerConditionTypeId: 2
       IsStackable: 1
     ProjectileSetup:
       Speed: 6
