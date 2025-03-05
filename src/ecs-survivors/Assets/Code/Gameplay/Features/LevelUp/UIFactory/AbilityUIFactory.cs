@@ -7,7 +7,7 @@ namespace Code.Gameplay.Features.LevelUp.UIFactory
 {
     public class AbilityUIFactory : IAbilityUIFactory
     {
-        private const string AbilityCardPrefabPath = "UI/Ability/AbilityCard";
+        private const string AbilityCardPrefabPath = "UI/Abilities/AbilityCard";
         
         private readonly IInstantiator _instantiator;
         private readonly IAssetProvider _assetProvider;

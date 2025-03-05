@@ -9,7 +9,8 @@ namespace Code.Gameplay.Features.Enchants.Behaviors
     {
         public Transform EnchantLayout;
 
-        private List<Enchant> _enchants = new List<Enchant>();
+        private List<Enchant> _enchants = new();
+        
         private IEnchantUIFactory _enchantUIFactory;
         
         [Inject]
@@ -20,8 +21,6 @@ namespace Code.Gameplay.Features.Enchants.Behaviors
         
         public void AddEnchant(EnchantTypeId enchantTypeId)
         {
-            //Debug.Log($"{enchantTypeId} added to holder");
-            
             if (EnchantAlreadyHeld(enchantTypeId))
                 return;
             
@@ -31,18 +30,16 @@ namespace Code.Gameplay.Features.Enchants.Behaviors
 
         public void RemoveEnchant(EnchantTypeId enchantTypeId)
         {
-            //Debug.Log($"{enchantTypeId} added to holder");
-            
             Enchant enchant = _enchants.Find(x => x.EnchantTypeId == enchantTypeId);
 
             if (enchant != null)
             {
                 _enchants.Remove(enchant);
-                Destroy(enchant.gameObject);
+                enchant.Hide();
             }
         }
         
         private bool EnchantAlreadyHeld(EnchantTypeId enchantTypeId) =>
-        _enchants.Find(x => x.EnchantTypeId == enchantTypeId) != null;
+            _enchants.Exists(x => x.EnchantTypeId == enchantTypeId);
     }
 }

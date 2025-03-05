@@ -1,10 +1,15 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using Code.Common.Entity;
 using Code.Gameplay.Features.Abilities;
 using Code.Gameplay.Features.Abilities.Configs;
 using Code.Gameplay.Features.Abilities.Upgrade;
+using Code.Gameplay.Features.LevelUp.Behaviours;
 using Code.Gameplay.Features.LevelUp.UIFactory;
 using Code.Gameplay.StaticData;
 using Code.Gameplay.Windows;
+using DG.Tweening;
 using UnityEngine;
 using Zenject;
 
@@ -36,15 +41,37 @@ namespace Code.Gameplay.Features.LevelUp.Windows
 
         protected override void Initialize()
         {
+            List<AbilityCard> abilityCards = new List<AbilityCard>();
+
             foreach (AbilityUpgradeOption variableOption in _abilityUpgradeService.GetUpgradeOptions())
             {
                 AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(variableOption.Id, variableOption.Level);
-                
-                _abilityFactory.CreateAbilityCard(AbilityLayout)
-                    .Setup(variableOption.Id, abilityLevel, OnSelected);
+
+                AbilityCard abilityCard = _abilityFactory.CreateAbilityCard(AbilityLayout);
+                abilityCard.Setup(variableOption.Id, abilityLevel, OnSelected);
+                abilityCards.Add(abilityCard);
             }
+
+            StartCoroutine(AnimateAbilityCards(abilityCards));
         }
 
+        private IEnumerator AnimateAbilityCards(List<AbilityCard> cards)
+        {
+            float delay = 0.1f;
+
+            foreach (var card in cards)
+            {
+                card.transform.localScale = Vector3.zero;
+            }
+            
+            foreach (var card in cards)
+            {
+                card.transform.DOScale(Vector3.one, 0.5f)
+                    .SetEase(Ease.OutBack);
+                yield return new WaitForSeconds(delay);
+            }
+        }
+        
         private void OnSelected(AbilityId id)
         {
             CreateEntity.Empty()
