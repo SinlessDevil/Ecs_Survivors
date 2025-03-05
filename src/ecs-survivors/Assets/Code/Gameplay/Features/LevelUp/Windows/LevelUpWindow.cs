@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Code.Common.Entity;
@@ -9,9 +8,9 @@ using Code.Gameplay.Features.LevelUp.Behaviours;
 using Code.Gameplay.Features.LevelUp.UIFactory;
 using Code.Gameplay.StaticData;
 using Code.Gameplay.Windows;
-using DG.Tweening;
 using UnityEngine;
 using Zenject;
+using DG.Tweening;
 
 namespace Code.Gameplay.Features.LevelUp.Windows
 {

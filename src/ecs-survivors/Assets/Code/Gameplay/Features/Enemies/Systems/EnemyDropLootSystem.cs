@@ -35,7 +35,6 @@ namespace Code.Gameplay.Features.Enemies.Systems
                     _lootFactory.CreateLootItem(LootTypeId.ExplosionEnchantItem, enemy.WorldPosition);
                 else
                     _lootFactory.CreateLootItem(LootTypeId.ExpGem, enemy.WorldPosition);
-
             }
         }
     }

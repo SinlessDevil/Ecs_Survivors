@@ -9,10 +9,6 @@ namespace Code.Gameplay.Features.Boosters
         {
             Add(systemFactory.Create<InitializeBoosterSpawnTimerSystem>());
             Add(systemFactory.Create<BoosterSpawnSystem>());
-
-            Add(systemFactory.Create<ApplyBoosterSystem>());
-
-            Add(systemFactory.Create<FinalizeBoosterDestroyProcessingSystem>());
         }
     }
 }

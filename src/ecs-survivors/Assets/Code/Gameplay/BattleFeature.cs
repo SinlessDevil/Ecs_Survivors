@@ -32,6 +32,7 @@ namespace Code.Gameplay
             Add(system.Create<EnemyFeature>());
             Add(system.Create<DeathFeature>());
             
+            Add(system.Create<BoosterFeature>());
             Add(system.Create<LootingFeature>());
             Add(system.Create<LevelUpFeature>());
             
@@ -42,7 +43,6 @@ namespace Code.Gameplay
             
             Add(system.Create<CollectTargetFeature>());
             Add(system.Create<EffectApplicationFeature>());
-           // Add(systemFactory.Create<BoosterFeature>());
            
             Add(system.Create<EnchantFeature>());
             Add(system.Create<EffectFeature>());

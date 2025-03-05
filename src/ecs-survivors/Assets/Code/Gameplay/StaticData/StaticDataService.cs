@@ -22,7 +22,6 @@ namespace Code.Gameplay.StaticData
     {
         private Dictionary<AbilityId, AbilityConfig> _abilityById;
         private Dictionary<EnemyTypeId, EnemyConfig> _enemyById;
-        private Dictionary<BoosterTypeId, BoosterConfig> _boosterById;
         private Dictionary<EnchantTypeId, EnchantConfig> _enchantById;
         private Dictionary<LootTypeId, LootConfig> _lootById;
         private Dictionary<WindowId, GameObject> _windowPrefabsById;
@@ -35,7 +34,6 @@ namespace Code.Gameplay.StaticData
             LoadAbilities();
             LoadEnemies();
             LoadHeroConfig();
-            LoadBoosters();
             LoadEnchants();
             LoadLoots();
             LoadWindows();
@@ -72,14 +70,6 @@ namespace Code.Gameplay.StaticData
                 return config;
 
             throw new Exception($"Enemy config for {enemyTypeId} not found");
-        }
-
-        public BoosterConfig GetBoosterConfig(BoosterTypeId boosterTypeId)
-        {
-            if(_boosterById.TryGetValue(boosterTypeId, out BoosterConfig config)) 
-                return config;
-
-            throw new Exception($"Booster config for {boosterTypeId} not found");
         }
         
         public EnchantConfig GetEnchantConfig(EnchantTypeId enchantTypeId)
@@ -129,12 +119,6 @@ namespace Code.Gameplay.StaticData
                 .ToDictionary(x => x.EnemyTypeId, x => x);
         }
 
-        private void LoadBoosters()
-        {
-            _boosterById = Resources
-                .LoadAll<BoosterConfig>("Configs/Boosters")
-                .ToDictionary(x => x.BoosterTypeId, x => x);
-        }
 
         private void LoadEnchants()
         {

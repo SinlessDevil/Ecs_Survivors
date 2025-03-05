@@ -7,7 +7,6 @@ using Code.Gameplay.Common.Time;
 using Code.Gameplay.Features.Abilities.Factory;
 using Code.Gameplay.Features.Abilities.Upgrade;
 using Code.Gameplay.Features.Armaments.Factory;
-using Code.Gameplay.Features.Boosters.Factroy;
 using Code.Gameplay.Features.Effects.Factory;
 using Code.Gameplay.Features.Enchants.UIFactories;
 using Code.Gameplay.Features.Enemies.Factory;
@@ -119,7 +118,6 @@ namespace Code.Infrastructure.Installers
             Container.Bind<IEntityViewFactory>().To<EntityViewFactory>().AsSingle();
             Container.Bind<IHeroFactory>().To<HeroFactory>().AsSingle();
             Container.Bind<IEnemyFactory>().To<EnemyFactory>().AsSingle();
-            Container.Bind<IBoosterFactory>().To<BoosterFactory>().AsSingle();
         }
 
         private void BindUIFactories()

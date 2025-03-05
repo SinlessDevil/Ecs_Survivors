@@ -9,20 +9,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8222a9a6faa44138ae0ffdfbbd21a70e, type: 3}
-  m_Name: MaxHpBoosterConfig
+  m_Script: {fileID: 11500000, guid: 8d9b35b8f09a43c19fe723fae8994a1d, type: 3}
+  m_Name: MaxHpUpItem
   m_EditorClassIdentifier: 
-  BoosterTypeId: 1
+  LootTypeId: 5
+  Experience: 0
+  Prefab: {fileID: 1349911921592095340, guid: 501f417a1fea42d428d63d18100bf660, type: 3}
   EffectSetups:
   - EffectTypeId: 2
-    Value: 100
+    Value: 200
   StatusSetups:
   - StatusTypeId: 4
-    Value: 100
-    Duration: 3
+    Value: 200
+    Duration: 10
     Period: 0
-    StatusApplicationTypeId: 2
-    StatusTriggerConditionTypeId: 1
-    IsStackable: 0
-  RadiusToCollectTargets: 0.3
-  LifeTime: 10
+    StatusApplicationTypeId: 0
+    StatusTriggerConditionTypeId: 0
+    IsStackable: 1

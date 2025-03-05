@@ -27,7 +27,6 @@ namespace Code.Gameplay.StaticData
         public EnemyConfig GetEnemyConfig(EnemyTypeId enemyTypeId);
         public EnemyLevel GetEnemyLevel(EnemyTypeId enemyTypeId, int level);
         
-        public BoosterConfig GetBoosterConfig(BoosterTypeId boosterTypeId);
         public EnchantConfig GetEnchantConfig(EnchantTypeId enchantTypeId);
         public LootConfig GetLootConfig(LootTypeId lootTypeId);
         

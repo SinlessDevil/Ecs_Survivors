@@ -10,5 +10,7 @@ namespace Code.Gameplay.Features.Loot
         HealingItem = 2,
         PoisonEnchantItem = 3,
         ExplosionEnchantItem = 4,
+        MaxHPUpItem = 5,
+        InvulnerabilityItem = 6,
     }
 }
