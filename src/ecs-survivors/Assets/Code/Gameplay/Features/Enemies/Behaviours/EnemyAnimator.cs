@@ -10,6 +10,7 @@ namespace Code.Gameplay.Features.Enemies.Behaviours
         private static readonly int OverlayIntensityProperty = Shader.PropertyToID("_OverlayIntensity");
         private static readonly int ColorProperty = Shader.PropertyToID("_Color");
         
+        private readonly int _isMovingHash = Animator.StringToHash("isMoving");
         private readonly int _diedHash = Animator.StringToHash("died");
 
         public Animator Animator;
@@ -19,6 +20,9 @@ namespace Code.Gameplay.Features.Enemies.Behaviours
         
         private Material Material => SpriteRenderer.material;
 
+        public void PlayMove() => Animator.SetBool(_isMovingHash, true);
+        public void PlayIdle() => Animator.SetBool(_isMovingHash, false);
+        
         public void PlayDied() => Animator.SetTrigger(_diedHash);
 
         public void PlayDamageTaken()

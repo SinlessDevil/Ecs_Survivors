@@ -17,6 +17,8 @@ namespace Code.Gameplay.Features.Enemies
             Add(systemFactory.Create<EnemyDropLootSystem>());
 
             Add(systemFactory.Create<EnemyShamanHealerSystem>());
+
+            Add(systemFactory.Create<AnimateEnemyMovementSystem>());
             
             Add(systemFactory.Create<FinalizeEnemyDeathProcessingSystem>());
         }
