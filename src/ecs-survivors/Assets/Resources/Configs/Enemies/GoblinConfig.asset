@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2afc7190ee7a4b10bd7f1bb770e65bfd, type: 3}
-  m_Name: EnemyConfig
+  m_Name: GoblinConfig
   m_EditorClassIdentifier: 
   EnemyTypeId: 1
   Levels:
