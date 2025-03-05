@@ -260,6 +260,10 @@ PrefabInstance:
       propertyPath: SpriteRenderer
       value: 
       objectReference: {fileID: 3224600182354190819}
+    - target: {fileID: 8834330228557909564, guid: 87dfb064bc6d941469d685bf5de17e77, type: 3}
+      propertyPath: StatusVisuals
+      value: 
+      objectReference: {fileID: 9197788659476888778}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
@@ -269,13 +273,18 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 37033163526465442, guid: 87dfb064bc6d941469d685bf5de17e77, type: 3}
-      insertIndex: -1
+      insertIndex: 0
       addedObject: {fileID: 8340934959743815178}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1439855031686531578, guid: 87dfb064bc6d941469d685bf5de17e77, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6100176310763840130}
+      addedObject: {fileID: 6930392290847596410}
   m_SourcePrefab: {fileID: 100100000, guid: 87dfb064bc6d941469d685bf5de17e77, type: 3}
+--- !u!4 &2789075313667244248 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 613966992052251750, guid: 87dfb064bc6d941469d685bf5de17e77, type: 3}
+  m_PrefabInstance: {fileID: 3328712635861724350}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3364866181197663004 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 37033163526465442, guid: 87dfb064bc6d941469d685bf5de17e77, type: 3}
@@ -286,7 +295,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1439855031686531578, guid: 87dfb064bc6d941469d685bf5de17e77, type: 3}
   m_PrefabInstance: {fileID: 3328712635861724350}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6100176310763840130
+--- !u!114 &6930392290847596410
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -295,11 +304,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4452531728566216004}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4c6ef53f49845e6b657671fc9551c7b, type: 3}
+  m_Script: {fileID: 11500000, guid: 6696cd5dc3a643e4884260e29c87ae34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <EntityView>k__BackingField: {fileID: 8795572897468621195}
-  StatusVisuals: {fileID: 9197788659476888778}
+  Container: {fileID: 2789075313667244248}
 --- !u!114 &8795572897468621195 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6062355763849841973, guid: 87dfb064bc6d941469d685bf5de17e77, type: 3}

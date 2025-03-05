@@ -33,7 +33,7 @@ namespace Code.Gameplay.Features.Effects.Systems
                 target.ReplaceCurrentHp(CalculatedCurrentHp(target, effect));
                 
                 if(target.hasDamageTakenAnimator)
-                    target.DamageTakenAnimator.PlayDamageTaken();
+                    target.DamageTakenAnimator.PlayHealTaken();
             }
         }
 

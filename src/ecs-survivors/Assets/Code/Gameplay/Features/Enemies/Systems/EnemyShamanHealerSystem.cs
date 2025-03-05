@@ -44,8 +44,6 @@ namespace Code.Gameplay.Features.Enemies.Systems
             foreach (GameEntity healer in _healers)
             foreach (GameEntity timer in _timers)
             {
-                Debug.Log(healer);
-                
                 if (timer.BuffTimer > 0)
                 {
                     healer.isMoving = healer.isReloadingTimer != true;
@@ -65,7 +63,6 @@ namespace Code.Gameplay.Features.Enemies.Systems
                 {
                     foreach (EffectSetup effectSetup in healer.EffectSetups)
                     {
-                        Debug.Log("Buffing enemy");
                         _effectFactory.CreateEffect(effectSetup, healer.Id, enemy.Id);
                     }
                 }

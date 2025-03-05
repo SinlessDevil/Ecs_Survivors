@@ -36,6 +36,8 @@ namespace Code.Gameplay.Features.Enemies.Behaviours
 
         public void PlayHealTaken()
         {
+            Debug.Log("PlayHealTaken");
+            
             if (DOTween.IsTweening(Material))
                 return;
 
