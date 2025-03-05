@@ -28,10 +28,9 @@ namespace Code.Gameplay.Features.Effects.Systems
             {
                 GameEntity target = damageEffect.Target();
 
-                foreach (var invulnerabilityEffect in _invulnerabilityEffects)
-                    if(target.Id == invulnerabilityEffect.TargetId)
-                        return;
-                
+                if(HasInvulnerable(target))
+                    continue;
+
                 damageEffect.isProcessed = true;
                 
                 if(target.isDead)
@@ -45,6 +44,18 @@ namespace Code.Gameplay.Features.Effects.Systems
                 if(target.hasDamageTakenAnimator)
                     target.DamageTakenAnimator.PlayDamageTaken();
             }
+        }
+
+        private bool HasInvulnerable(GameEntity target)
+        {
+            foreach (var invulnerabilityEffect in _invulnerabilityEffects)
+            {
+                if (target.Id == invulnerabilityEffect.TargetId)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
