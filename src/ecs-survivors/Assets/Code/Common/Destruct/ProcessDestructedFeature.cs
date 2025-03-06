@@ -11,6 +11,8 @@ namespace Code.Common.Destruct
       
             Add(systemFactory.Create<CleanupGameDestructedViewSystem>());
             Add(systemFactory.Create<CleanupGameDestructedSystem>());
+            
+            Add(systemFactory.Create<CleanupMetaDestructedSystem>());
         }
     }
 }

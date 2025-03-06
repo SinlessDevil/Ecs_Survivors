@@ -6,15 +6,15 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public sealed partial class GameMatcher {
+public sealed partial class InputMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherInput;
+    static Entitas.IMatcher<InputEntity> _matcherInput;
 
-    public static Entitas.IMatcher<GameEntity> Input {
+    public static Entitas.IMatcher<InputEntity> Input {
         get {
             if (_matcherInput == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Input);
-                matcher.componentNames = GameComponentsLookup.componentNames;
+                var matcher = (Entitas.Matcher<InputEntity>)Entitas.Matcher<InputEntity>.AllOf(InputComponentsLookup.Input);
+                matcher.componentNames = InputComponentsLookup.componentNames;
                 _matcherInput = matcher;
             }
 
@@ -31,15 +31,15 @@ public sealed partial class GameMatcher {
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-public partial class GameEntity {
+public partial class InputEntity {
 
     static readonly Code.Gameplay.Input.Input inputComponent = new Code.Gameplay.Input.Input();
 
     public bool isInput {
-        get { return HasComponent(GameComponentsLookup.Input); }
+        get { return HasComponent(InputComponentsLookup.Input); }
         set {
             if (value != isInput) {
-                var index = GameComponentsLookup.Input;
+                var index = InputComponentsLookup.Input;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
