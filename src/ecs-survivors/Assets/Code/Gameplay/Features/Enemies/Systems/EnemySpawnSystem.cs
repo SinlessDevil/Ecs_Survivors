@@ -52,7 +52,7 @@ namespace Code.Gameplay.Features.Enemies.Systems
                     
                     if (UnityEngine.Random.value < 0.5f)  
                     {
-                        _enemyFactory.CreateEnemy(EnemyTypeId.GoblinShamanBuffer, at: RandomSpawnPosition(hero.WorldPosition), level: 1);
+                        _enemyFactory.CreateEnemy(EnemyTypeId.GoblinBig, at: RandomSpawnPosition(hero.WorldPosition), level: 1);
                     }
                 }
             }

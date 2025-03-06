@@ -28,6 +28,7 @@ namespace Code.Gameplay.Features.Enemies.Factory
             return typeId switch
             {
                 EnemyTypeId.Goblin => CreateGoblin(typeId, at, level),
+                EnemyTypeId.GoblinBig => CreateGoblinBig(typeId, at, level),
                 EnemyTypeId.GoblinShamanHealer => CreateGoblinShamanHealer(typeId, at, level),
                 EnemyTypeId.GoblinShamanBuffer => CreateGoblinShamanBuffer(typeId, at, level),
                 _ => throw new Exception($"Enemy with type id {typeId} does not exist")
@@ -48,6 +49,20 @@ namespace Code.Gameplay.Features.Enemies.Factory
                 .AddLayerMask(CollisionLayer.Hero.AsMask());
         }
 
+        private GameEntity CreateGoblinBig(EnemyTypeId typeId, Vector3 at, int level)
+        {
+            EnemyLevel enemyLevel = _staticDataService.GetEnemyLevel(typeId, level);
+            
+            string viewPath = "Gameplay/Enemies/Goblins/Torch/goblin_torch_blue_big";
+            
+            return CreateEnemyEntity(typeId, at, viewPath, enemyLevel)
+                .AddTargetsBuffer(new List<int>(1))
+                .AddRadius(enemyLevel.RadiusToCollectTargets)
+                .AddCollectTargetsInterval(enemyLevel.CollectTargetsInterval)
+                .AddCollectTargetsTimer(0)
+                .AddLayerMask(CollisionLayer.Hero.AsMask());
+        }
+        
         private GameEntity CreateGoblinShamanHealer(EnemyTypeId typeId, Vector3 at, int level)
         {
             EnemyLevel enemyLevel = _staticDataService.GetEnemyLevel(typeId, level);
