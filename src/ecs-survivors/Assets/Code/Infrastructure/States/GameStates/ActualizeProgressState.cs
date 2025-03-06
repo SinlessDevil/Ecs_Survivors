@@ -38,8 +38,6 @@ namespace Code.Infrastructure.States.GameStates
         {
             _actualizationFeature = _systemFactory.Create<ActualizationFeature>();
 
-            _progressProvider.ProgressData.LastSimulationTickTime = _time.UtcNow - _twoDays;
-
             ActualizeProgress(_progressProvider.ProgressData);
 
             _stateMachine.Enter<LoadingHomeScreenState>();
@@ -58,11 +56,6 @@ namespace Code.Infrastructure.States.GameStates
             _actualizationFeature.DeactivateReactiveSystems();
 
             DateTime until = GetLimitedUntilTime(data);
-
-            Debug.Log($"Actualizing {(until - data.LastSimulationTickTime).TotalSeconds} seconds");
-
-            int maxIterations = 10_000;
-            int iterations = 0;
 
             while (data.LastSimulationTickTime < until)
             {
