@@ -1,5 +1,6 @@
 using Code.Common.Entity;
 using Code.Common.Extensions;
+using Code.Gameplay.Common.Time;
 using Code.Gameplay.StaticData;
 using Code.Infrastructure.States.StateInfrastructure;
 using Code.Infrastructure.States.StateMachine;
@@ -13,22 +14,25 @@ namespace Code.Infrastructure.States.GameStates
         private readonly IGameStateMachine _stateMachine;
         private readonly IProgressProvider _progressProvider;
         private readonly IStaticDataService _staticDataService;
+        private readonly ITimeService _timeService;
 
         public InitializeProgressState(
             IGameStateMachine stateMachine,
             IProgressProvider progressProvider,
-            IStaticDataService staticDataService)
+            IStaticDataService staticDataService, 
+            ITimeService timeService)
         {
             _stateMachine = stateMachine;
             _progressProvider = progressProvider;
             _staticDataService = staticDataService;
+            _timeService = timeService;
         }
 
         public void Enter()
         {
             InitializeProgress();
 
-            _stateMachine.Enter<LoadingHomeScreenState>();
+            _stateMachine.Enter<ActualizeProgressState>();
         }
 
         private void InitializeProgress()
@@ -38,7 +42,10 @@ namespace Code.Infrastructure.States.GameStates
 
         private void CreateNewProgress()
         {
-            _progressProvider.SetProgressData(new ProgressData());
+            _progressProvider.SetProgressData(new ProgressData()
+            {
+                LastSimulationTickTime = _timeService.UtcNow
+            });
 
             CreateMetaEntity.Empty()
                 .With(x => x.isStorage = true)
@@ -48,6 +55,7 @@ namespace Code.Infrastructure.States.GameStates
 
         public void Exit()
         {
+            
         }
     }
 }

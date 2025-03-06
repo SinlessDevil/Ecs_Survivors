@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddd38ece03244597b1604dd358cc7b5f, type: 3}
   m_Name: AfkGainConfig
   m_EditorClassIdentifier: 
-  GoldPerSecond: 0
+  GoldPerSecond: 1

@@ -157,6 +157,7 @@ namespace Code.Infrastructure.Installers
         {
             Container.BindInterfacesAndSelfTo<BootstrapState>().AsSingle();
             Container.BindInterfacesAndSelfTo<InitializeProgressState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ActualizeProgressState>().AsSingle();
             Container.BindInterfacesAndSelfTo<LoadingHomeScreenState>().AsSingle();
             Container.BindInterfacesAndSelfTo<HomeScreenState>().AsSingle();
             Container.BindInterfacesAndSelfTo<LoadingBattleState>().AsSingle();
