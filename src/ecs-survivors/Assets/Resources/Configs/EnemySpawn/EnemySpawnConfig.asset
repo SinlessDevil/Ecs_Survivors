@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemySpawnConfig
   m_EditorClassIdentifier: 
   Waves:
-  - LevelRequirement: 1
+  - LevelRequirement: 0
     SpawnInterval: 3
     Enemies:
     - EnemyType: 1
@@ -28,7 +28,7 @@ MonoBehaviour:
     - EnemyType: 4
       MinCount: 1
       MaxCount: 2
-  - LevelRequirement: 4
+  - LevelRequirement: 3
     SpawnInterval: 2.5
     Enemies:
     - EnemyType: 1
@@ -41,8 +41,8 @@ MonoBehaviour:
     SpawnInterval: 2
     Enemies:
     - EnemyType: 1
-      MinCount: 4
-      MaxCount: 6
+      MinCount: 5
+      MaxCount: 10
     - EnemyType: 3
       MinCount: 1
       MaxCount: 2
