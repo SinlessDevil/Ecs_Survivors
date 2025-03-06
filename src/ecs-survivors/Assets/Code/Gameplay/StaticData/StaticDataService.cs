@@ -29,6 +29,7 @@ namespace Code.Gameplay.StaticData
         private LevelupConfig _levelupRules;
         private HeroConfig _heroConfig;
         private EnemySpawnConfig _enemySpawnConfig;
+        private EnemyDropConfig _enemyDropConfig;
         
         public void LoadAll()
         {
@@ -40,10 +41,13 @@ namespace Code.Gameplay.StaticData
             LoadWindows();
             LoadLevelUpRules();
             LoadEnemySpawnConfig();
+            LoadEnemyDropConfig();
         }
 
         public EnemySpawnConfig EnemySpawnConfig => _enemySpawnConfig;
 
+        public EnemyDropConfig EnemyDropConfig => _enemyDropConfig;
+        
         public int MaxLevel => _levelupRules.MaxLevel;
 
         public float ExperienceForLevel(int level) => _levelupRules.ExperienceForLevel[level];
@@ -180,6 +184,11 @@ namespace Code.Gameplay.StaticData
         private void LoadEnemySpawnConfig()
         {
             _enemySpawnConfig = Resources.Load<EnemySpawnConfig>("Configs/EnemySpawn/EnemySpawnConfig");
+        }
+        
+        private void LoadEnemyDropConfig()
+        {
+            _enemyDropConfig = Resources.Load<EnemyDropConfig>("Configs/EnemyDrop/EnemyDropConfig");
         }
     }
 }

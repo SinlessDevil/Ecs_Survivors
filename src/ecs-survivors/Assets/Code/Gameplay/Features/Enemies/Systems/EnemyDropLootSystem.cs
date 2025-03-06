@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Code.Gameplay.Features.Loot;
 using Code.Gameplay.Features.Loot.Factory;
+using Code.Gameplay.StaticData;
 using Entitas;
 
 namespace Code.Gameplay.Features.Enemies.Systems
@@ -8,21 +9,16 @@ namespace Code.Gameplay.Features.Enemies.Systems
     public class EnemyDropLootSystem : IExecuteSystem
     {
         private readonly ILootFactory _lootFactory;
+        private readonly IStaticDataService _staticDataService;
         private readonly IGroup<GameEntity> _enemies;
         private readonly List<GameEntity> _buffer = new(128);
 
-        private readonly List<(LootTypeId, float)> _lootTable = new()
-        {
-            (LootTypeId.HealingItem, 15f),
-            (LootTypeId.PoisonEnchantItem, 15f),
-            (LootTypeId.ExplosionEnchantItem, 15f),
-            (LootTypeId.HexEnchantItem, 15f),
-            (LootTypeId.ExpGem, 40f),
-        };
-
-        public EnemyDropLootSystem(GameContext game, ILootFactory lootFactory)
+        public EnemyDropLootSystem(GameContext game, 
+            ILootFactory lootFactory,
+            IStaticDataService staticDataService)
         {
             _lootFactory = lootFactory;
+            _staticDataService = staticDataService;
 
             _enemies = game.GetGroup(GameMatcher
                 .AllOf(
@@ -44,17 +40,17 @@ namespace Code.Gameplay.Features.Enemies.Systems
         private LootTypeId GetRandomLoot()
         {
             float totalWeight = 0f;
-            foreach (var loot in _lootTable)
-                totalWeight += loot.Item2;
+            foreach (var loot in _staticDataService.EnemyDropConfig.LootTable)
+                totalWeight += loot.DropChance;
 
             float randomValue = UnityEngine.Random.Range(0, totalWeight);
             float cumulativeWeight = 0f;
 
-            foreach (var loot in _lootTable)
+            foreach (var loot in _staticDataService.EnemyDropConfig.LootTable)
             {
-                cumulativeWeight += loot.Item2;
+                cumulativeWeight += loot.DropChance;
                 if (randomValue < cumulativeWeight)
-                    return loot.Item1;
+                    return loot.LootType;
             }
 
             return LootTypeId.ExpGem;

@@ -64,7 +64,6 @@ namespace Code.Gameplay.Features.Enemies.Systems
         private void SpawnEnemies(Vector2 heroPosition)
         {
             int currentLevel = _levelUpService.CurrentLevel;
-            Debug.Log(currentLevel);
             EnemyWave wave = _staticDataService.GetCurrentWave(currentLevel);
             if (wave == null) return;
 
