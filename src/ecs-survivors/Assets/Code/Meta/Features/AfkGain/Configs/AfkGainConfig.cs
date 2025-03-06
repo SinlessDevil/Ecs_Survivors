@@ -6,5 +6,8 @@ namespace Code.Meta.Features.AfkGain.Configs
     public class AfkGainConfig : ScriptableObject
     {
         public float GoldPerSecond;
+        
+        public float GemPerSecond;
+        public float GemChance;
     }
 }

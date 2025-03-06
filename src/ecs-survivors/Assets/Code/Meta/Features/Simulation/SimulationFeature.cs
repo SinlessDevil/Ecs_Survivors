@@ -9,8 +9,10 @@ namespace Code.Meta.Features.Simulation
         {
             Add(systems.Create<BoosterDurationSystem>());
             Add(systems.Create<CalculateGoldGainSystem>());
+            Add(systems.Create<CalculateGemGainSystem>());
             
             Add(systems.Create<AfkGoldGainSystem>());
+            Add(systems.Create<AfkGemGainSystem>());
             Add(systems.Create<UpdateSimulationTimeSystem>());
         }
     }

@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: AfkGainConfig
   m_EditorClassIdentifier: 
   GoldPerSecond: 1
+  GemPerSecond: 1
+  GemChance: 0.5

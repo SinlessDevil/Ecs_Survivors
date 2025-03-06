@@ -56,6 +56,10 @@ namespace Code.Infrastructure.States.GameStates
                 .AddGoldGainBoost(1)
                 .AddDuration((float) TimeSpan.FromDays(2).TotalSeconds);
             
+            CreateMetaEntity.Empty()
+                .AddGemGainBoost(1)
+                .AddDuration((float) TimeSpan.FromDays(2).TotalSeconds);
+            
             _actualizationFeature.Initialize();
             _actualizationFeature.DeactivateReactiveSystems();
 

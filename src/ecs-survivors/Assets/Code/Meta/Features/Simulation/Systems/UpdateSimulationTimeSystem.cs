@@ -18,13 +18,12 @@ namespace Code.Meta.Features.Simulation.Systems
         public void Execute()
         {
             if (_ticks.count == 0)
-            {
                 return;
-            }
 
             foreach (MetaEntity tick in _ticks)
             {
-                _progressProvider.ProgressData.LastSimulationTickTime = _progressProvider.ProgressData.LastSimulationTickTime.AddSeconds(tick.Tick);
+                _progressProvider.ProgressData.LastSimulationTickTime = 
+                    _progressProvider.ProgressData.LastSimulationTickTime.AddSeconds(tick.Tick);
             }
         }
 

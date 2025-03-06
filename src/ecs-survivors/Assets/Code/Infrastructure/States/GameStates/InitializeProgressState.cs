@@ -51,6 +51,12 @@ namespace Code.Infrastructure.States.GameStates
                 .With(x => x.isStorage = true)
                 .AddGold(0)
                 .AddGoldPerSecond(_staticDataService.AfkGainConfig.GoldPerSecond);
+
+            CreateMetaEntity.Empty()
+                .With(x => x.isStorage = true)
+                .AddGem(0)
+                .AddGemPerSecond(_staticDataService.AfkGainConfig.GemPerSecond)
+                .AddGemChance(_staticDataService.AfkGainConfig.GemChance);
         }
 
         public void Exit()
