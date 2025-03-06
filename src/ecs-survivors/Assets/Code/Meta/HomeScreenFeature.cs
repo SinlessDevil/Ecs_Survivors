@@ -1,5 +1,6 @@
 using Code.Common.Destruct;
 using Code.Infrastructure.Systems;
+using Code.Meta.Features.Simulation;
 
 namespace Code.Meta
 {
@@ -7,6 +8,7 @@ namespace Code.Meta
     {
         public HomeScreenFeature(ISystemFactory systemFactory)
         {
+            Add(systemFactory.Create<SimulationFeature>());
             Add(systemFactory.Create<ProcessDestructedFeature>());
         }
     }

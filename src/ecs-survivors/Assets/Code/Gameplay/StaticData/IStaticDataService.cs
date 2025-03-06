@@ -9,6 +9,7 @@ using Code.Gameplay.Features.Hero.Configs;
 using Code.Gameplay.Features.Loot;
 using Code.Gameplay.Features.Loot.Configs;
 using Code.Gameplay.Windows;
+using Code.Meta.Features.AfkGain.Configs;
 using UnityEngine;
 
 namespace Code.Gameplay.StaticData
@@ -17,10 +18,11 @@ namespace Code.Gameplay.StaticData
     {
         public void LoadAll();
 
+        public AfkGainConfig AfkGainConfig { get; }
         public EnemySpawnConfig EnemySpawnConfig { get; }
         public HeroConfig HeroConfig { get; }
         public int MaxLevel { get; }
-        EnemyDropConfig EnemyDropConfig { get; }
+        public EnemyDropConfig EnemyDropConfig { get; }
         public float ExperienceForLevel(int level);
         public EnemyWave GetCurrentWave(int level);
         

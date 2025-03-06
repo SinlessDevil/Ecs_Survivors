@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Code.Gameplay.Features.Abilities;
 using Code.Gameplay.Features.Abilities.Configs;
-using Code.Gameplay.Features.Boosters;
 using Code.Gameplay.Features.Enchants;
 using Code.Gameplay.Features.Enchants.Configs;
 using Code.Gameplay.Features.Enemies;
@@ -14,6 +13,7 @@ using Code.Gameplay.Features.Loot;
 using Code.Gameplay.Features.Loot.Configs;
 using Code.Gameplay.Windows;
 using Code.Gameplay.Windows.Configs;
+using Code.Meta.Features.AfkGain.Configs;
 using UnityEngine;
 
 namespace Code.Gameplay.StaticData
@@ -30,7 +30,8 @@ namespace Code.Gameplay.StaticData
         private HeroConfig _heroConfig;
         private EnemySpawnConfig _enemySpawnConfig;
         private EnemyDropConfig _enemyDropConfig;
-        
+        private AfkGainConfig _afkGainConfig;
+
         public void LoadAll()
         {
             LoadAbilities();
@@ -42,8 +43,11 @@ namespace Code.Gameplay.StaticData
             LoadLevelUpRules();
             LoadEnemySpawnConfig();
             LoadEnemyDropConfig();
+            LaodAfkGainConfig();
         }
-
+        
+        public AfkGainConfig AfkGainConfig => _afkGainConfig;
+        
         public EnemySpawnConfig EnemySpawnConfig => _enemySpawnConfig;
 
         public EnemyDropConfig EnemyDropConfig => _enemyDropConfig;
@@ -149,7 +153,6 @@ namespace Code.Gameplay.StaticData
                 .ToDictionary(x => x.EnemyTypeId, x => x);
         }
 
-
         private void LoadEnchants()
         {
             _enchantById = Resources
@@ -176,6 +179,7 @@ namespace Code.Gameplay.StaticData
                 .WindowConfigs
                 .ToDictionary(x => x.Id, x => x.Prefab);
         }
+        
         private void LoadLevelUpRules()
         {
             _levelupRules = Resources.Load<LevelupConfig>("Configs/Levelup/LevelupConfig");
@@ -190,5 +194,11 @@ namespace Code.Gameplay.StaticData
         {
             _enemyDropConfig = Resources.Load<EnemyDropConfig>("Configs/EnemyDrop/EnemyDropConfig");
         }
+        
+        private void LaodAfkGainConfig()
+        {
+            _afkGainConfig = Resources.Load<AfkGainConfig>("Configs/AfkGain/AfkGainConfig");
+        }
+
     }
 }
