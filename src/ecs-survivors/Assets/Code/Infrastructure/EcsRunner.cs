@@ -5,32 +5,32 @@ using Zenject;
 
 namespace Code.Infrastructure
 {
-  public class EcsRunner : MonoBehaviour
-  {
-    private BattleFeature _battleFeature;
-    private ISystemFactory _systemFactory;
-    
-    [Inject]
-    private void Construct(ISystemFactory systemFactory)
+    public class EcsRunner : MonoBehaviour
     {
-      _systemFactory = systemFactory;
-    }
-    
-    private void Start()
-    {
-      _battleFeature = _systemFactory.Create<BattleFeature>();
-      _battleFeature.Initialize();
-    }
+        private BattleFeature _battleFeature;
+        private ISystemFactory _systemFactory;
 
-    private void Update()
-    {
-      _battleFeature.Execute();
-      _battleFeature.Cleanup();
-    }
+        [Inject]
+        private void Construct(ISystemFactory systemFactory)
+        {
+            _systemFactory = systemFactory;
+        }
 
-    private void OnDestroy()
-    {
-      _battleFeature.TearDown();
+        private void Start()
+        {
+            _battleFeature = _systemFactory.Create<BattleFeature>();
+            _battleFeature.Initialize();
+        }
+
+        private void Update()
+        {
+            _battleFeature.Execute();
+            _battleFeature.Cleanup();
+        }
+
+        private void OnDestroy()
+        {
+            _battleFeature.TearDown();
+        }
     }
-  }
 }
