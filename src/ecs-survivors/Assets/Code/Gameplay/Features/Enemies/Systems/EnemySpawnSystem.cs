@@ -2,6 +2,9 @@ using Code.Common.Extensions;
 using Code.Gameplay.Cameras.Provider;
 using Code.Gameplay.Common.Time;
 using Code.Gameplay.Features.Enemies.Factory;
+using Code.Gameplay.Features.Enemies.Configs;
+using Code.Gameplay.Features.LevelUp.Services;
+using Code.Gameplay.StaticData;
 using Entitas;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -16,19 +19,25 @@ namespace Code.Gameplay.Features.Enemies.Systems
         private readonly ITimeService _timeService;
         private readonly IEnemyFactory _enemyFactory;
         private readonly ICameraProvider _cameraProvider;
-        
+        private readonly ILevelUpService _levelUpService;
+        private readonly IStaticDataService _staticDataService;
+
         private readonly IGroup<GameEntity> _timers;
         private readonly IGroup<GameEntity> _heroes;
         
         public EnemySpawnSystem(GameContext game, 
             ITimeService timeService, 
             IEnemyFactory enemyFactory,
-            ICameraProvider cameraProvider)
+            ICameraProvider cameraProvider,
+            ILevelUpService levelUpService,
+            IStaticDataService staticDataService)
         {
             _timeService = timeService;
             _enemyFactory = enemyFactory;
             _cameraProvider = cameraProvider;
-            
+            _levelUpService = levelUpService;
+            _staticDataService = staticDataService;
+
             _timers = game.GetGroup(GameMatcher
                 .AllOf(GameMatcher.SpawnTimer));
             
@@ -47,35 +56,44 @@ namespace Code.Gameplay.Features.Enemies.Systems
                 if (timer.SpawnTimer <= 0)
                 {
                     timer.ReplaceSpawnTimer(EnemySpawnTimer);
-                    
-                    _enemyFactory.CreateEnemy(EnemyTypeId.Goblin, at: RandomSpawnPosition(hero.WorldPosition), level: 1);
-                    
-                    if (UnityEngine.Random.value < 0.5f)  
-                    {
-                        _enemyFactory.CreateEnemy(EnemyTypeId.GoblinBig, at: RandomSpawnPosition(hero.WorldPosition), level: 1);
-                    }
+                    SpawnEnemies(hero.WorldPosition);
                 }
             }
         }
 
-        
-        private Vector2 RandomSpawnPosition(Vector2 aroundPosition)
+        private void SpawnEnemies(Vector2 heroPosition)
+        {
+            int currentLevel = _levelUpService.CurrentLevel;
+            Debug.Log(currentLevel);
+            EnemyWave wave = _staticDataService.GetCurrentWave(currentLevel);
+            if (wave == null) return;
+
+            Vector2 spawnPosition = GetSpawnPosition(heroPosition);
+            foreach (var enemyData in wave.Enemies)
+            {
+                int enemyCount = Random.Range(enemyData.MinCount, enemyData.MaxCount + 1);
+                for (int i = 0; i < enemyCount; i++)
+                {
+                    Vector2 offset = GetSpawnOffset();
+                    _enemyFactory.CreateEnemy(enemyData.EnemyType, spawnPosition + offset, currentLevel);
+                }
+            }
+        }
+
+        private Vector2 GetSpawnPosition(Vector2 heroPosition)
         {
             bool startWithHorizontal = Random.Range(0, 2) == 0;
-
             return startWithHorizontal
-                ? HorizontalSpawnPosition(aroundPosition)
-                : VerticalSpawnPosition(aroundPosition);
+                ? HorizontalSpawnPosition(heroPosition)
+                : VerticalSpawnPosition(heroPosition);
         }
 
         private Vector2 HorizontalSpawnPosition(Vector2 aroundPosition)
         {
             Vector2[] horizontalDirections = { Vector2.left, Vector2.right };
             Vector2 primaryDirection = horizontalDirections.PickRandom();
-
             float horizontalOffsetDistance = _cameraProvider.WorldScreenWidth / 2 + SpawnDistanceGap;
             float verticalRandomOffset = Random.Range(-_cameraProvider.WorldScreenHeight / 2, _cameraProvider.WorldScreenHeight / 2);
-
             return aroundPosition + primaryDirection * horizontalOffsetDistance + Vector2.up * verticalRandomOffset;
         }
 
@@ -83,11 +101,14 @@ namespace Code.Gameplay.Features.Enemies.Systems
         {
             Vector2[] verticalDirections = { Vector2.up, Vector2.down };
             Vector2 primaryDirection = verticalDirections.PickRandom();
-
             float verticalOffsetDistance = _cameraProvider.WorldScreenHeight / 2 + SpawnDistanceGap;
             float horizontalRandomOffset = Random.Range(-_cameraProvider.WorldScreenWidth / 2, _cameraProvider.WorldScreenWidth / 2);
-
             return aroundPosition + primaryDirection * verticalOffsetDistance + Vector2.right * horizontalRandomOffset;
+        }
+
+        private Vector2 GetSpawnOffset()
+        {
+            return Random.insideUnitCircle * Random.Range(0.5f, 2f);
         }
     }
 }

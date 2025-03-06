@@ -28,7 +28,8 @@ namespace Code.Gameplay.StaticData
 
         private LevelupConfig _levelupRules;
         private HeroConfig _heroConfig;
-
+        private EnemySpawnConfig _enemySpawnConfig;
+        
         public void LoadAll()
         {
             LoadAbilities();
@@ -38,13 +39,26 @@ namespace Code.Gameplay.StaticData
             LoadLoots();
             LoadWindows();
             LoadLevelUpRules();
+            LoadEnemySpawnConfig();
         }
-        
+
+        public EnemySpawnConfig EnemySpawnConfig => _enemySpawnConfig;
+
         public int MaxLevel => _levelupRules.MaxLevel;
 
         public float ExperienceForLevel(int level) => _levelupRules.ExperienceForLevel[level];
         
         public HeroConfig HeroConfig => _heroConfig;
+        
+        public EnemyWave GetCurrentWave(int level)
+        {
+            for (int i = _enemySpawnConfig.Waves.Count - 1; i >= 0; i--)
+            {
+                if (level >= _enemySpawnConfig.Waves[i].LevelRequirement)
+                    return _enemySpawnConfig.Waves[i];
+            }
+            return null;
+        }
         
         public AbilityConfig GetAbilityConfig(AbilityId abilityId)
         {
@@ -91,11 +105,23 @@ namespace Code.Gameplay.StaticData
         public EnemyLevel GetEnemyLevel(EnemyTypeId enemyTypeId, int level)
         {
             EnemyConfig config = GetEnemyConfig(enemyTypeId);
-
+            
             if (level > config.Levels.Count)
                 level = config.Levels.Count;
             
-            return config.Levels[level - 1];
+            EnemyLevel closestLevel = null;
+            foreach (var enemyLevel in config.Levels)
+            {
+                if (config.Levels.IndexOf(enemyLevel) <= level) 
+                {
+                    closestLevel = enemyLevel;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            return closestLevel;
         }
         
         public GameObject GetWindowPrefab(WindowId windowId)
@@ -149,6 +175,11 @@ namespace Code.Gameplay.StaticData
         private void LoadLevelUpRules()
         {
             _levelupRules = Resources.Load<LevelupConfig>("Configs/Levelup/LevelupConfig");
+        }
+
+        private void LoadEnemySpawnConfig()
+        {
+            _enemySpawnConfig = Resources.Load<EnemySpawnConfig>("Configs/EnemySpawn/EnemySpawnConfig");
         }
     }
 }

@@ -17,9 +17,11 @@ namespace Code.Gameplay.StaticData
     {
         public void LoadAll();
 
+        public EnemySpawnConfig EnemySpawnConfig { get; }
         public HeroConfig HeroConfig { get; }
         public int MaxLevel { get; }
         public float ExperienceForLevel(int level);
+        public EnemyWave GetCurrentWave(int level);
         
         public AbilityConfig GetAbilityConfig(AbilityId abilityId);
         public AbilityLevel GetAbilityLevel(AbilityId abilityId, int level);
