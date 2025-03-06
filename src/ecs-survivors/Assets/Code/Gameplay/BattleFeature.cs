@@ -45,9 +45,9 @@ namespace Code.Gameplay
             Add(system.Create<EffectApplicationFeature>());
            
             Add(system.Create<EnchantFeature>());
-            Add(system.Create<EffectFeature>());
             Add(system.Create<StatusFeature>());
             Add(system.Create<StatFeature>());
+            Add(system.Create<EffectFeature>());
             
             Add(system.Create<ProcessDestructedFeature>());
         }
