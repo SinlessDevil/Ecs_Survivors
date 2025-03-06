@@ -16,13 +16,13 @@ namespace Code.Progress.SaveLoad
         private readonly IProgressProvider _progressProvider;
         private readonly ITimeService _timeService;
 
-        public SaveLoadService(MetaContext metaContext, 
-            IProgressProvider progressProvider,
-            ITimeService timeService)
+        public bool HasSaveProgress => PlayerPrefs.HasKey(ProgressKey);
+
+        public SaveLoadService(MetaContext metaContext, IProgressProvider progressProvider, ITimeService timeService)
         {
+            _timeService = timeService;
             _metaContext = metaContext;
             _progressProvider = progressProvider;
-            _timeService = timeService;
         }
 
         public void CreateProgress()
@@ -33,20 +33,17 @@ namespace Code.Progress.SaveLoad
             });
         }
 
-        public bool HasSaveProgress => PlayerPrefs.HasKey(ProgressKey);
-        
         public void SaveProgress()
         {
-            PreserveMetaEntitiesSnapshots();
-            PlayerPrefs.SetString(ProgressKey, JsonUtility.ToJson(_progressProvider.ProgressData));
+            PreserveMetaEntities();
+            PlayerPrefs.SetString(ProgressKey, _progressProvider.ProgressData.ToJson());
             PlayerPrefs.Save();
         }
-        
+
         public void LoadProgress()
         {
             HydrateProgress(PlayerPrefs.GetString(ProgressKey));
         }
-
 
         private void HydrateProgress(string serializedProgress)
         {
@@ -56,8 +53,8 @@ namespace Code.Progress.SaveLoad
 
         private void HydrateMetaEntities()
         {
-            List<EntitySnapshot> shapshots = _progressProvider.EntityData.MetaEntitiesSnapshots;
-            foreach (EntitySnapshot snapshot in shapshots)
+            List<EntitySnapshot> snapshots = _progressProvider.EntityData.MetaEntitySnapshots;
+            foreach (EntitySnapshot snapshot in snapshots)
             {
                 _metaContext
                     .CreateEntity()
@@ -65,9 +62,9 @@ namespace Code.Progress.SaveLoad
             }
         }
 
-        private void PreserveMetaEntitiesSnapshots()
+        private void PreserveMetaEntities()
         {
-            _progressProvider.EntityData.MetaEntitiesSnapshots = _metaContext
+            _progressProvider.EntityData.MetaEntitySnapshots = _metaContext
                 .GetEntities()
                 .Where(RequiresSave)
                 .Select(e => e.AsSavedEntity())

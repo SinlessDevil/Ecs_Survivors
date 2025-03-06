@@ -5,6 +5,6 @@ namespace Code.Progress.Data
 {
     public class EntityData
     {
-        [JsonProperty("es")] public List<EntitySnapshot> MetaEntitiesSnapshots;
+        [JsonProperty("es")] public List<EntitySnapshot> MetaEntitySnapshots;
     }
 }
