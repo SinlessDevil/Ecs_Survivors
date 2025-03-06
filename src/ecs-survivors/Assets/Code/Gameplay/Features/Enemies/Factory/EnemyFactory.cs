@@ -90,6 +90,7 @@ namespace Code.Gameplay.Features.Enemies.Factory
                 .AddCurrentHp(baseStats[Stats.MaxHp])
                 .AddMaxHp(baseStats[Stats.MaxHp])
                 .AddEffectSetups(enemyLevel.EffectSetups)
+                .AddStatusSetups(enemyLevel.StatusSetups)
                 .AddViewPath(viewPath)
                 .With(x => x.isEnemy = true)
                 .With(x => x.isTurnedAlongDirection = true)

@@ -2,26 +2,31 @@ using System.Linq;
 using Code.Gameplay.Common.Time;
 using Code.Gameplay.Features.Effects;
 using Code.Gameplay.Features.Effects.Factory;
+using Code.Gameplay.Features.Statuses;
+using Code.Gameplay.Features.Statuses.Applier;
 using Entitas;
 using UnityEngine;
 
 namespace Code.Gameplay.Features.Enemies.Systems
 {
-    public class EnemyShamanHealerSystem : IExecuteSystem
+    public class EnemyShamanBehaviorSystem : IExecuteSystem
     {
         private readonly IEffectFactory _effectFactory;
         private readonly ITimeService _timeService;
+        private readonly IStatusApplier _statusApplier;
 
         private readonly IGroup<GameEntity> _healers;
         private readonly IGroup<GameEntity> _enemies;
         private readonly IGroup<GameEntity> _timers;
 
-        public EnemyShamanHealerSystem(GameContext game, 
+        public EnemyShamanBehaviorSystem(GameContext game, 
             IEffectFactory effectFactory,
-            ITimeService timeService)
+            ITimeService timeService,
+            IStatusApplier statusApplier)
         {
             _effectFactory = effectFactory;
             _timeService = timeService;
+            _statusApplier = statusApplier;
 
             _healers = game.GetGroup(GameMatcher
                 .AllOf(GameMatcher.Enemy,
@@ -61,6 +66,11 @@ namespace Code.Gameplay.Features.Enemies.Systems
 
                 foreach (GameEntity enemy in enemiesInRange)
                 {
+                    foreach (StatusSetup statusSetup in healer.StatusSetups)
+                    {
+                        _statusApplier.ApplyStatusOnTarget(statusSetup, healer.Id, enemy.Id);
+                    }
+                    
                     foreach (EffectSetup effectSetup in healer.EffectSetups)
                     {
                         _effectFactory.CreateEffect(effectSetup, healer.Id, enemy.Id);

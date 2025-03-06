@@ -18,26 +18,44 @@ MonoBehaviour:
     Speed: 1
     RadiusToCollectTargets: 0.3
     CollectTargetsInterval: 0.5
-    EffectSetups:
-    - EffectTypeId: 3
-      Value: 2
+    EffectSetups: []
+    StatusSetups:
+    - StatusTypeId: 3
+      Value: 3
+      Duration: 3
+      Period: 0
+      StatusApplicationTypeId: 2
+      StatusTriggerConditionTypeId: 1
+      IsStackable: 0
     RadiusToFindEnemy: 3
     CreateEffectInterval: 3
   - Hp: 6
     Speed: 2
     RadiusToCollectTargets: 0.3
     CollectTargetsInterval: 0.5
-    EffectSetups:
-    - EffectTypeId: 3
-      Value: 2
+    EffectSetups: []
+    StatusSetups:
+    - StatusTypeId: 3
+      Value: 3
+      Duration: 3
+      Period: 0
+      StatusApplicationTypeId: 2
+      StatusTriggerConditionTypeId: 1
+      IsStackable: 0
     RadiusToFindEnemy: 3
     CreateEffectInterval: 3
   - Hp: 10
     Speed: 2
     RadiusToCollectTargets: 0.3
     CollectTargetsInterval: 0.5
-    EffectSetups:
-    - EffectTypeId: 3
-      Value: 2
+    EffectSetups: []
+    StatusSetups:
+    - StatusTypeId: 3
+      Value: 3
+      Duration: 3
+      Period: 0
+      StatusApplicationTypeId: 2
+      StatusTriggerConditionTypeId: 1
+      IsStackable: 0
     RadiusToFindEnemy: 3
     CreateEffectInterval: 3
