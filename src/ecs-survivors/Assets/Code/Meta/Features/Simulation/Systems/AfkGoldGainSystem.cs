@@ -1,7 +1,7 @@
 using Entitas;
 using UnityEngine;
 
-namespace Code.Meta.Features.Simulation
+namespace Code.Meta.Features.Simulation.Systems
 {
     public class AfkGoldGainSystem : IExecuteSystem
     {
