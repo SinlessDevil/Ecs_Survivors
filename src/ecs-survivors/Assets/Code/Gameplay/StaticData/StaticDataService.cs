@@ -14,6 +14,7 @@ using Code.Gameplay.Features.Loot.Configs;
 using Code.Gameplay.Windows;
 using Code.Gameplay.Windows.Configs;
 using Code.Meta.Features.AfkGain.Configs;
+using Code.Meta.UI.Shop.Items;
 using UnityEngine;
 
 namespace Code.Gameplay.StaticData
@@ -25,6 +26,7 @@ namespace Code.Gameplay.StaticData
         private Dictionary<EnchantTypeId, EnchantConfig> _enchantById;
         private Dictionary<LootTypeId, LootConfig> _lootById;
         private Dictionary<WindowId, GameObject> _windowPrefabsById;
+        private List<ShopItemConfig> _shopItemConfigs;
 
         private LevelupConfig _levelupRules;
         private HeroConfig _heroConfig;
@@ -43,20 +45,21 @@ namespace Code.Gameplay.StaticData
             LoadLevelUpRules();
             LoadEnemySpawnConfig();
             LoadEnemyDropConfig();
-            LaodAfkGainConfig();
+            LoadAfkGainConfig();
+            LoadShopItems();
         }
         
         public AfkGainConfig AfkGainConfig => _afkGainConfig;
         
         public EnemySpawnConfig EnemySpawnConfig => _enemySpawnConfig;
-
+        
         public EnemyDropConfig EnemyDropConfig => _enemyDropConfig;
         
-        public int MaxLevel => _levelupRules.MaxLevel;
-
-        public float ExperienceForLevel(int level) => _levelupRules.ExperienceForLevel[level];
-        
         public HeroConfig HeroConfig => _heroConfig;
+        
+        public int MaxLevel => _levelupRules.MaxLevel;
+        
+        public float ExperienceForLevel(int level) => _levelupRules.ExperienceForLevel[level];
         
         public EnemyWave GetCurrentWave(int level)
         {
@@ -66,6 +69,16 @@ namespace Code.Gameplay.StaticData
                     return _enemySpawnConfig.Waves[i];
             }
             return null;
+        }
+
+        public ShopItemConfig GetShopItemConfig(ShopItemId shopItemId)
+        {
+            return _shopItemConfigs.FirstOrDefault(x => x.ShopItemId == shopItemId);
+        }
+        
+        public List<ShopItemConfig> GetShopItemConfigs()
+        {
+            return _shopItemConfigs;
         }
         
         public AbilityConfig GetAbilityConfig(AbilityId abilityId)
@@ -195,10 +208,14 @@ namespace Code.Gameplay.StaticData
             _enemyDropConfig = Resources.Load<EnemyDropConfig>("Configs/EnemyDrop/EnemyDropConfig");
         }
         
-        private void LaodAfkGainConfig()
+        private void LoadAfkGainConfig()
         {
             _afkGainConfig = Resources.Load<AfkGainConfig>("Configs/AfkGain/AfkGainConfig");
         }
 
+        private void LoadShopItems()
+        {
+            _shopItemConfigs = Resources.LoadAll<ShopItemConfig>("Configs/ShopItems").ToList();
+        }
     }
 }
