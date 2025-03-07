@@ -9,6 +9,7 @@ namespace Code.Gameplay.Features.Armaments
         {
             Add(systems.Create<HandleTargetsForBouncesSystem>());
             Add(systems.Create<HandleScatteringAtTouchTargetSystem>());
+            Add(systems.Create<HandleBombExplosionSystem>());
             
             Add(systems.Create<MarkProcessedOnTargetLimitExceededSystem>());
             Add(systems.Create<FollowProducerSystem>());

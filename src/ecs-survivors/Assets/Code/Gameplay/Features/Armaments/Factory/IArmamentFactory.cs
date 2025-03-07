@@ -10,6 +10,7 @@ namespace Code.Gameplay.Features.Armaments.Factory
         GameEntity CreateBouncingCoinBolt(int level, Vector3 at);
         GameEntity CreateScatteringRuneStoneBolt(int level, Vector3 at);
         GameEntity CreateOrbitingMushroomBolt(int level, Vector3 at, float phase);
+        GameEntity CreateBombBolt(int level, Vector3 at);
         
         GameEntity CreateEffectAura(AbilityId parentAbilityId, int producerId, int level);
         

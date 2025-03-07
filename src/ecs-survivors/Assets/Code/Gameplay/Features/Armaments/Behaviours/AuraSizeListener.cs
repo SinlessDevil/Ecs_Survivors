@@ -10,10 +10,13 @@ namespace Code.Gameplay.Features.Armaments.Behaviours
 
         private void Update()
         {
-            if (Mathf.Abs(Entity.Radius - _radiusPrev) < Mathf.Epsilon)
-                return;
+            if (Entity.hasRadius)
+            {
+                if (Mathf.Abs(Entity.Radius - _radiusPrev) < Mathf.Epsilon)
+                    return;
             
-            SetAuraScale();
+                SetAuraScale();   
+            }
         }
 
         private void SetAuraScale()

@@ -8,6 +8,7 @@ namespace Code.Gameplay.Features.Abilities
         BouncingCoinBolt = 3,
         ScatteringRuneStoneBolt = 4,
         OrbitingMushroomBolt = 5,
+        BombBolt = 6,
         
         GarlicAura = 20
     }

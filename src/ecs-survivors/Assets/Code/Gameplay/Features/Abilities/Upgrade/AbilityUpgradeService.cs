@@ -52,6 +52,9 @@ namespace Code.Gameplay.Features.Abilities.Upgrade
                 case AbilityId.BouncingCoinBolt:
                     _abilityFactory.CreateBouncingCoinBoltAbility(level: 1);
                     break;
+                case AbilityId.BombBolt:
+                    _abilityFactory.CreateBombBolt(level: 1);
+                    break;
                 default:
                     throw new Exception($"Ability {ability} is not defined");
             }

@@ -1,8 +1,8 @@
+using Code.Gameplay.Features.Abilities.Systems;
 using Code.Gameplay.Features.Cooldowns.Systems;
 using Code.Infrastructure.Systems;
-using Unity.VisualScripting;
 
-namespace Code.Gameplay.Features.Abilities.Systems
+namespace Code.Gameplay.Features.Abilities
 {
     public sealed class AbilityFeature : Feature
     {
@@ -16,6 +16,7 @@ namespace Code.Gameplay.Features.Abilities.Systems
             Add(systems.Create<BouncingCoinBoltAbilitySystem>());
             Add(systems.Create<ScatteringRuneStoneBoltAbilitySystem>());
             Add(systems.Create<OrbitingMushroomAbilitySystem>());
+            Add(systems.Create<BombBoltAbilitySystem>());
             
             Add(systems.Create<GarlicAuraAbilitySystem>());
         }

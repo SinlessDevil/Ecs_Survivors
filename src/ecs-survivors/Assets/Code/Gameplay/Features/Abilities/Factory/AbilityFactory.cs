@@ -84,6 +84,19 @@ namespace Code.Gameplay.Features.Abilities.Factory
                 .With(x => x.isRecreatedOnUpgrade = true)
                 .PutOnCooldown();
         }
+
+        public GameEntity CreateBombBolt(int level)
+        {
+            AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(AbilityId.BombBolt, level);
+            
+            return CreateEntity.Empty()
+                .AddId(_identifierService.Next())
+                .AddAbilityId(AbilityId.BombBolt)
+                .AddCooldown(abilityLevel.Cooldown)
+                .With(x => x.isBombBoltAbility = true)
+                .With(x => x.isRecreatedOnUpgrade = true)
+                .PutOnCooldown();
+        }
         
         public GameEntity CreateGarlicAuraAbility()
         {

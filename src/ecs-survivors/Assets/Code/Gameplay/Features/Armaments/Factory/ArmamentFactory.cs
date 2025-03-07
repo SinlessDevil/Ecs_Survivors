@@ -78,6 +78,22 @@ namespace Code.Gameplay.Features.Armaments.Factory
                 .AddOrbitRadius(setup.OrbitRadius);
         }
 
+        public GameEntity CreateBombBolt(int level, Vector3 at)
+        {
+            AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(AbilityId.BombBolt, level);
+            ProjectileSetup setup = abilityLevel.ProjectileSetup;
+            
+            return CreateEntity.Empty()
+                    .AddId(_identifierService.Next())
+                    .With(x => x.isArmament = true)
+                    .AddViewPrefab(abilityLevel.ViewPrefab)
+                    .AddWorldPosition(at)
+                    .AddSpeed(setup.Speed)
+                    .With(x => x.isMovementAvailable = true)
+                    .AddParentAbility(AbilityId.BombBolt)
+                    .With(x => x.isRotationAlignedByDirection = true);
+        }
+        
         public GameEntity CreateEffectAura(AbilityId parentAbilityId, int producerId, int level)
         {
             AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(AbilityId.GarlicAura, level);
@@ -118,7 +134,6 @@ namespace Code.Gameplay.Features.Armaments.Factory
                 .With(x => x.isReadyToCollectTargets = true)
                 .AddSelfDestructTimer(1);
         }
-
         
         private GameEntity CreateProjectileEntity(Vector3 at, AbilityLevel abilityLevel, ProjectileSetup setup)
         {
