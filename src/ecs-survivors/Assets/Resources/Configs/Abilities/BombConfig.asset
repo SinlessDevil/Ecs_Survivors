@@ -18,12 +18,12 @@ MonoBehaviour:
     ViewPrefab: {fileID: 2582926185123623001, guid: 2959c971c8df16742980bcf25acb13b7, type: 3}
     EffectSetups:
     - EffectTypeId: 1
-      Value: 1
+      Value: 0.2
     StatusSetups: []
     ProjectileSetup:
       Speed: 2
       Pierce: 0
-      ContactRadius: 1
+      ContactRadius: 0
       LifeTime: 5
       ProjectileCount: 0
       SpreadAngle: 0
@@ -31,15 +31,15 @@ MonoBehaviour:
       ScaleFactor: 0
       OrbitRadius: 0
     AuraSetup:
-      Radius: 0
-      Interval: 0
+      Radius: 1
+      Interval: 0.5
     Icon: {fileID: 21300000, guid: bead47d786e844adba7899d02e8851eb, type: 3}
     Description: Ability Bomb Bolt Level 1
   - Cooldown: 1.5
     ViewPrefab: {fileID: 2582926185123623001, guid: 2959c971c8df16742980bcf25acb13b7, type: 3}
     EffectSetups:
     - EffectTypeId: 1
-      Value: 2
+      Value: 0.3
     StatusSetups: []
     ProjectileSetup:
       Speed: 2
@@ -52,15 +52,15 @@ MonoBehaviour:
       ScaleFactor: 0
       OrbitRadius: 0
     AuraSetup:
-      Radius: 0
-      Interval: 0
+      Radius: 2
+      Interval: 0.3
     Icon: {fileID: 21300000, guid: bead47d786e844adba7899d02e8851eb, type: 3}
     Description: Ability Bomb Bolt Level 2
   - Cooldown: 1
     ViewPrefab: {fileID: 2582926185123623001, guid: 2959c971c8df16742980bcf25acb13b7, type: 3}
     EffectSetups:
     - EffectTypeId: 1
-      Value: 2
+      Value: 0.4
     StatusSetups: []
     ProjectileSetup:
       Speed: 2
@@ -73,7 +73,7 @@ MonoBehaviour:
       ScaleFactor: 0
       OrbitRadius: 0
     AuraSetup:
-      Radius: 0
-      Interval: 0
+      Radius: 3
+      Interval: 0.15
     Icon: {fileID: 21300000, guid: bead47d786e844adba7899d02e8851eb, type: 3}
     Description: Ability Bomb Bolt Level 3

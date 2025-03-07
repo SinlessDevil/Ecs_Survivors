@@ -18,7 +18,7 @@ namespace Code.Gameplay.Features.Armaments.Systems
         private readonly IGroup<GameEntity> _heroes;
         private readonly IGroup<GameEntity> _armaments;
         
-        private readonly List<GameEntity> _bufferArmaments = new(16);
+        private readonly List<GameEntity> _bufferArmaments = new(32);
         
         private readonly IStaticDataService _staticDataService;
         private readonly IAbilityUpgradeService _abilityUpgradeService;
@@ -45,17 +45,18 @@ namespace Code.Gameplay.Features.Armaments.Systems
                 int level = _abilityUpgradeService.GetAbilityLevel(AbilityId.BombBolt);
                 AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(AbilityId.BombBolt, level);
                 ProjectileSetup setup = abilityLevel.ProjectileSetup;
+                AuraSetup auraSetup = abilityLevel.AuraSetup;
                 
                 armament
+                    .AddRadius(auraSetup.Radius)
+                    .AddCollectTargetsInterval(auraSetup.Interval)
+                    .AddCollectTargetsTimer(0)
+                    .AddTargetsBuffer(new List<int>(TargetBufferSize))
                     .With(x => x.AddEffectSetups(new List<EffectSetup>(abilityLevel.EffectSetups)), 
                         when: !abilityLevel.EffectSetups.IsNullOrEmpty())
-                    .With(x => x.AddTargetLimit(setup.Pierce), when: setup.Pierce > 0)
-                    .AddRadius(setup.ContactRadius)
-                    .AddTargetsBuffer(new List<int>(TargetBufferSize))
-                    .AddProcessedTargets(new List<int>(TargetBufferSize))
+                    .With(x => x.AddStatusSetups(new List<StatusSetup>(abilityLevel.StatusSetups)), 
+                        when: !abilityLevel.StatusSetups.IsNullOrEmpty())
                     .AddLayerMask(CollisionLayer.Enemy.AsMask())
-                    .With(x => x.isReadyToCollectTargets = true)
-                    .With(x => x.isCollectingTargetsContinuously = true)
                     .AddSelfDestructTimer(setup.LifeTime);
                 
                 if(armament.hasArmamentBombVisual)

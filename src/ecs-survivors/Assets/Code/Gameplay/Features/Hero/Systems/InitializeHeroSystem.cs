@@ -17,7 +17,7 @@ namespace Code.Gameplay.Features.Hero.Systems
 
         public void Initialize()
         {
-            _abilityUpgradeService.InitializeAbility(AbilityId.BombBolt);
+            _abilityUpgradeService.InitializeAbility(AbilityId.VegetableBolt);
         }
     }
 }
