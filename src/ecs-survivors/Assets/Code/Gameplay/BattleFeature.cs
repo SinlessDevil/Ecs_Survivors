@@ -14,9 +14,11 @@ using Code.Gameplay.Features.Loot;
 using Code.Gameplay.Features.Movement;
 using Code.Gameplay.Features.Statuses;
 using Code.Gameplay.Features.TargetCollection;
+using Code.Gameplay.GameOver.Systems;
 using Code.Gameplay.Input;
 using Code.Infrastructure.Systems;
 using Code.Infrastructure.View;
+using Unity.VisualScripting;
 
 namespace Code.Gameplay
 {
@@ -47,6 +49,8 @@ namespace Code.Gameplay
             Add(system.Create<StatusFeature>());
             Add(system.Create<StatFeature>());
             Add(system.Create<EffectFeature>());
+
+            Add(system.Create<GameOverOnHeroDeathSystem>());
             
             Add(system.Create<ProcessDestructedFeature>());
         }

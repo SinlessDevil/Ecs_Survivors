@@ -25,7 +25,7 @@ namespace Code.Gameplay.GameOver.Systems
 
         protected override void Execute(List<GameEntity> heroes)
         {
-            //_stateMachine.Enter<GameOverState>();
+            _stateMachine.Enter<GameOverState>();
         }
     }
 }
