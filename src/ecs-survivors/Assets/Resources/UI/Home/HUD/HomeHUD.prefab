@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartBattleButton: {fileID: 3234210885978618956}
-  ShopButton: {fileID: 0}
+  ShopButton: {fileID: 2780668942518227831}
 --- !u!1001 &646712872664629794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -253,6 +253,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b602ffe21303374ca25190401ccf148, type: 3}
+--- !u!114 &2780668942518227831 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1564897902862867435, guid: 7b602ffe21303374ca25190401ccf148, type: 3}
+  m_PrefabInstance: {fileID: 3684307275325343900}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &3831534797209811250 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 436023891544682926, guid: 7b602ffe21303374ca25190401ccf148, type: 3}

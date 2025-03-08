@@ -32,8 +32,10 @@ namespace Code.Meta.UI.HUD
 
         private void EnterBattleLoadingState() =>
             _stateMachine.Enter<LoadingBattleState, string>(BattleSceneName);
-        
-        private void OnShopButtonClicked() =>
+
+        private void OnShopButtonClicked()
+        {
             _windowService.Open(WindowId.ShopWindow);
+        }
     }
 }

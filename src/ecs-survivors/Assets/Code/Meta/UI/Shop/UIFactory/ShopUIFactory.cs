@@ -8,7 +8,7 @@ namespace Code.Meta.UI.Shop.UIFactory
 {
     public class ShopUIFactory : IShopUIFactory
     {
-        private const string ShopItemPath = "UI/Home/Shop/ShopItem.prefab";
+        private const string ShopItemPath = "UI/Home/Shop/ShopItem";
         
         private readonly IInstantiator _instantiator;
         private readonly IAssetProvider _assetProvider;
