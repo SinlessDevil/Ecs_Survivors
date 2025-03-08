@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Code.Meta.UI.Shop
+namespace Code.Meta.UI.Shop.Behaviors
 {
     public class ShopWindow : BaseWindow
     {
@@ -47,7 +47,7 @@ namespace Code.Meta.UI.Shop
         protected override void SubscribeUpdates()
         {
             _shopUIService.ShopChangedEvent += OnRefresh;
-            _storageUIService.GoldBoostChangedEvent += OnRefresh;
+            _storageUIService.GoldBoostChangedEvent += OnUpdateBoostState;
             
             OnRefresh();
         }
@@ -55,7 +55,7 @@ namespace Code.Meta.UI.Shop
         protected override void UnsubscribeUpdates()
         {
             _shopUIService.ShopChangedEvent -= OnRefresh;
-            _storageUIService.GoldBoostChangedEvent -= OnRefresh;
+            _storageUIService.GoldBoostChangedEvent -= OnUpdateBoostState;
         }
         
         protected override void Cleanup()
@@ -84,6 +84,8 @@ namespace Code.Meta.UI.Shop
             NoItemsAvailable.SetActive(availableItems.Count == 0);
             
             FillItems(availableItems);
+
+            OnUpdateBoostState();
         }
 
         private void ClearItems()

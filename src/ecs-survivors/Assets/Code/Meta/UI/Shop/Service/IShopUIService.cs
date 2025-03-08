@@ -10,5 +10,7 @@ namespace Code.Meta.UI.Shop.Service
         List<ShopItemConfig> GetAvailableShopItems();
         void UpdatePurchasedItems(IEnumerable<ShopItemId> purchasedItems);
         void Cleanup();
+        ShopItemConfig GetConfig(ShopItemId requestShopItemId);
+        void UpdatePurchasedItem(ShopItemId requestShopItemId);
     }
 }

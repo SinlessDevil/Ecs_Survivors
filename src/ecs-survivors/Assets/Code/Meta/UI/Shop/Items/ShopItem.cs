@@ -1,3 +1,4 @@
+using Code.Common.Entity;
 using Code.Meta.UI.GoldHolder.Service;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +9,8 @@ namespace Code.Meta.UI.Shop.Items
 {
     public class ShopItem : MonoBehaviour
     {
+        public ShopItemId ItemId;
+        
         public Image Icon;
         public TextMeshProUGUI PriceText;
         public TextMeshProUGUI DurationText;
@@ -32,14 +35,18 @@ namespace Code.Meta.UI.Shop.Items
         
         public void Setup(ShopItemConfig config)
         {
+            ItemId = config.ShopItemId;
+            
             Icon.sprite = config.Icon;
             PriceText.text = config.Price.ToString();
             DurationText.text = config.Duration.ToString("m'm 's's'");
             BoostText.text = config.Boost.ToString("+0%");
             
             _price = config.Price;
+            
+            BuyButton.onClick.AddListener(OnBuyItem);
         }
-
+        
         private void Start()
         {
             _storageUIService.GoldChangedEvent += OnUpdatePriceThreshold;
@@ -50,6 +57,7 @@ namespace Code.Meta.UI.Shop.Items
         private void OnDestroy()
         {
             _storageUIService.GoldChangedEvent -= OnUpdatePriceThreshold;
+            BuyButton.onClick.RemoveListener(OnBuyItem);
         }
         
         public void OnUpdateAvailability(bool itemsCanBeBought)
@@ -72,5 +80,12 @@ namespace Code.Meta.UI.Shop.Items
         private bool EnoughGold() => _currentGold >= _price;
 
         private void RefreshBuyButton() => BuyButton.interactable = EnoughGold() && _isAvailable;
+        
+        private void OnBuyItem()
+        {
+            CreateMetaEntity.Empty()
+                .AddShopItemId(ItemId)
+                .isBuyRequest = true;
+        }
     }
 }

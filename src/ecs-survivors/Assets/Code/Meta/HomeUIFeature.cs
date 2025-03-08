@@ -1,5 +1,6 @@
 using Code.Infrastructure.Systems;
 using Code.Meta.UI.GoldHolder.Systems;
+using Code.Meta.UI.Shop;
 using Code.Meta.UI.Shop.Systems;
 
 namespace Code.Meta
@@ -12,6 +13,8 @@ namespace Code.Meta
             
             Add(systemFactory.Create<RefreshGoldGainBoostSystem>());
             Add(systemFactory.Create<RefreshGoldSystem>());
+            
+            Add(systemFactory.Create<ShopFeature>());
         }
     }
 }

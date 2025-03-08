@@ -9,23 +9,26 @@
 public static class MetaComponentsLookup {
 
     public const int Destructed = 0;
-    public const int Duration = 1;
-    public const int GemGainBoost = 2;
-    public const int GoldGainBoost = 3;
-    public const int Tick = 4;
-    public const int Gem = 5;
-    public const int GemChance = 6;
-    public const int GemPerSecond = 7;
-    public const int Gold = 8;
-    public const int GoldPerSecond = 9;
-    public const int Storage = 10;
-    public const int Purchased = 11;
-    public const int ShopItemId = 12;
+    public const int Id = 1;
+    public const int Duration = 2;
+    public const int GemGainBoost = 3;
+    public const int GoldGainBoost = 4;
+    public const int Tick = 5;
+    public const int Gem = 6;
+    public const int GemChance = 7;
+    public const int GemPerSecond = 8;
+    public const int Gold = 9;
+    public const int GoldPerSecond = 10;
+    public const int Storage = 11;
+    public const int BuyRequest = 12;
+    public const int Purchased = 13;
+    public const int ShopItemId = 14;
 
-    public const int TotalComponents = 13;
+    public const int TotalComponents = 15;
 
     public static readonly string[] componentNames = {
         "Destructed",
+        "Id",
         "Duration",
         "GemGainBoost",
         "GoldGainBoost",
@@ -36,12 +39,14 @@ public static class MetaComponentsLookup {
         "Gold",
         "GoldPerSecond",
         "Storage",
+        "BuyRequest",
         "Purchased",
         "ShopItemId"
     };
 
     public static readonly System.Type[] componentTypes = {
         typeof(Code.Common.Destructed),
+        typeof(Code.Gameplay.Common.Id),
         typeof(Code.Meta.Features.Simulation.Duration),
         typeof(Code.Meta.Features.Simulation.GemGainBoost),
         typeof(Code.Meta.Features.Simulation.GoldGainBoost),
@@ -52,6 +57,7 @@ public static class MetaComponentsLookup {
         typeof(Code.Meta.Features.Storage.Gold),
         typeof(Code.Meta.Features.Storage.GoldPerSecond),
         typeof(Code.Meta.Features.Storage.Storage),
+        typeof(Code.Meta.UI.Shop.BuyRequestComponent),
         typeof(Code.Meta.UI.Shop.Purchased),
         typeof(Code.Meta.UI.Shop.ShopItemIdComponent)
     };

@@ -135,6 +135,7 @@ namespace Code.Infrastructure.Installers
             Container.Bind<IHeroFactory>().To<HeroFactory>().AsSingle();
             Container.Bind<IEnemyFactory>().To<EnemyFactory>().AsSingle();
             Container.Bind<IVisualFactory>().To<VisualFactory>().AsSingle();
+            Container.Bind<IShopItemFactory>().To<ShopItemFactory>().AsSingle();
         }
 
         private void BindUIFactories()

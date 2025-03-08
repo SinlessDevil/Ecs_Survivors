@@ -262,6 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goldText: {fileID: 7766834687579841390}
+  BoostText: {fileID: 4610203699562106762}
 --- !u!1 &7063784731447339564
 GameObject:
   m_ObjectHideFlags: 0

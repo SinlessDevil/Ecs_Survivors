@@ -39,7 +39,20 @@ namespace Code.Meta.UI.Shop.Service
             
             ShopChangedEvent = null;
         }
-        
+
+        public ShopItemConfig GetConfig(ShopItemId requestShopItemId)
+        {
+            return _availableItems.GetValueOrDefault(requestShopItemId);
+        }
+
+        public void UpdatePurchasedItem(ShopItemId requestShopItemId)
+        {
+            _availableItems.Remove(requestShopItemId);
+            _purchasedItems.Add(requestShopItemId);
+            
+            ShopChangedEvent?.Invoke();
+        }
+
         private void RefreshAvailableItems()
         {
             foreach (ShopItemConfig shopItemConfig in _staticDataService.GetShopItemConfigs())
