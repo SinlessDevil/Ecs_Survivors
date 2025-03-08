@@ -1,4 +1,3 @@
-using Code.Common;
 using Code.Gameplay;
 using Code.Infrastructure.States.StateInfrastructure;
 using Code.Infrastructure.Systems;
@@ -18,7 +17,7 @@ namespace Code.Infrastructure.States.GameStates
             _systems = systems;
         }
 
-        public new void Enter()
+        public override void Enter()
         {
             _battleFeature = _systems.Create<BattleFeature>();
             _battleFeature.Initialize();

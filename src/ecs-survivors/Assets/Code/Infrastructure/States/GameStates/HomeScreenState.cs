@@ -26,7 +26,7 @@ namespace Code.Infrastructure.States.GameStates
             _shopUIService = shopUIService;
         }
         
-        public new void Enter()
+        public override void Enter()
         {
             _homeScreenFeature = _systemFactory.Create<HomeScreenFeature>();
             _homeScreenFeature.Initialize();

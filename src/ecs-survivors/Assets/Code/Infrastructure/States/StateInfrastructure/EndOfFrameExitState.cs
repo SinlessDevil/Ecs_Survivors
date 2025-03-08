@@ -2,18 +2,15 @@ using RSG;
 
 namespace Code.Infrastructure.States.StateInfrastructure
 {
-    public class EndOfFrameExitState : IState , IUpdateable
+    public class EndOfFrameExitState : IState, IUpdateable
     {
         private Promise _exitPromise;
-        
-        private bool ExitWasRequested => _exitPromise != null;
-        
-        public void Enter() { }
 
-        protected virtual void ExitOnEndOfFrame() { }
+        protected bool ExitWasRequested =>
+            _exitPromise != null;
 
-        protected virtual void OnUpdate() { }
-        
+        public virtual void Enter() { }
+
         IPromise IExitableState.BeginExit()
         {
             _exitPromise = new Promise();
@@ -23,26 +20,32 @@ namespace Code.Infrastructure.States.StateInfrastructure
         void IExitableState.EndExit()
         {
             ExitOnEndOfFrame();
-            ClearExitPromis();
+            ClearExitPromise();
         }
 
         void IUpdateable.Update()
         {
+            // THIS IS WRONG, since it will exit on the next frame instead of the end of current frame
+            // if (!IsExitRequested)
+            //   OnUpdate();
+            // else
+            //   ResolveExitPromise();
+
             if (!ExitWasRequested)
                 OnUpdate();
-            
-            if(ExitWasRequested)
+
+            if (ExitWasRequested)
                 ResolveExitPromise();
         }
-        
-        private void ResolveExitPromise()
-        {
-            _exitPromise?.Resolve();
-        }
-        
-        private void ClearExitPromis()
-        {
+
+        protected virtual void ExitOnEndOfFrame() { }
+
+        protected virtual void OnUpdate() { }
+
+        private void ClearExitPromise() =>
             _exitPromise = null;
-        }
+
+        private void ResolveExitPromise() =>
+            _exitPromise?.Resolve();
     }
 }
