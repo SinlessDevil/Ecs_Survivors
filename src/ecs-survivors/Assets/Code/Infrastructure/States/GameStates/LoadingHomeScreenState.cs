@@ -4,7 +4,7 @@ using Code.Infrastructure.States.StateMachine;
 
 namespace Code.Infrastructure.States.GameStates
 {
-    public class LoadingHomeScreenState : IState
+    public class LoadingHomeScreenState : SimpleState
     {
         private const string HomeScreenSceneName = "HomeScreen";
         
@@ -19,7 +19,7 @@ namespace Code.Infrastructure.States.GameStates
             _sceneLoader = sceneLoader;
         }
 
-        public void Enter()
+        public override void Enter()
         {
             _sceneLoader.LoadScene(HomeScreenSceneName, EnterHomeScreenState);
         }
@@ -27,11 +27,6 @@ namespace Code.Infrastructure.States.GameStates
         private void EnterHomeScreenState()
         {
             _stateMachine.Enter<HomeScreenState>();
-        }
-
-        public void Exit()
-        {
-            
         }
     }
 }

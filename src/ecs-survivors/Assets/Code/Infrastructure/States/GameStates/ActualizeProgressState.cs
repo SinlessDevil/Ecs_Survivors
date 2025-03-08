@@ -12,7 +12,7 @@ using Code.Progress.SaveLoad;
 
 namespace Code.Infrastructure.States.GameStates
 {
-    public class ActualizeProgressState : IState
+    public class ActualizeProgressState : SimpleState
     {
         private ActualizationFeature _actualizationFeature;
 
@@ -37,7 +37,7 @@ namespace Code.Infrastructure.States.GameStates
             _saveLoadService = saveLoadService;
         }
 
-        public void Enter()
+        public override void Enter()
         {
             _actualizationFeature = _systemFactory.Create<ActualizationFeature>();
 
@@ -46,7 +46,7 @@ namespace Code.Infrastructure.States.GameStates
             _stateMachine.Enter<LoadingHomeScreenState>();
         }
 
-        public void Exit()
+        protected override void Exit()
         {
             _actualizationFeature.Cleanup();
             _actualizationFeature.TearDown();

@@ -6,7 +6,7 @@ using Code.Meta.UI.Shop.Service;
 
 namespace Code.Infrastructure.States.GameStates
 {
-    public class HomeScreenState : IState, IUpdateable
+    public class HomeScreenState : EndOfFrameExitState
     {
         private HomeScreenFeature _homeScreenFeature;
 
@@ -26,19 +26,19 @@ namespace Code.Infrastructure.States.GameStates
             _shopUIService = shopUIService;
         }
         
-        public void Enter()
+        public new void Enter()
         {
             _homeScreenFeature = _systemFactory.Create<HomeScreenFeature>();
             _homeScreenFeature.Initialize();
         }
 
-        public void Update()
+        protected override void OnUpdate()
         {
             _homeScreenFeature.Execute();
             _homeScreenFeature.Cleanup();
         }
 
-        public void Exit()
+        protected override void ExitOnEndOfFrame()
         {
             _storageUIService.Cleanup();
             _shopUIService.Cleanup();

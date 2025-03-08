@@ -1,13 +1,14 @@
 using Code.Common.Entity;
 using Code.Common.Extensions;
 using Code.Gameplay.StaticData;
+using Code.Infrastructure.States.StateInfrastructure;
 using Code.Infrastructure.States.StateMachine;
 using Code.Progress.SaveLoad;
 using IState = Code.Infrastructure.States.StateInfrastructure.IState;
 
 namespace Code.Infrastructure.States.GameStates
 {
-    public class LoadProgressState : IState
+    public class LoadProgressState : SimpleState
     {
         private readonly IGameStateMachine _stateMachine;
         private readonly IStaticDataService _staticDataService;
@@ -23,7 +24,7 @@ namespace Code.Infrastructure.States.GameStates
             _saveLoadService = saveLoadService;
         }
 
-        public void Enter()
+        public override void Enter()
         {
             InitializeProgress();
 
@@ -52,11 +53,6 @@ namespace Code.Infrastructure.States.GameStates
                 .AddGem(0)
                 .AddGemPerSecond(_staticDataService.AfkGainConfig.GemPerSecond)
                 .AddGemChance(_staticDataService.AfkGainConfig.GemChance);
-        }
-
-        public void Exit()
-        {
-            
         }
     }
 }
