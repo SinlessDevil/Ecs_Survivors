@@ -41,7 +41,7 @@ namespace Code.Meta.UI.Shop.Behaviors
 
         protected override void Initialize()
         {
-            CloseButton.onClick.RemoveListener(Close);
+            CloseButton.onClick.AddListener(Close);
         }
 
         protected override void SubscribeUpdates()
@@ -62,7 +62,7 @@ namespace Code.Meta.UI.Shop.Behaviors
         {
             base.Cleanup();
 
-            CloseButton.onClick.AddListener(Close);
+            CloseButton.onClick.RemoveListener(Close);
         }
 
         private void OnUpdateBoostState()
@@ -79,7 +79,7 @@ namespace Code.Meta.UI.Shop.Behaviors
         {
             ClearItems();
 
-            List<ShopItemConfig> availableItems = _shopUIService.GetAvailableShopItems();
+            List<ShopItemConfig> availableItems = _shopUIService.GetAvailableShopItems;
 
             NoItemsAvailable.SetActive(availableItems.Count == 0);
             

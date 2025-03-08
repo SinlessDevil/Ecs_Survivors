@@ -7,10 +7,12 @@ namespace Code.Meta.UI.Shop.Service
     public interface IShopUIService
     {
         event Action ShopChangedEvent;
-        List<ShopItemConfig> GetAvailableShopItems();
-        void UpdatePurchasedItems(IEnumerable<ShopItemId> purchasedItems);
-        void Cleanup();
+        List<ShopItemConfig> GetAvailableShopItems { get; }
+        
         ShopItemConfig GetConfig(ShopItemId requestShopItemId);
+        void UpdatePurchasedItems(IEnumerable<ShopItemId> purchasedItems);
         void UpdatePurchasedItem(ShopItemId requestShopItemId);
+        
+        void Cleanup();
     }
 }

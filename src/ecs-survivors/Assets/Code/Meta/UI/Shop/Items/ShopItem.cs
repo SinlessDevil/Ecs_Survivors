@@ -1,3 +1,4 @@
+using System;
 using Code.Common.Entity;
 using Code.Meta.UI.GoldHolder.Service;
 using UnityEngine;
@@ -39,7 +40,7 @@ namespace Code.Meta.UI.Shop.Items
             
             Icon.sprite = config.Icon;
             PriceText.text = config.Price.ToString();
-            DurationText.text = config.Duration.ToString("m'm 's's'");
+            DurationText.text = TimeSpan.FromSeconds(config.Duration).ToString("m'm 's's'");
             BoostText.text = config.Boost.ToString("+0%");
             
             _price = config.Price;
@@ -63,7 +64,7 @@ namespace Code.Meta.UI.Shop.Items
         public void OnUpdateAvailability(bool itemsCanBeBought)
         {
             _isAvailable = itemsCanBeBought;
-            CanvasBuyGroup.alpha = _isAvailable ? 1 : 0;
+            CanvasBuyGroup.alpha = _isAvailable ? 1f : 0.7f;
             
             RefreshBuyButton();
         }
@@ -72,14 +73,14 @@ namespace Code.Meta.UI.Shop.Items
         {
             _currentGold = _storageUIService.CurrentGold;
             
-            PriceText.color = EnoughGold() ? EnoughGoldColor : NotEnoughGoldColor;
+            PriceText.color = EnoughGold ? EnoughGoldColor : NotEnoughGoldColor;
             
             RefreshBuyButton();
         }
 
-        private bool EnoughGold() => _currentGold >= _price;
+        private bool EnoughGold => _currentGold >= _price;
 
-        private void RefreshBuyButton() => BuyButton.interactable = EnoughGold() && _isAvailable;
+        private void RefreshBuyButton() => BuyButton.interactable = EnoughGold & _isAvailable;
         
         private void OnBuyItem()
         {

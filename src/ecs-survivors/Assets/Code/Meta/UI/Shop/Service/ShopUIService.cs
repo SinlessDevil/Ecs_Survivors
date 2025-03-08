@@ -1,68 +1,60 @@
 using System;
 using System.Collections.Generic;
 using Code.Gameplay.StaticData;
-using Code.Gameplay.Windows;
 using Code.Meta.UI.Shop.Items;
-using Code.Meta.UI.Shop.UIFactory;
 
 namespace Code.Meta.UI.Shop.Service
 {
     public class ShopUIService : IShopUIService
     {
-        private Dictionary<ShopItemId, ShopItemConfig> _availableItems = new();
-        private List<ShopItemId> _purchasedItems = new();
+        private readonly List<ShopItemId> _purchasedItems = new();
+        private readonly Dictionary<ShopItemId, ShopItemConfig> _availableItems = new();
+    
+        private readonly IStaticDataService _staticData;
         
-        private readonly IStaticDataService _staticDataService;
-        private readonly IWindowService _windowService;
-        private readonly IShopUIFactory _shopUIFactory;
+    
+        public ShopUIService(IStaticDataService staticData) => 
+            _staticData = staticData;
 
-        public ShopUIService(IStaticDataService staticDataService)
-        {
-            _staticDataService = staticDataService;
-        }
-
-        public event Action ShopChangedEvent; 
-        
-        public List<ShopItemConfig> GetAvailableShopItems() => new(_availableItems.Values);
-        
         public void UpdatePurchasedItems(IEnumerable<ShopItemId> purchasedItems)
         {
             _purchasedItems.AddRange(purchasedItems);
-            
+
             RefreshAvailableItems();
         }
+
+        public void UpdatePurchasedItem(ShopItemId shopItemId)
+        {
+            _availableItems.Remove(shopItemId);
+            _purchasedItems.Add(shopItemId);
+      
+            ShopChangedEvent?.Invoke();
+        }
+
+        public event Action ShopChangedEvent;
+
+        public List<ShopItemConfig> GetAvailableShopItems => 
+            new(_availableItems.Values);
+
+        public ShopItemConfig GetConfig(ShopItemId shopItemId) => 
+            _availableItems.GetValueOrDefault(shopItemId);
 
         public void Cleanup()
         {
             _purchasedItems.Clear();
             _availableItems.Clear();
-            
+      
             ShopChangedEvent = null;
-        }
-
-        public ShopItemConfig GetConfig(ShopItemId requestShopItemId)
-        {
-            return _availableItems.GetValueOrDefault(requestShopItemId);
-        }
-
-        public void UpdatePurchasedItem(ShopItemId requestShopItemId)
-        {
-            _availableItems.Remove(requestShopItemId);
-            _purchasedItems.Add(requestShopItemId);
-            
-            ShopChangedEvent?.Invoke();
         }
 
         private void RefreshAvailableItems()
         {
-            foreach (ShopItemConfig shopItemConfig in _staticDataService.GetShopItemConfigs())
+            foreach (ShopItemConfig itemConfig in _staticData.GetShopItemConfigs())
             {
-                if (!_purchasedItems.Contains(shopItemConfig.ShopItemId))
-                {
-                    _availableItems.Add(shopItemConfig.ShopItemId, shopItemConfig);
-                }
+                if(!_purchasedItems.Contains(itemConfig.ShopItemId))
+                    _availableItems.Add(itemConfig.ShopItemId, itemConfig);
             }
-            
+      
             ShopChangedEvent?.Invoke();
         }
     }
