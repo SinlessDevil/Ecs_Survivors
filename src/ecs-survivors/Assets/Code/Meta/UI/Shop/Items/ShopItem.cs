@@ -10,8 +10,9 @@ namespace Code.Meta.UI.Shop.Items
 {
     public class ShopItem : MonoBehaviour
     {
-        public ShopItemId ItemId;
-        
+        public ResourceTypeId ResourceTypeId;
+        [HideInInspector] public ShopItemId ItemId;
+        [Space(10)]
         public Image Icon;
         public TextMeshProUGUI PriceText;
         public TextMeshProUGUI DurationText;
@@ -50,14 +51,14 @@ namespace Code.Meta.UI.Shop.Items
         
         private void Start()
         {
-            _storageUIService.GoldChangedEvent += OnUpdatePriceThreshold;
+            _storageUIService.ResourceChangedEvent += OnUpdatePriceThreshold;
             
-            OnUpdatePriceThreshold();
+            OnUpdatePriceThreshold(ResourceTypeId);
         }
 
         private void OnDestroy()
         {
-            _storageUIService.GoldChangedEvent -= OnUpdatePriceThreshold;
+            _storageUIService.ResourceChangedEvent -= OnUpdatePriceThreshold;
             BuyButton.onClick.RemoveListener(OnBuyItem);
         }
         
@@ -69,9 +70,12 @@ namespace Code.Meta.UI.Shop.Items
             RefreshBuyButton();
         }
 
-        private void OnUpdatePriceThreshold()
+        private void OnUpdatePriceThreshold(ResourceTypeId resourceTypeId)
         {
-            _currentGold = _storageUIService.CurrentGold;
+            if(ResourceTypeId != resourceTypeId)
+                return;
+            
+            _currentGold = _storageUIService.GetResource(resourceTypeId);
             
             PriceText.color = EnoughGold ? EnoughGoldColor : NotEnoughGoldColor;
             

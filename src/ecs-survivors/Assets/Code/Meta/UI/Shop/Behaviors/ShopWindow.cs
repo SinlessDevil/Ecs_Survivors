@@ -14,6 +14,7 @@ namespace Code.Meta.UI.Shop.Behaviors
 {
     public class ShopWindow : BaseWindow
     {
+        public ResourceTypeId ResourceTypeId;
         public Transform ItemsLayout;
         public Button CloseButton;
         public GameObject NoItemsAvailable;
@@ -48,7 +49,7 @@ namespace Code.Meta.UI.Shop.Behaviors
         protected override void SubscribeUpdates()
         {
             _shopUIService.ShopChangedEvent += OnRefresh;
-            _storageUIService.GoldBoostChangedEvent += OnUpdateBoostState;
+            _storageUIService.ResourceBoostChangedEvent += OnUpdateBoostState;
 
             OnRefresh();
         }
@@ -56,7 +57,7 @@ namespace Code.Meta.UI.Shop.Behaviors
         protected override void UnsubscribeUpdates()
         {
             _shopUIService.ShopChangedEvent -= OnRefresh;
-            _storageUIService.GoldBoostChangedEvent -= OnUpdateBoostState;
+            _storageUIService.ResourceBoostChangedEvent -= OnUpdateBoostState;
         }
 
         protected override void Cleanup()
@@ -66,9 +67,12 @@ namespace Code.Meta.UI.Shop.Behaviors
             CloseButton.onClick.RemoveListener(Close);
         }
 
-        private void OnUpdateBoostState()
+        private void OnUpdateBoostState(ResourceTypeId resourceTypeId)
         {
-            bool itemsCanBeBought = Math.Abs(_storageUIService.GoldGainBoost - 0) <= float.Epsilon;
+            if(resourceTypeId != ResourceTypeId)
+                return;
+            
+            bool itemsCanBeBought = Math.Abs(_storageUIService.GetResourceBoost(ResourceTypeId) - 0) <= float.Epsilon;
 
             foreach (ShopItem shopItem in _items)
             {
@@ -86,7 +90,7 @@ namespace Code.Meta.UI.Shop.Behaviors
 
             FillItems(availableItems);
 
-            OnUpdateBoostState();
+            OnUpdateBoostState(ResourceTypeId);
         }
 
         private void ClearItems()

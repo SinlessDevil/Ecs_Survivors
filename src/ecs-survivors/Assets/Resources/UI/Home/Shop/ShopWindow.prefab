@@ -263,6 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f21ec105292c45278e9011018ac0e14d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ResourceTypeId: 1
   ItemsLayout: {fileID: 8126285239420231539}
   CloseButton: {fileID: 979905073900669189}
   NoItemsAvailable: {fileID: 5616503425243786498}

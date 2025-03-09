@@ -703,6 +703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8923412fbce4998b6e095b20b2700ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ResourceTypeId: 1
   ItemId: 0
   Icon: {fileID: 3755193522008665162}
   PriceText: {fileID: 1274338893294435810}

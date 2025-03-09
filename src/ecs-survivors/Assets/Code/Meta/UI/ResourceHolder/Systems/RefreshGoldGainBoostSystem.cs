@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Code.Meta.UI.GoldHolder.Service;
 using Entitas;
 
-namespace Code.Meta.UI.GoldHolder.Systems
+namespace Code.Meta.UI.ResourceHolder.Systems
 {
     public class RefreshGoldGainBoostSystem : ReactiveSystem<MetaEntity> , IInitializeSystem
     {
@@ -44,7 +44,7 @@ namespace Code.Meta.UI.GoldHolder.Systems
                     goldGainBoost += booster.GoldGainBoost;
             }
             
-            _storageUIService.UpdateGoldGainBoost(goldGainBoost);
+            _storageUIService.UpdateResourceBoost(ResourceTypeId.Gold, goldGainBoost);
         }
     }
 }
