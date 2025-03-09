@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Code.Gameplay.Windows;
+using Code.Gameplay.Windows.Services;
 using Code.Meta.UI.GoldHolder.Service;
 using Code.Meta.UI.Shop.Items;
 using Code.Meta.UI.Shop.Service;
@@ -18,15 +19,15 @@ namespace Code.Meta.UI.Shop.Behaviors
         public GameObject NoItemsAvailable;
 
         private List<ShopItem> _items = new();
-        
+
         private IWindowService _windowService;
         private IShopUIFactory _shopUIFactory;
         private IShopUIService _shopUIService;
         private IStorageUIService _storageUIService;
-        
+
         [Inject]
         private void Construct(
-            IWindowService windowService, 
+            IWindowService windowService,
             IShopUIFactory shopUIFactory,
             IShopUIService shopUIService,
             IStorageUIService storageUIService)
@@ -48,7 +49,7 @@ namespace Code.Meta.UI.Shop.Behaviors
         {
             _shopUIService.ShopChangedEvent += OnRefresh;
             _storageUIService.GoldBoostChangedEvent += OnUpdateBoostState;
-            
+
             OnRefresh();
         }
 
@@ -57,7 +58,7 @@ namespace Code.Meta.UI.Shop.Behaviors
             _shopUIService.ShopChangedEvent -= OnRefresh;
             _storageUIService.GoldBoostChangedEvent -= OnUpdateBoostState;
         }
-        
+
         protected override void Cleanup()
         {
             base.Cleanup();
@@ -74,7 +75,7 @@ namespace Code.Meta.UI.Shop.Behaviors
                 shopItem.OnUpdateAvailability(itemsCanBeBought);
             }
         }
-        
+
         private void OnRefresh()
         {
             ClearItems();
@@ -82,7 +83,7 @@ namespace Code.Meta.UI.Shop.Behaviors
             List<ShopItemConfig> availableItems = _shopUIService.GetAvailableShopItems;
 
             NoItemsAvailable.SetActive(availableItems.Count == 0);
-            
+
             FillItems(availableItems);
 
             OnUpdateBoostState();
@@ -103,7 +104,6 @@ namespace Code.Meta.UI.Shop.Behaviors
         private void Close()
         {
             _windowService.Close(Id);
-            
         }
     }
 }

@@ -8,6 +8,7 @@ using Code.Gameplay.Features.LevelUp.Behaviours;
 using Code.Gameplay.Features.LevelUp.UIFactory;
 using Code.Gameplay.StaticData;
 using Code.Gameplay.Windows;
+using Code.Gameplay.Windows.Services;
 using UnityEngine;
 using Zenject;
 using DG.Tweening;

@@ -21,6 +21,8 @@ using Code.Gameplay.Input.Service;
 using Code.Gameplay.Levels;
 using Code.Gameplay.StaticData;
 using Code.Gameplay.Windows;
+using Code.Gameplay.Windows.Factory;
+using Code.Gameplay.Windows.Services;
 using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.Identifiers;
 using Code.Infrastructure.Loading;
