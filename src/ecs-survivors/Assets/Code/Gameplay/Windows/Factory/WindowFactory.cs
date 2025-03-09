@@ -2,7 +2,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace Code.Gameplay.Windows
+namespace Code.Gameplay.Windows.Factory
 {
     public class WindowFactory : IWindowFactory
     {

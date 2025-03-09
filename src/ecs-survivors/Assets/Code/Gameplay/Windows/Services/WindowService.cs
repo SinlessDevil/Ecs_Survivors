@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Code.Gameplay.Windows
+namespace Code.Gameplay.Windows.Services
 {
     public class WindowService : IWindowService
     {
