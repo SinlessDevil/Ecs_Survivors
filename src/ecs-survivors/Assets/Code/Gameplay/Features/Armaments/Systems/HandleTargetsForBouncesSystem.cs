@@ -48,8 +48,8 @@ namespace Code.Gameplay.Features.Armaments.Systems
             foreach (GameEntity hero in _heroes.GetEntities(_bufferHero))
             foreach (GameEntity armament in _armaments.GetEntities(_bufferArmaments))
             {
-                if (armament.BounceRate <= 0)
-                    continue;
+                // if (armament.BounceRate <= 0)
+                //     continue;
 
                 if (armament.hasTarget)
                 {
@@ -60,9 +60,9 @@ namespace Code.Gameplay.Features.Armaments.Systems
 
                     GameEntity currentTarget = _game.GetEntityWithId(targetId);
 
-                    if (currentTarget != null && currentTarget.hasWorldPosition)
+                    if (currentTarget is { hasWorldPosition: true })
                     {
-                        GameEntity newTarget = FindNearestTarget(currentTarget);
+                        GameEntity newTarget = FindFarthestTarget(currentTarget);
 
                         if (newTarget != null)
                         {
@@ -86,27 +86,26 @@ namespace Code.Gameplay.Features.Armaments.Systems
             return targets.FirstOrDefault();
         }
 
-        private GameEntity FindNearestTarget(GameEntity currentTarget)
+        private GameEntity FindFarthestTarget(GameEntity currentTarget)
         {
-            float nearestDistance = float.MaxValue;
-            GameEntity nearestTarget = null;
+            float farthestDistanceSquared = 0;
+            GameEntity farthestTarget = null;
 
             foreach (GameEntity enemy in _enemies)
             {
-                if (enemy == currentTarget)
+                if (enemy == currentTarget || enemy == null)
                     continue;
+                
+                float distanceSquared = (enemy.WorldPosition - currentTarget.WorldPosition).sqrMagnitude;
 
-                float distance = Vector3.Distance(enemy.WorldPosition,
-                    currentTarget.WorldPosition);
-
-                if (distance < nearestDistance)
+                if (distanceSquared > farthestDistanceSquared)
                 {
-                    nearestDistance = distance;
-                    nearestTarget = enemy;
+                    farthestDistanceSquared = distanceSquared;
+                    farthestTarget = enemy;
                 }
             }
 
-            return nearestTarget;
+            return farthestTarget;
         }
     }
 }

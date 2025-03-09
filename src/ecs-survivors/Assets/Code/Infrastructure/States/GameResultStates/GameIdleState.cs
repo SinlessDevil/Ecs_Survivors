@@ -7,7 +7,6 @@ namespace Code.Infrastructure.States.GameResultStates
     {
         public override void Enter()
         {
-            Debug.Log("Game Idle State");
         }
     }
 }
