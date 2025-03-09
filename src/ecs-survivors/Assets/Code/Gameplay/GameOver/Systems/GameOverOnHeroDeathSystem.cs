@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-using Code.Infrastructure.States.GameStates;
+using Code.Infrastructure.States.GameResultStates;
+
 using Code.Infrastructure.States.StateMachine;
 using Entitas;
 
@@ -7,9 +8,9 @@ namespace Code.Gameplay.GameOver.Systems
 {
     public class GameOverOnHeroDeathSystem : ReactiveSystem<GameEntity>
     {
-        private readonly IGameStateMachine _stateMachine;
+        private readonly IGameResultStateMachine _stateMachine;
 
-        public GameOverOnHeroDeathSystem(GameContext game, IGameStateMachine stateMachine) : base(game)
+        public GameOverOnHeroDeathSystem(GameContext game, IGameResultStateMachine stateMachine) : base(game)
         {
             _stateMachine = stateMachine;
         }

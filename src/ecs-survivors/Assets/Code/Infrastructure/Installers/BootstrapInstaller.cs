@@ -27,6 +27,7 @@ using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.Identifiers;
 using Code.Infrastructure.Loading;
 using Code.Infrastructure.States.Factory;
+using Code.Infrastructure.States.GameResultStates;
 using Code.Infrastructure.States.GameStates;
 using Code.Infrastructure.States.StateMachine;
 using Code.Infrastructure.Systems;
@@ -58,9 +59,10 @@ namespace Code.Infrastructure.Installers
             BindGameplayFactories();
             BindUIFactories();
             BindEntityIndices();
-            BindStateMachine();
             BindStateFactory();
+            BindStateMachine();
             BindGameStates();
+            BindGameResultStates();
             BindProgressServices();
         }
         
@@ -68,6 +70,7 @@ namespace Code.Infrastructure.Installers
         {
             Promise.UnhandledException += LogPromiseException;
             Container.Resolve<IGameStateMachine>().Enter<BootstrapState>();
+            Container.Resolve<IGameResultStateMachine>().Enter<GameIdleState>();
         }
 
         private void BindInputService()
@@ -160,6 +163,7 @@ namespace Code.Infrastructure.Installers
         private void BindStateMachine()
         {
             Container.BindInterfacesAndSelfTo<GameStateMachine>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameResultStateMachine>().AsSingle();
         }
 
         private void BindStateFactory()
@@ -177,7 +181,13 @@ namespace Code.Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<LoadingBattleState>().AsSingle();
             Container.BindInterfacesAndSelfTo<BattleEnterState>().AsSingle();
             Container.BindInterfacesAndSelfTo<BattleLoopState>().AsSingle();
+        }
+        
+        private void BindGameResultStates()
+        {
+            Container.BindInterfacesAndSelfTo<GameWinState>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameOverState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameIdleState>().AsSingle();
         }
         
         private void BindProgressServices()

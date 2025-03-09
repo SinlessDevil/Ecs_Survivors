@@ -3,7 +3,7 @@ using Code.Gameplay.Windows;
 using Code.Gameplay.Windows.Services;
 using Code.Infrastructure.States.StateInfrastructure;
 
-namespace Code.Infrastructure.States.GameStates
+namespace Code.Infrastructure.States.GameResultStates
 {
     public class GameOverState : SimpleState
     {

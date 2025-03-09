@@ -1,16 +1,16 @@
-﻿using Code.Infrastructure.States.Factory;
+using Code.Infrastructure.States.Factory;
 using Code.Infrastructure.States.StateInfrastructure;
 using RSG;
 using Zenject;
 
 namespace Code.Infrastructure.States.StateMachine
 {
-    public class GameStateMachine : IGameStateMachine, ITickable
+    public class GameResultStateMachine : IGameResultStateMachine, ITickable
     {
-        private  IExitableState _activeState;
+        private IExitableState _activeState;
         private readonly IStateFactory _stateFactory;
 
-        public GameStateMachine(IStateFactory stateFactory)
+        public GameResultStateMachine(IStateFactory stateFactory)
         {
             _stateFactory = stateFactory;
         }

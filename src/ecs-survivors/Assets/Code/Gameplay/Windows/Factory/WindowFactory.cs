@@ -18,11 +18,8 @@ namespace Code.Gameplay.Windows.Factory
 
         public void SetUIRoot(RectTransform uiRoot) => _uiRoot = uiRoot;
 
-        public BaseWindow CreateWindow(WindowId windowId)
-        {
-            Debug.Log("Create window");
-            return _instantiator.InstantiatePrefabForComponent<BaseWindow>(PrefabFor(windowId), _uiRoot);   
-        }
+        public BaseWindow CreateWindow(WindowId windowId) =>
+            _instantiator.InstantiatePrefabForComponent<BaseWindow>(PrefabFor(windowId), _uiRoot);   
 
         private GameObject PrefabFor(WindowId id) => _staticData.GetWindowPrefab(id);
     }

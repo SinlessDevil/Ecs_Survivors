@@ -18,7 +18,6 @@ using Code.Gameplay.GameOver.Systems;
 using Code.Gameplay.Input;
 using Code.Infrastructure.Systems;
 using Code.Infrastructure.View;
-using Unity.VisualScripting;
 
 namespace Code.Gameplay
 {

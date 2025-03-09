@@ -92,12 +92,19 @@ namespace Code.Gameplay.StaticData
         public AbilityLevel GetAbilityLevel(AbilityId abilityId, int level)
         {
             AbilityConfig config = GetAbilityConfig(abilityId);
-
-            if (level > config.Levels.Count)
-                level = config.Levels.Count;
             
+            if (level <= 0)
+            {
+                level = 1;
+            }
+            else if (level > config.Levels.Count)
+            {
+                level = config.Levels.Count;
+            }
+
             return config.Levels[level - 1];
         }
+
         
         public EnemyConfig GetEnemyConfig(EnemyTypeId enemyTypeId)
         {
